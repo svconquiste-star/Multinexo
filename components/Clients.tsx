@@ -8,6 +8,30 @@ const clients = [
   { id: 5, name: 'Smart Biz', logo: '🎯' },
 ]
 
+const testimonials = [
+  {
+    id: 1,
+    quote: "A Multinexo transformou completamente nossos resultados de marketing. Em apenas 3 meses, triplicamos nossas conversões e reduzimos custos operacionais em 50%.",
+    name: 'Igor',
+    company: 'Emprestimos Braz',
+    rating: 5,
+  },
+  {
+    id: 2,
+    quote: "Com a gestão de tráfego da Multinexo, aumentamos nossas vendas em 280% em apenas 2 meses. O atendimento com IA também melhorou muito a experiência dos clientes.",
+    name: 'Miacon',
+    company: 'Tceel Iphones',
+    rating: 5,
+  },
+  {
+    id: 3,
+    quote: "Excelente trabalho! A automação com IA implementada pela Multinexo revolucionou nosso processo de vendas. Recomendo muito para qualquer empresa que quer crescer.",
+    name: 'Fernanda',
+    company: 'Moda Intima',
+    rating: 5,
+  },
+]
+
 export default function Clients() {
   return (
     <section id="clients" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
