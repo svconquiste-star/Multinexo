@@ -41,9 +41,9 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <button className="btn-primary">
+            <Link href="#contact" className="btn-primary">
               Começar Agora
-            </button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}

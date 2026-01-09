@@ -78,7 +78,7 @@ export default function CTA() {
             </a>
 
             <p className="text-center text-gray-600 text-sm mt-6">
-              Responderemos em até 2 horas durante o horário comercial
+              Responderemos em poucos minutos! ⚡
             </p>
           </div>
         </div>
