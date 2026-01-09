@@ -1,8 +1,10 @@
 'use client'
 
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight, Calendar } from 'lucide-react'
 
 export default function CTA() {
+  const whatsappLink = 'https://wa.me/5531993121211?text=Olá%20Multinexo!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20conhecer%20seus%20serviços.'
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 gradient-primary relative overflow-hidden">
       {/* Background decoration */}
@@ -15,73 +17,75 @@ export default function CTA() {
             Pronto para Transformar seu Negócio?
           </h2>
           <p className="text-xl text-white text-opacity-90 mb-8">
-            Comece agora e veja resultados em até 30 dias. Sem compromisso, sem cartão de crédito necessário.
+            Agende uma consulta gratuita e descubra como podemos aumentar suas conversões com gestão de tráfego, automações com IA e atendimento inteligente.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-8 border border-white border-opacity-20">
-            <h3 className="text-2xl font-bold mb-6">Plano Starter</h3>
-            <p className="text-4xl font-bold mb-2">R$ 1.990<span className="text-lg text-opacity-70">/mês</span></p>
-            <p className="text-white text-opacity-80 mb-8">Ideal para pequenas empresas</p>
-            
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center space-x-3">
-                <CheckCircle size={20} />
-                <span>Gestão de 1 campanha</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <CheckCircle size={20} />
-                <span>Automação básica</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <CheckCircle size={20} />
-                <span>Suporte por email</span>
-              </li>
-            </ul>
-
-            <button className="w-full py-3 bg-white text-purple-600 font-bold rounded-lg hover:bg-opacity-90 transition-all duration-300">
-              Começar Agora
-            </button>
-          </div>
-
-          <div className="bg-white rounded-xl p-8 shadow-2xl transform scale-105">
-            <div className="bg-gradient-primary text-white px-4 py-2 rounded-full inline-block mb-6 text-sm font-bold">
-              MAIS POPULAR
+        <div className="max-w-2xl mx-auto mb-12">
+          <div className="bg-white rounded-xl p-12 shadow-2xl">
+            <div className="text-center mb-8">
+              <Calendar size={48} className="text-purple-600 mx-auto mb-4" />
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Agende sua Análise Gratuita</h3>
+              <p className="text-gray-600 text-lg">
+                Nossos especialistas vão analisar seu negócio e apresentar uma estratégia personalizada para aumentar suas conversões.
+              </p>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Plano Professional</h3>
-            <p className="text-4xl font-bold text-gray-900 mb-2">R$ 4.990<span className="text-lg text-gray-600">/mês</span></p>
-            <p className="text-gray-600 mb-8">Para empresas em crescimento</p>
-            
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center space-x-3 text-gray-900">
-                <CheckCircle size={20} className="text-purple-600" />
-                <span>Gestão de até 5 campanhas</span>
-              </li>
-              <li className="flex items-center space-x-3 text-gray-900">
-                <CheckCircle size={20} className="text-purple-600" />
-                <span>Automação avançada com IA</span>
-              </li>
-              <li className="flex items-center space-x-3 text-gray-900">
-                <CheckCircle size={20} className="text-purple-600" />
-                <span>Agente IA 24/7</span>
-              </li>
-              <li className="flex items-center space-x-3 text-gray-900">
-                <CheckCircle size={20} className="text-purple-600" />
-                <span>Suporte prioritário</span>
-              </li>
-            </ul>
 
-            <button className="w-full py-3 bg-gradient-primary text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2">
-              <span>Começar Agora</span>
-              <ArrowRight size={20} />
-            </button>
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-8 w-8 rounded-md bg-purple-600 text-white">
+                    ✓
+                  </div>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Análise Completa</p>
+                  <p className="text-gray-600">Avaliação detalhada do seu negócio e oportunidades</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-8 w-8 rounded-md bg-purple-600 text-white">
+                    ✓
+                  </div>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Estratégia Personalizada</p>
+                  <p className="text-gray-600">Plano customizado para seus objetivos</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-8 w-8 rounded-md bg-purple-600 text-white">
+                    ✓
+                  </div>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Sem Compromisso</p>
+                  <p className="text-gray-600">Totalmente gratuito, sem obrigação</p>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 bg-gradient-primary text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 group"
+            >
+              <span>Agendar Consulta via WhatsApp</span>
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+
+            <p className="text-center text-gray-600 text-sm mt-6">
+              Responderemos em até 2 horas durante o horário comercial
+            </p>
           </div>
         </div>
 
         <div className="text-center">
           <p className="text-white text-opacity-80">
-            Todos os planos incluem análise gratuita e consultoria inicial
+            Transforme seu negócio com as melhores soluções de marketing digital
           </p>
         </div>
       </div>

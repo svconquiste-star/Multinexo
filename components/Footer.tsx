@@ -52,11 +52,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} />
-                <a href="tel:+5511999999999" className="hover:text-white transition-colors">+55 (11) 99999-9999</a>
+                <a href="https://wa.me/5531993121211" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+55 31 9312-1211</a>
               </li>
               <li className="flex items-center space-x-3">
                 <MapPin size={20} />
-                <span>São Paulo, SP</span>
+                <span>Betim, MG</span>
               </li>
             </ul>
           </div>
