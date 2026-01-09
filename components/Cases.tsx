@@ -62,10 +62,6 @@ export default function Cases() {
                   </div>
                 </div>
               </div>
-
-              <button className="mt-6 w-full py-3 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-lg font-semibold transition-all duration-300 group-hover:bg-opacity-40">
-                Ver Case Completo
-              </button>
             </div>
           ))}
         </div>
