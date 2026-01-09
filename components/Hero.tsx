@@ -25,13 +25,10 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <button className="flex items-center justify-center space-x-2 px-8 py-4 bg-white text-purple-600 font-bold rounded-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <span>Começar Agora</span>
+            <a href="#contact" className="flex items-center justify-center space-x-2 px-8 py-4 bg-white text-purple-600 font-bold rounded-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <span>Agende sua Análise</span>
               <ArrowRight size={20} />
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:bg-opacity-10 transition-all duration-300">
-              Agendar Demo
-            </button>
+            </a>
           </div>
 
           {/* Stats */}

@@ -6,7 +6,7 @@ export default function CTA() {
   const whatsappLink = 'https://wa.me/5531993121211?text=Olá%20Multinexo!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20conhecer%20seus%20serviços.'
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 gradient-primary relative overflow-hidden">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 gradient-primary relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -mr-48 -mt-48"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full -ml-48 -mb-48"></div>
