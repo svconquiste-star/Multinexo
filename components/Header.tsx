@@ -68,9 +68,9 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <button className="w-full btn-primary">
+            <Link href="#contact" className="block w-full btn-primary text-center" onClick={() => setIsOpen(false)}>
               Começar Agora
-            </button>
+            </Link>
           </nav>
         )}
       </div>
