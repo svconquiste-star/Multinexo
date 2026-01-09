@@ -33,21 +33,26 @@ export default function Clients() {
           ))}
         </div>
 
-        {/* Testimonial */}
-        <div className="mt-20 bg-white rounded-2xl p-12 shadow-lg">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-yellow-400 text-2xl">★</span>
-              ))}
-            </div>
-            <p className="text-2xl font-bold text-gray-900 mb-6">
-              "A Multinexo transformou completamente nossos resultados de marketing. Em apenas 3 meses, triplicamos nossas conversões e reduzimos custos operacionais em 50%."
-            </p>
-            <div>
-              <p className="font-bold text-gray-900">João Silva</p>
-              <p className="text-gray-600">CEO, TechStart Solutions</p>
-            </div>
+        {/* Testimonials */}
+        <div className="mt-20">
+          <h3 className="text-3xl font-bold text-center mb-12 text-gray-900">O que nossos clientes dizem</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="flex justify-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-xl">★</span>
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-6 leading-relaxed italic">
+                  "{testimonial.quote}"
+                </p>
+                <div className="border-t border-gray-200 pt-4">
+                  <p className="font-bold text-gray-900">{testimonial.name}</p>
+                  <p className="text-gray-600 text-sm">{testimonial.company}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
