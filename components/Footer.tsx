@@ -1,6 +1,7 @@
 'use client'
 
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -38,7 +39,16 @@ export default function Footer() {
               <li><a href="#" className="hover:text-white transition-colors">Sobre Nós</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Contato</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Política de Privacidade</a></li>
+              <li>
+                <Link href="/politica-de-privacidade" className="hover:text-white transition-colors">
+                  Política de Privacidade
+                </Link>
+              </li>
+              <li>
+                <Link href="/normas" className="hover:text-white transition-colors">
+                  Normas
+                </Link>
+              </li>
             </ul>
           </div>
 
