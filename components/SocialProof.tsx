@@ -5,7 +5,7 @@ import { Star } from 'lucide-react'
 const testimonials = [
   {
     id: 1,
-    quote: "A Multinexo transformou completamente nossos resultados. Em 3 meses, aumentamos as vendas em 145% com a gestão de tráfego deles.",
+    quote: "A Multinexo transformou completamente nossos resultados. Aumentamos as vendas de forma consistente com a gestão de tráfego deles.",
     name: 'Carlos Silva',
     company: 'Loja de Smartphone - SP',
     rating: 5,
@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     id: 2,
-    quote: "Reduzimos o custo por lead em 42% com os funis inteligentes. O atendimento IA 24/7 aumentou muito nossas aprovações.",
+    quote: "Reduzimos bastante o custo por lead com os funis inteligentes. O atendimento por IA 24/7 aumentou muito nossas aprovações.",
     name: 'Ana Costa',
     company: 'Agência de Empréstimo - MG',
     rating: 5,
@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     id: 3,
-    quote: "Triplicamos nossos agendamentos em 128% com a automação de funis. Recomendo muito para clínicas que querem crescer.",
+    quote: "Aumentamos muito nossos agendamentos com a automação de funis. Recomendo para clínicas que querem crescer.",
     name: 'Dr. Rafael Mendes',
     company: 'Clínica de Estética - RJ',
     rating: 5,
@@ -42,9 +42,9 @@ export default function SocialProof() {
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="section-title">O Que Nossos Clientes Dizem</h2>
+          <h2 className="section-title">O que meus clientes dizem</h2>
           <p className="section-subtitle">
-            Veja os depoimentos reais de empresas que escalaram seus negócios com a Multinexo
+            Depoimentos de empresas que escalaram seus negócios trabalhando comigo
           </p>
         </div>
 
@@ -78,16 +78,16 @@ export default function SocialProof() {
         {/* Trust Indicators */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="p-6">
-            <p className="text-4xl font-bold text-purple-600 mb-2">500+</p>
-            <p className="text-gray-700 font-semibold">Clientes Satisfeitos</p>
+            <p className="text-4xl font-bold text-purple-600 mb-2">+40</p>
+            <p className="text-gray-700 font-semibold">Negócios escalados</p>
           </div>
           <div className="p-6">
             <p className="text-4xl font-bold text-purple-600 mb-2">4.9★</p>
-            <p className="text-gray-700 font-semibold">Avaliação Média</p>
+            <p className="text-gray-700 font-semibold">Avaliação média</p>
           </div>
           <div className="p-6">
-            <p className="text-4xl font-bold text-purple-600 mb-2">+2M</p>
-            <p className="text-gray-700 font-semibold">Leads Gerados</p>
+            <p className="text-4xl font-bold text-purple-600 mb-2">3x</p>
+            <p className="text-gray-700 font-semibold">ROI médio em tráfego</p>
           </div>
         </div>
       </div>

@@ -6,24 +6,24 @@ const cases = [
   {
     id: 1,
     title: 'Loja de Smartphone',
-    description: 'Aumentamos as vendas em 145% com tráfego pago otimizado e automação de atendimento IA para consultas de produtos.',
-    metric: '+145%',
+    description: 'Aumento de vendas com tráfego pago otimizado e automação de atendimento por IA para consultas de produtos.',
+    metric: '+80%',
     metricLabel: 'Aumento em Vendas',
     color: 'from-purple-500 to-pink-500',
   },
   {
     id: 2,
     title: 'Agência de Empréstimo',
-    description: 'Reduzimos custo por lead em 42% e aumentamos aprovações com funis inteligentes e atendimento IA 24/7.',
-    metric: '-42%',
+    description: 'Redução de custo por lead e mais aprovações com funis inteligentes e atendimento por IA 24/7.',
+    metric: '-35%',
     metricLabel: 'Redução em CPL',
     color: 'from-blue-500 to-cyan-500',
   },
   {
     id: 3,
     title: 'Clínicas de Estética e Odontologia',
-    description: 'Aumentamos agendamentos em 128% com automação de funis, chatbot IA para pré-qualificação e gestão de tráfego focada em ROI.',
-    metric: '+128%',
+    description: 'Mais agendamentos com automação de funis, chatbot de IA para pré-qualificação e gestão de tráfego focada em ROI.',
+    metric: '+70%',
     metricLabel: 'Aumento em Agendamentos',
     color: 'from-green-500 to-emerald-500',
   },
@@ -34,9 +34,9 @@ export default function Cases() {
     <section id="cases" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="section-title">Nossos Cases de Sucesso</h2>
+          <h2 className="section-title">Resultados que eu já entreguei</h2>
           <p className="section-subtitle">
-            Veja como transformamos negócios com nossas soluções de marketing digital
+            Veja como transformei negócios reais com tráfego, estratégia e IA
           </p>
         </div>
 

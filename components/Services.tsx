@@ -1,28 +1,35 @@
 'use client'
 
-import { BarChart3, Zap, MessageCircle } from 'lucide-react'
+import { BarChart3, Bot, LayoutDashboard, Lightbulb } from 'lucide-react'
 
 const services = [
   {
     id: 1,
-    title: 'Automação com IA',
-    description: 'Automatizamos atendimento, captação e vendas com Inteligência Artificial. Estruturamos funis inteligentes que geram clientes todos os dias, reduzindo operação manual e aumentando previsibilidade.',
-    icon: Zap,
-    color: 'from-pink-500 to-pink-600',
-  },
-  {
-    id: 2,
-    title: 'Tráfego Pago Focado em ROI',
-    description: 'Criamos estratégias de tráfego pago com foco em resultado real. Maximize conversões e minimize custos com nossa expertise em Google Ads, Facebook Ads e plataformas de publicidade.',
+    title: 'Tráfego & Estratégia',
+    description: 'Gestão de tráfego pago com foco em escala e ROI real. Estruturo campanhas no Google e Meta Ads guiadas por estratégia — não por achismo — para gerar clientes de forma previsível.',
     icon: BarChart3,
     color: 'from-purple-500 to-purple-600',
   },
   {
+    id: 2,
+    title: 'IA como Vantagem Competitiva',
+    description: 'Automatizo atendimento, captação e qualificação com Inteligência Artificial. Sua operação responde em segundos, 24/7, enquanto você foca no que realmente faz o negócio crescer.',
+    icon: Bot,
+    color: 'from-pink-500 to-pink-600',
+  },
+  {
     id: 3,
-    title: 'Funis de Vendas Inteligentes',
-    description: 'Estruturamos funis que convertem. Do primeiro contato até a venda, cada etapa é otimizada com IA para gerar clientes previsíveis e escalar seu negócio.',
-    icon: MessageCircle,
+    title: 'Criação de Dashboard',
+    description: 'Dashboards sob medida que centralizam suas métricas de tráfego, vendas e atendimento. Você acompanha cada resultado em tempo real e toma decisões com dados — sem planilhas confusas.',
+    icon: LayoutDashboard,
     color: 'from-blue-500 to-blue-600',
+  },
+  {
+    id: 4,
+    title: 'Consultoria',
+    description: 'Consultoria estratégica de marketing para destravar o seu crescimento. Analiso seu funil, posicionamento e canais e entrego um plano claro de ação focado em resultado.',
+    icon: Lightbulb,
+    color: 'from-amber-500 to-orange-500',
   },
 ]
 
@@ -31,13 +38,13 @@ export default function Services() {
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="section-title">O Que Fazemos</h2>
+          <h2 className="section-title">Como eu escalo o seu negócio</h2>
           <p className="section-subtitle">
-            Automatizamos atendimento, captação e vendas com IA. Criamos estratégias de tráfego pago focadas em ROI e estruturamos funis que geram clientes todos os dias.
+            Tráfego, IA, dados e estratégia trabalhando juntos para transformar o seu marketing em crescimento previsível.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service) => {
             const Icon = service.icon
             return (
@@ -53,7 +60,7 @@ export default function Services() {
                 <p className="text-gray-600 leading-relaxed mb-6">{service.description}</p>
 
                 <a href="#contact" className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors cursor-pointer">
-                  Saiba Mais
+                  Quero isso no meu negócio
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -65,34 +72,34 @@ export default function Services() {
 
         {/* Benefits Section */}
         <div className="mt-20 bg-gradient-primary rounded-2xl p-12 text-white">
-          <h3 className="text-3xl font-bold text-center mb-12">Nosso Diferencial</h3>
+          <h3 className="text-3xl font-bold text-center mb-12">Por que trabalhar comigo</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex items-start space-x-4">
-              <div className="text-3xl">💡</div>
+              <div className="text-3xl">🎯</div>
               <div>
-                <p className="text-xl font-bold mb-2">Menos Operação Manual</p>
-                <p className="text-white text-opacity-90">Automatizamos processos repetitivos para você focar no que importa</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <div className="text-3xl">📈</div>
-              <div>
-                <p className="text-xl font-bold mb-2">Mais Vendas e Escala</p>
-                <p className="text-white text-opacity-90">Estruturamos funis que geram clientes previsíveis todos os dias</p>
+                <p className="text-xl font-bold mb-2">Estratégia antes de tudo</p>
+                <p className="text-white text-opacity-90">Nada de impulsionar por impulsionar — cada real investido segue um plano com objetivo claro</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <div className="text-3xl">🤖</div>
               <div>
-                <p className="text-xl font-bold mb-2">IA Aplicada no Crescimento</p>
-                <p className="text-white text-opacity-90">Inteligência artificial otimizando cada etapa do seu funil de vendas</p>
+                <p className="text-xl font-bold mb-2">IA a seu favor</p>
+                <p className="text-white text-opacity-90">Automações que atendem e qualificam seus leads 24/7, sem aumentar sua operação</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
-              <div className="text-3xl">🎯</div>
+              <div className="text-3xl">📊</div>
               <div>
-                <p className="text-xl font-bold mb-2">Estratégia Focada em Resultado Real</p>
-                <p className="text-white text-opacity-90">Cada ação é medida e otimizada para ROI máximo</p>
+                <p className="text-xl font-bold mb-2">Tudo medido em dashboard</p>
+                <p className="text-white text-opacity-90">Você enxerga em tempo real para onde vai o investimento e o retorno que ele gera</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="text-3xl">📈</div>
+              <div>
+                <p className="text-xl font-bold mb-2">Foco em crescimento previsível</p>
+                <p className="text-white text-opacity-90">O objetivo não é dar sorte uma vez, é construir uma máquina que gera clientes todo dia</p>
               </div>
             </div>
           </div>
