@@ -43,3 +43,18 @@ body {
 .section-subtitle {
   @apply text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto;
 }
+
+@keyframes faqOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-faqOpen {
+  animation: faqOpen 0.25s ease-out;
+}

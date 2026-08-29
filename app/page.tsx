@@ -24,8 +24,8 @@ export default function Home() {
       <AutomacoesIA />
       <Clients />
       <SocialProof />
-      <FAQ />
       <CTA />
+      <FAQ />
       <Footer />
       <FloatingWhatsApp />
     </main>

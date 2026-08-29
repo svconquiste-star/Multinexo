@@ -150,38 +150,32 @@ export default function FAQ() {
                     }`}
                   />
                 </button>
-                <div
-                  className={`grid transition-all duration-300 ease-in-out ${
-                    isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <div className="px-6 pb-6 text-gray-600 leading-relaxed space-y-4">
-                      <p>{faq.intro}</p>
+                {isOpen && (
+                  <div className="px-6 pb-6 text-gray-600 leading-relaxed space-y-4 animate-faqOpen">
+                    <p>{faq.intro}</p>
 
-                      {faq.items && (
-                        <ul className="space-y-3">
-                          {faq.items.map((item) => (
-                            <li key={item.title}>
-                              <span className="font-semibold text-gray-900">{item.title}:</span>{' '}
-                              {item.text}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                    {faq.items && (
+                      <ul className="space-y-3">
+                        {faq.items.map((item) => (
+                          <li key={item.title}>
+                            <span className="font-semibold text-gray-900">{item.title}:</span>{' '}
+                            {item.text}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
-                      {faq.bullets && (
-                        <ul className="list-disc pl-5 space-y-1 marker:text-purple-500">
-                          {faq.bullets.map((b) => (
-                            <li key={b}>{b}</li>
-                          ))}
-                        </ul>
-                      )}
+                    {faq.bullets && (
+                      <ul className="list-disc pl-5 space-y-1 marker:text-purple-500">
+                        {faq.bullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                    )}
 
-                      {faq.outro && <p>{faq.outro}</p>}
-                    </div>
+                    {faq.outro && <p>{faq.outro}</p>}
                   </div>
-                </div>
+                )}
               </div>
             )
           })}
