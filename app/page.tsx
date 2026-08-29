@@ -7,6 +7,7 @@ import DashboardShowcase from '@/components/DashboardShowcase'
 import AutomacoesIA from '@/components/AutomacoesIA'
 import Clients from '@/components/Clients'
 import SocialProof from '@/components/SocialProof'
+import FAQ from '@/components/FAQ'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
@@ -23,6 +24,7 @@ export default function Home() {
       <AutomacoesIA />
       <Clients />
       <SocialProof />
+      <FAQ />
       <CTA />
       <Footer />
       <FloatingWhatsApp />
