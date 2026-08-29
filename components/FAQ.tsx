@@ -3,43 +3,91 @@
 import { useState } from 'react'
 import { ChevronDown, HelpCircle } from 'lucide-react'
 
-const faqs = [
+type Faq = {
+  question: string
+  intro: string
+  items?: { title: string; text: string }[]
+  bullets?: string[]
+  outro?: string
+}
+
+const faqs: Faq[] = [
   {
-    question: 'Quais serviços você oferece?',
-    answer:
-      'Trabalho com quatro frentes que se conectam: gestão de tráfego pago (Google e Meta Ads) com estratégia, automações com Inteligência Artificial (como atendente de IA no WhatsApp), criação de dashboards sob medida e consultoria estratégica de marketing.',
+    question: 'Quais serviços vocês oferecem?',
+    intro:
+      'Oferecemos soluções para empresas que querem atrair mais oportunidades, melhorar seus processos comerciais e tomar decisões com base em dados.',
+    items: [
+      {
+        title: 'Tráfego & Estratégia',
+        text: 'Gestão de campanhas no Google Ads e Meta Ads, sempre orientada por estratégia, análise de dados e objetivos reais do negócio.',
+      },
+      {
+        title: 'IA como Vantagem Competitiva',
+        text: 'Soluções de inteligência artificial para atendimento, captação e qualificação de leads, funcionando 24 horas por dia para reduzir tarefas manuais e tornar a operação mais eficiente.',
+      },
+      {
+        title: 'Criação de Dashboards',
+        text: 'Painéis personalizados que reúnem os principais indicadores do negócio em um só lugar, facilitando o acompanhamento de tráfego, vendas, atendimento e performance.',
+      },
+      {
+        title: 'Consultoria Estratégica',
+        text: 'Análise de funil, posicionamento, canais e oportunidades de crescimento, com direcionamento claro e um plano de ação personalizado para o negócio.',
+      },
+    ],
   },
   {
     question: 'Como funciona a análise gratuita?',
-    answer:
-      'Você fala comigo pelo WhatsApp e eu analiso o seu negócio — funil, canais e objetivos — para apresentar uma estratégia personalizada de crescimento. É sem compromisso e sem obrigação de fechar.',
+    intro:
+      'O primeiro passo é agendar uma conversa pelo WhatsApp. Durante a call, um estrategista analisa o cenário atual do seu negócio, identifica oportunidades e apresenta possíveis caminhos para melhorar a estratégia e aumentar as conversões. A consulta é gratuita, sem compromisso e sem obrigação de contratação.',
   },
   {
     question: 'O atendimento é presencial ou online?',
-    answer:
-      'O atendimento é online, então trabalho com clientes de todo o Brasil. A base fica em Betim, Minas Gerais, mas toda a gestão, as reuniões e os relatórios acontecem de forma remota.',
+    intro:
+      'Atendemos clientes de forma online ou presencial. Para empresas de fora de Betim, o atendimento é realizado por videochamada, proporcionando praticidade e agilidade independentemente da localização. Para clientes de Betim, o atendimento também pode ser presencial quando houver necessidade.',
   },
   {
     question: 'Como funciona o investimento?',
-    answer:
-      'O investimento é definido de acordo com o seu objetivo e o escopo do projeto. Por isso começamos pela análise gratuita: entendendo a sua necessidade, apresento uma proposta personalizada. Importante: a verba de anúncios (tráfego pago) é separada do valor do serviço.',
+    intro:
+      'Cada empresa possui necessidades, objetivos e desafios diferentes. Por isso, não trabalhamos com um investimento padrão para todos os projetos. Durante a call inicial, analisamos o seu cenário, entendemos o que precisa ser feito e apresentamos uma solução compatível com a necessidade do seu negócio. Assim, você recebe uma proposta baseada no escopo real do projeto, e não em um pacote genérico.',
   },
   {
     question: 'O que é a criação de dashboard?',
-    answer:
-      'É um painel sob medida que reúne, em um só lugar, as métricas de tráfego, vendas e atendimento do seu negócio em tempo real. Você acompanha quanto investe, quantos leads e vendas gera e o custo de cada resultado — tomando decisões com dados, sem depender de planilhas confusas.',
+    intro:
+      'É a criação de um painel personalizado de acompanhamento de resultados, reunindo as principais métricas do seu negócio de forma clara e organizada. Você pode acompanhar informações como:',
+    bullets: [
+      'Funil de conversão',
+      'Tendência diária de resultados',
+      'Distribuição de leads ou vendas por estado',
+      'CPM',
+      'CTR',
+      'CPC',
+      'Custo por contato',
+      'ROAS',
+      'Relatórios de performance',
+    ],
+    outro:
+      'Tudo isso com dados atualizados para facilitar o acompanhamento da operação e tornar a tomada de decisão mais rápida. Decisões com dados, sem planilhas confusas.',
   },
   {
     question: 'Como funciona o atendente de IA no WhatsApp?',
-    answer:
-      'É um agente de Inteligência Artificial que responde seus clientes 24 horas por dia, com memória de conversa, qualifica os contatos e envia mensagens automaticamente. Ele reduz a operação manual e garante que nenhum lead fique sem resposta.',
+    intro:
+      'O atendente de IA funciona como um agente inteligente conectado ao WhatsApp, preparado para atender clientes e leads de forma automatizada. Ele pode responder perguntas, consultar informações, manter o contexto das conversas e enviar mensagens automaticamente, dependendo da configuração criada para o negócio. O atendimento pode funcionar 24 horas por dia, 7 dias por semana, ajudando a reduzir tarefas repetitivas e evitando que oportunidades fiquem sem resposta.',
   },
   {
-    question: 'Em quanto tempo vejo resultado?',
-    answer:
-      'Campanhas de tráfego pago começam a gerar contatos já nos primeiros dias, mas o crescimento previsível é construído ao longo das semanas, ajustando a estratégia com base nos dados. O foco não é um pico de sorte, e sim uma máquina que gera clientes de forma consistente.',
+    question: 'Em quanto tempo começo a ver resultados?',
+    intro:
+      'O prazo varia de acordo com cada projeto, mercado, objetivo, investimento, estrutura atual e estratégia utilizada. Algumas ações podem gerar sinais de evolução mais rapidamente, enquanto outras exigem mais tempo de otimização, testes e coleta de dados. Por isso, antes de estabelecer qualquer expectativa, analisamos o cenário da empresa e definimos uma estratégia compatível com os objetivos do negócio. Mais do que prometer resultados rápidos, nosso foco é construir uma estratégia que possa ser medida, analisada e constantemente otimizada.',
   },
 ]
+
+// Monta o texto plano da resposta para o JSON-LD (fonte única com o conteúdo visível).
+function answerToText(faq: Faq): string {
+  const parts: string[] = [faq.intro]
+  if (faq.items) parts.push(faq.items.map((i) => `${i.title}: ${i.text}`).join(' '))
+  if (faq.bullets) parts.push(faq.bullets.join('; ') + '.')
+  if (faq.outro) parts.push(faq.outro)
+  return parts.join(' ')
+}
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -56,7 +104,7 @@ export default function FAQ() {
       name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer,
+        text: answerToText(faq),
       },
     })),
   }
@@ -77,7 +125,7 @@ export default function FAQ() {
           </div>
           <h2 className="section-title">Ainda com dúvidas?</h2>
           <p className="section-subtitle">
-            As respostas para o que os clientes mais me perguntam antes de começar.
+            As respostas para o que os clientes mais nos perguntam antes de começar.
           </p>
         </div>
 
@@ -108,7 +156,30 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-gray-600 leading-relaxed">{faq.answer}</p>
+                    <div className="px-6 pb-6 text-gray-600 leading-relaxed space-y-4">
+                      <p>{faq.intro}</p>
+
+                      {faq.items && (
+                        <ul className="space-y-3">
+                          {faq.items.map((item) => (
+                            <li key={item.title}>
+                              <span className="font-semibold text-gray-900">{item.title}:</span>{' '}
+                              {item.text}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {faq.bullets && (
+                        <ul className="list-disc pl-5 space-y-1 marker:text-purple-500">
+                          {faq.bullets.map((b) => (
+                            <li key={b}>{b}</li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {faq.outro && <p>{faq.outro}</p>}
+                    </div>
                   </div>
                 </div>
               </div>
