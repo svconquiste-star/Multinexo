@@ -6,6 +6,9 @@ import Header from '@/components/Header'
 export const metadata: Metadata = {
   title: 'Política de Privacidade | Multinexo',
   description: 'Política de Privacidade e proteção de dados pessoais (LGPD).',
+  alternates: {
+    canonical: '/politica-de-privacidade',
+  },
 }
 
 export default function PoliticaDePrivacidadePage() {

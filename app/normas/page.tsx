@@ -6,6 +6,9 @@ import Header from '@/components/Header'
 export const metadata: Metadata = {
   title: 'Normas de Uso | Multinexo',
   description: 'Normas e condições de uso do site Multinexo.',
+  alternates: {
+    canonical: '/normas',
+  },
 }
 
 export default function NormasPage() {
