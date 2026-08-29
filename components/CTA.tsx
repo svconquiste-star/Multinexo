@@ -3,7 +3,7 @@
 import { ArrowRight, Calendar } from 'lucide-react'
 
 export default function CTA() {
-  const whatsappLink = 'https://wa.me/5531984125407?text=Olá!%20Gostaria%20de%20agendar%20uma%20análise%20gratuita%20para%20escalar%20meu%20negócio.'
+  const whatsappLink = 'https://wa.me/5531993121211?text=Olá!%20Gostaria%20de%20agendar%20uma%20análise%20gratuita%20para%20escalar%20meu%20negócio.'
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 gradient-primary relative overflow-hidden">

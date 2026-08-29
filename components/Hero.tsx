@@ -25,7 +25,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <a href="https://wa.me/5531984125407?text=Olá!%20Gostaria%20de%20agendar%20uma%20análise%20para%20escalar%20meu%20negócio." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 px-8 py-4 bg-white text-purple-600 font-bold rounded-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <a href="https://wa.me/5531993121211?text=Olá!%20Gostaria%20de%20agendar%20uma%20análise%20para%20escalar%20meu%20negócio." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 px-8 py-4 bg-white text-purple-600 font-bold rounded-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <span>Quero Escalar Meu Negócio</span>
               <ArrowRight size={20} />
             </a>
