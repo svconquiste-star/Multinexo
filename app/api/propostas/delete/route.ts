@@ -1,7 +1,7 @@
-import { list, del } from '@vercel/blob'
-import { PREFIX, parseBlobPath } from '@/app/lib/propostas'
+import { slugify, findBySlug, deleteFile } from '@/app/lib/propostas'
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 function authorized(req: Request): boolean {
   const token = process.env.PROPOSTAS_TOKEN
@@ -16,17 +16,16 @@ export async function POST(req: Request) {
 
   let slug = ''
   try {
-    slug = String((await req.json())?.slug || '').trim()
+    slug = slugify(String((await req.json())?.slug || ''))
   } catch {
     return Response.json({ error: 'Requisição inválida.' }, { status: 400 })
   }
   if (!slug) return Response.json({ error: 'Slug ausente.' }, { status: 400 })
 
   try {
-    const { blobs } = await list({ prefix: `${PREFIX}${slug}__` })
-    const alvos = blobs.filter((b) => parseBlobPath(b.pathname)?.slug === slug)
-    for (const b of alvos) await del(b.url)
-    return Response.json({ removidas: alvos.length })
+    const item = await findBySlug(slug)
+    if (item) await deleteFile(item.fullPath)
+    return Response.json({ removidas: item ? 1 : 0 })
   } catch (e: any) {
     return Response.json({ error: e?.message || 'Falha ao excluir.' }, { status: 500 })
   }

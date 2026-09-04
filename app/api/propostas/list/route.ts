@@ -1,7 +1,7 @@
-import { list } from '@vercel/blob'
-import { BASE_URL, PREFIX, parseBlobPath } from '@/app/lib/propostas'
+import { BASE_URL, listFiles, deleteFile } from '@/app/lib/propostas'
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 function authorized(req: Request): boolean {
   const token = process.env.PROPOSTAS_TOKEN
@@ -15,25 +15,23 @@ export async function GET(req: Request) {
   }
 
   try {
-    const { blobs } = await list({ prefix: PREFIX })
+    const files = await listFiles()
     const now = Date.now()
-    const propostas = blobs
-      .map((b) => {
-        const info = parseBlobPath(b.pathname)
-        if (!info) return null
-        return {
-          slug: info.slug,
-          url: `${BASE_URL}/proposta/${info.slug}`,
-          ext: info.ext,
-          expiresAt: new Date(info.expiresAtMs).toISOString(),
-          expired: now > info.expiresAtMs,
-          uploadedAt: b.uploadedAt,
-        }
+    const propostas = []
+    for (const f of files) {
+      if (now > f.expiresAtMs) {
+        // limpeza preguiçosa dos vencidos ao listar
+        await deleteFile(f.fullPath)
+        continue
+      }
+      propostas.push({
+        slug: f.slug,
+        url: `${BASE_URL}/proposta/${f.slug}`,
+        ext: f.ext,
+        expiresAt: new Date(f.expiresAtMs).toISOString(),
       })
-      .filter(Boolean)
-      // mais recentes primeiro
-      .sort((a: any, b: any) => (a.uploadedAt < b.uploadedAt ? 1 : -1))
-
+    }
+    propostas.sort((a, b) => (a.expiresAt < b.expiresAt ? 1 : -1))
     return Response.json({ propostas })
   } catch (e: any) {
     return Response.json({ error: e?.message || 'Falha ao listar.' }, { status: 500 })

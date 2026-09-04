@@ -1,10 +1,4 @@
-import { put } from '@vercel/blob'
-import {
-  BASE_URL,
-  blobPath,
-  slugify,
-  randomToken,
-} from '@/app/lib/propostas'
+import { BASE_URL, slugify, randomToken, saveFile } from '@/app/lib/propostas'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -12,8 +6,7 @@ export const runtime = 'nodejs'
 function authorized(req: Request): boolean {
   const token = process.env.PROPOSTAS_TOKEN
   if (!token) return false
-  const header = req.headers.get('authorization') || ''
-  return header === `Bearer ${token}`
+  return (req.headers.get('authorization') || '') === `Bearer ${token}`
 }
 
 export async function POST(req: Request) {
@@ -31,8 +24,7 @@ export async function POST(req: Request) {
   const file = form.get('file')
   const cliente = String(form.get('cliente') || '').trim()
   const slugInput = String(form.get('slug') || '').trim()
-  const diasRaw = String(form.get('dias') || '15').trim()
-  const dias = Number(diasRaw)
+  const dias = Number(String(form.get('dias') || '15').trim())
 
   if (!(file instanceof File) || file.size === 0) {
     return Response.json({ error: 'Arquivo não enviado.' }, { status: 400 })
@@ -58,21 +50,18 @@ export async function POST(req: Request) {
   const base =
     slugInput || cliente || file.name.replace(/\.(html?|pdf)$/i, '') || 'proposta'
   const slug = `${slugify(base) || 'proposta'}-${randomToken()}`
-
   const expiresAtMs = Date.now() + dias * 24 * 60 * 60 * 1000
-  const path = blobPath(slug, expiresAtMs, ext)
-
-  const buffer = Buffer.from(await file.arrayBuffer())
 
   try {
-    await put(path, buffer, {
-      access: 'public',
-      addRandomSuffix: false,
-      contentType: isPdf ? 'application/pdf' : 'text/html; charset=utf-8',
-    })
+    const buffer = Buffer.from(await file.arrayBuffer())
+    await saveFile(slug, expiresAtMs, ext, buffer)
   } catch (e: any) {
     return Response.json(
-      { error: 'Falha ao salvar. Verifique o Blob store na Vercel. ' + (e?.message || '') },
+      {
+        error:
+          'Falha ao salvar. Verifique o volume/permissão de PROPOSTAS_DIR. ' +
+          (e?.message || ''),
+      },
       { status: 500 }
     )
   }

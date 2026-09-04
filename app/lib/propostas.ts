@@ -1,13 +1,26 @@
-// Helpers do sistema de propostas: slug, caminho no Blob (com expiração
-// codificada no nome) e a página de "proposta expirada".
+// Helpers do sistema de propostas (armazenamento em disco / volume persistente).
+// Cada proposta é um arquivo: <slug>__<expiraEpochMs>.<ext> (ext: html|pdf).
 
 import crypto from 'node:crypto'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 
 export const WHATSAPP =
   'https://wa.me/5531993121211?text=Ol%C3%A1!%20A%20proposta%20que%20recebi%20expirou%2C%20gostaria%20de%20conversar.'
 
 export const BASE_URL = 'https://multinexo.com.br'
-export const PREFIX = 'propostas/'
+
+// Diretório de armazenamento. Em produção, aponte para um VOLUME PERSISTENTE
+// (env PROPOSTAS_DIR, ex.: /app/propostas). Em dev, usa uma pasta local.
+export function getDir(): string {
+  return process.env.PROPOSTAS_DIR || path.join(process.cwd(), '.propostas-data')
+}
+
+async function ensureDir(): Promise<string> {
+  const dir = getDir()
+  await fs.mkdir(dir, { recursive: true })
+  return dir
+}
 
 export function slugify(texto: string): string {
   return String(texto || '')
@@ -23,22 +36,67 @@ export function randomToken(): string {
   return crypto.randomBytes(3).toString('hex')
 }
 
-// Caminho no Blob: propostas/<slug>__<expiraEpochMs>.<ext>
-export function blobPath(slug: string, expiresAtMs: number, ext: string): string {
-  return `${PREFIX}${slug}__${expiresAtMs}.${ext}`
+export function fileName(slug: string, expiresAtMs: number, ext: string): string {
+  return `${slug}__${expiresAtMs}.${ext}`
 }
 
-// Extrai { slug, expiresAtMs, ext } de um caminho do Blob.
-export function parseBlobPath(pathname: string):
+export function parseFileName(name: string):
   | { slug: string; expiresAtMs: number; ext: string }
   | null {
-  const name = pathname.replace(PREFIX, '')
   const m = name.match(/^(.+)__(\d+)\.(html|pdf)$/i)
   if (!m) return null
   return { slug: m[1], expiresAtMs: Number(m[2]), ext: m[3].toLowerCase() }
 }
 
-// HTML da página de proposta expirada (com redirecionamento ao WhatsApp).
+export type PropostaFile = {
+  slug: string
+  expiresAtMs: number
+  ext: string
+  name: string
+  fullPath: string
+}
+
+export async function listFiles(): Promise<PropostaFile[]> {
+  const dir = await ensureDir()
+  const names = await fs.readdir(dir)
+  const out: PropostaFile[] = []
+  for (const name of names) {
+    const info = parseFileName(name)
+    if (info) {
+      out.push({ ...info, name, fullPath: path.join(dir, name) })
+    }
+  }
+  return out
+}
+
+// Encontra pelo slug exato (sem construir caminho a partir da entrada do usuário).
+export async function findBySlug(slug: string): Promise<PropostaFile | null> {
+  const files = await listFiles()
+  return files.find((f) => f.slug === slug) || null
+}
+
+export async function saveFile(
+  slug: string,
+  expiresAtMs: number,
+  ext: string,
+  buffer: Buffer
+): Promise<string> {
+  const dir = await ensureDir()
+  const full = path.join(dir, fileName(slug, expiresAtMs, ext))
+  await fs.writeFile(full, buffer)
+  return full
+}
+
+export async function deleteFile(fullPath: string): Promise<void> {
+  try {
+    await fs.unlink(fullPath)
+  } catch {}
+}
+
+export async function readFile(fullPath: string): Promise<Buffer> {
+  return fs.readFile(fullPath)
+}
+
 export function expiredPage(): string {
   return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -52,7 +110,6 @@ export function expiredPage(): string {
 </body></html>`
 }
 
-// HTML simples de "não encontrada".
 export function notFoundPage(): string {
   return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

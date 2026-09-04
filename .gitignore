@@ -39,3 +39,6 @@ yarn-error.log*
 
 # Windsurf
 .windsurf
+
+# dados locais de propostas (dev)
+.propostas-data/
