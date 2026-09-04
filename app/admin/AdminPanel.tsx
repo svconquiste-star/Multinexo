@@ -238,9 +238,20 @@ export default function AdminPanel() {
           </div>
         )}
 
-        {propostas.length > 0 && (
-          <div style={{ marginTop: 34 }}>
-            <h2 style={styles.h2}>Propostas ativas</h2>
+        <div style={{ marginTop: 34 }}>
+          <div style={styles.listHeader}>
+            <h2 style={styles.h2}>
+              Propostas no sistema{' '}
+              <span style={styles.count}>{propostas.length}</span>
+            </h2>
+            <button onClick={() => carregarLista(token)} style={styles.linkBtn}>
+              Atualizar
+            </button>
+          </div>
+
+          {propostas.length === 0 ? (
+            <p style={styles.empty}>Nenhuma proposta publicada ainda.</p>
+          ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {propostas.map((p) => (
                 <div key={p.slug} style={styles.item}>
@@ -257,6 +268,14 @@ export default function AdminPanel() {
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ ...styles.smallBtn, textDecoration: 'none' }}
+                    >
+                      Abrir
+                    </a>
                     <button onClick={() => copiar(p.url)} style={styles.smallBtn}>
                       Copiar
                     </button>
@@ -270,8 +289,8 @@ export default function AdminPanel() {
                 </div>
               ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   )
@@ -298,7 +317,23 @@ const styles: Record<string, React.CSSProperties> = {
   },
   headerRow: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
   h1: { fontSize: 20, margin: '0 0 4px' },
-  h2: { fontSize: 15, margin: '0 0 12px', color: '#9AA3B8' },
+  h2: { fontSize: 15, margin: 0, color: '#9AA3B8' },
+  listHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  count: {
+    fontSize: 12,
+    fontWeight: 700,
+    color: '#fff',
+    background: 'rgba(124,58,237,.25)',
+    borderRadius: 999,
+    padding: '2px 9px',
+    marginLeft: 4,
+  },
+  empty: { color: '#6B7488', fontSize: 13.5, margin: 0 },
   sub: { color: '#9AA3B8', fontSize: 13.5, margin: '0 0 22px' },
   label: {
     display: 'block',
