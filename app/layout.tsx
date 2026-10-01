@@ -3,9 +3,9 @@ import Script from 'next/script'
 import './globals.css'
 
 const SITE_URL = 'https://multinexo.com.br'
-const SITE_TITLE = 'Multinexo | Estrategista de Marketing Digital — Tráfego, IA e Dashboards'
+const SITE_TITLE = 'Daniel Aguiar | Estrategista de Marketing Digital — Tráfego, IA e Dashboards'
 const SITE_DESCRIPTION =
-  'Escalo negócios com tráfego pago, estratégia e IA como vantagem competitiva. Consultoria e criação de dashboards para crescimento previsível e mensurável.'
+  'Sou o Daniel Aguiar. Escalo negócios com tráfego pago, estratégia e IA como vantagem competitiva. Consultoria e criação de dashboards para crescimento previsível e mensurável.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     'consultoria de marketing digital',
     'marketing digital Betim MG',
   ],
-  authors: [{ name: 'Multinexo' }],
-  creator: 'Multinexo',
-  publisher: 'Multinexo',
+  authors: [{ name: 'Daniel Aguiar' }],
+  creator: 'Daniel Aguiar',
+  publisher: 'Daniel Aguiar · Multinexo',
   alternates: {
     canonical: '/',
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         url: '/images/logo.png',
         width: 1536,
         height: 1024,
-        alt: 'Multinexo — Estrategista de Marketing Digital',
+        alt: 'Daniel Aguiar — Estrategista de Marketing Digital',
       },
     ],
   },
@@ -66,8 +66,30 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
+const person = {
+  '@type': 'Person',
+  '@id': `${SITE_URL}/#daniel`,
+  name: 'Daniel Aguiar',
+  url: SITE_URL,
+  jobTitle: 'Estrategista de Marketing Digital',
+  description:
+    'Daniel Aguiar é estrategista de marketing digital. Escala negócios com tráfego pago, estratégia, automação com IA e dashboards, no Brasil e no exterior.',
+  knowsAbout: [
+    'Gestão de tráfego',
+    'Google Ads',
+    'Meta Ads',
+    'Automação com Inteligência Artificial',
+    'Criação de dashboards',
+    'Consultoria de marketing digital',
+  ],
+  worksFor: { '@id': `${SITE_URL}/#business` },
+  sameAs: [
+    'https://www.instagram.com/daguiar.ai/',
+    'https://www.linkedin.com/in/daniel-aguiar-871628268/',
+  ],
+}
+
+const business = {
   '@type': 'ProfessionalService',
   '@id': `${SITE_URL}/#business`,
   name: 'Multinexo',
@@ -75,6 +97,8 @@ const jsonLd = {
   logo: `${SITE_URL}/images/logo.png`,
   image: `${SITE_URL}/images/logo.png`,
   description: SITE_DESCRIPTION,
+  founder: { '@id': `${SITE_URL}/#daniel` },
+  employee: { '@id': `${SITE_URL}/#daniel` },
   telephone: '+5531993121211',
   email: 'contato@multinexo.com',
   priceRange: '$$',
@@ -131,6 +155,11 @@ const jsonLd = {
       },
     ],
   },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [person, business],
 }
 
 export default function RootLayout({

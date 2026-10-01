@@ -14,6 +14,7 @@ export default function LpFooter({ t }: { t: Dict }) {
           alt="Multinexo"
           className="h-10 w-auto object-contain mx-auto opacity-90"
         />
+        <p className="text-white font-semibold">{f.signature}</p>
         <p className="text-sm max-w-xl mx-auto">{f.tagline}</p>
         <div className="flex items-center justify-center gap-6 text-sm">
           <Link href="/politica-de-privacidade" className="hover:text-white transition-colors">

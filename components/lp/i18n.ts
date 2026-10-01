@@ -60,6 +60,7 @@ export interface Dict {
   authority: {
     title: string
     subtitle: string
+    lead: string
     items: { title: string; text: string }[]
   }
   how: { title: string; subtitle: string; steps: { title: string; text: string }[] }
@@ -71,7 +72,7 @@ export interface Dict {
   }
   faq: { badge: string; title: string; items: Faq[] }
   cta: { title: string; subtext: string; button: string; microcopy: string }
-  footer: { tagline: string; privacy: string; mainSite: string; rights: string }
+  footer: { tagline: string; privacy: string; mainSite: string; rights: string; signature: string }
   // Mensagens pré-preenchidas do WhatsApp por chave de público (+ default).
   wa: Record<string, string>
 }
@@ -145,6 +146,7 @@ const ptBR: Dict = {
   authority: {
     title: 'Por que comigo',
     subtitle: 'Mais de 40 negócios escalados. O que me diferencia é como eu trabalho.',
+    lead: 'Sou o Daniel Aguiar, o estrategista por trás de cada projeto. Você fala direto comigo, do diagnóstico aos resultados.',
     items: [
       { title: 'Em português', text: 'Você fala com alguém que entende a sua realidade de brasileiro empreendendo fora.' },
       { title: '100% remoto', text: 'Trabalho com você em qualquer país, respeitando o seu fuso. Sem deslocamento.' },
@@ -200,6 +202,7 @@ const ptBR: Dict = {
     privacy: 'Política de Privacidade',
     mainSite: 'Site principal',
     rights: 'Todos os direitos reservados.',
+    signature: 'Daniel Aguiar — Estrategista de Marketing Digital',
   },
   wa: {
     default: 'Olá! Tenho um negócio na Europa e quero uma análise gratuita de marketing para atrair mais clientes.',
@@ -280,6 +283,7 @@ const ptPT: Dict = {
   authority: {
     title: 'Porquê comigo',
     subtitle: 'Mais de 40 negócios escalados. O que me distingue é a forma como trabalho.',
+    lead: 'Sou o Daniel Aguiar, o estrategista por trás de cada projeto. Fala diretamente comigo, do diagnóstico aos resultados.',
     items: [
       { title: 'Em português', text: 'Fala com alguém que percebe a sua realidade de quem empreende fora.' },
       { title: '100% remoto', text: 'Trabalho consigo em qualquer país, respeitando o seu fuso. Sem deslocações.' },
@@ -335,6 +339,7 @@ const ptPT: Dict = {
     privacy: 'Política de Privacidade',
     mainSite: 'Site principal',
     rights: 'Todos os direitos reservados.',
+    signature: 'Daniel Aguiar — Estrategista de Marketing Digital',
   },
   wa: {
     default: 'Olá! Tenho um negócio na Europa e gostaria de uma análise gratuita de marketing para atrair mais clientes.',
@@ -412,6 +417,7 @@ const en: Dict = {
   authority: {
     title: 'Why me',
     subtitle: 'Over 40 businesses scaled. What sets me apart is how I work.',
+    lead: 'I’m Daniel Aguiar, the strategist behind every project. You talk directly to me, from diagnosis to results.',
     items: [
       { title: 'Your language', text: 'You talk to someone who understands the reality of running a business abroad.' },
       { title: '100% remote', text: 'I work with you in any country, respecting your time zone. No travel needed.' },
@@ -467,6 +473,7 @@ const en: Dict = {
     privacy: 'Privacy Policy',
     mainSite: 'Main site',
     rights: 'All rights reserved.',
+    signature: 'Daniel Aguiar — Digital Marketing Strategist',
   },
   wa: {
     default: 'Hi! I run a business in Europe and I’d like a free marketing analysis to win more clients.',

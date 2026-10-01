@@ -13,6 +13,13 @@ export default function LpAuthority({ t }: { t: Dict }) {
         <h2 className="section-title">{a.title}</h2>
         <p className="section-subtitle">{a.subtitle}</p>
 
+        <div className="max-w-3xl mx-auto -mt-6 mb-12 flex items-center gap-4 bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+          <span className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center text-white text-xl font-extrabold flex-shrink-0">
+            DA
+          </span>
+          <p className="text-gray-700 leading-relaxed text-[15px]">{a.lead}</p>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {a.items.map((p, i) => {
             const Icon = ICONS[i] ?? Languages

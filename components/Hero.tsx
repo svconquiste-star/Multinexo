@@ -14,7 +14,7 @@ export default function Hero() {
         <div className="text-white">
           <div className="inline-flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-full mb-6">
             <Zap size={18} />
-            <span className="text-sm font-semibold">Estrategista de Marketing Digital • Betim/MG — atendo todo o Brasil</span>
+            <span className="text-sm font-semibold">Daniel Aguiar • Estrategista de Marketing Digital • Betim/MG — atendo todo o Brasil</span>
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -22,7 +22,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-xl text-white text-opacity-90 mb-8 leading-relaxed max-w-2xl">
-            Eu estruturo o sistema completo — tráfego, funil, automação com IA e dashboards — que faz o seu investimento em marketing virar <strong className="text-white">crescimento mensurável</strong>. Sem achismo, com cada resultado medido em tempo real.
+            Sou o <strong className="text-white">Daniel Aguiar</strong> e estruturo o sistema completo — tráfego, funil, automação com IA e dashboards — que faz o seu investimento em marketing virar <strong className="text-white">crescimento mensurável</strong>. Sem achismo, com cada resultado medido em tempo real.
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-3">

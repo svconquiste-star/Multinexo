@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 export default function Header() {
@@ -13,6 +12,7 @@ export default function Header() {
   const whatsappLink = 'https://wa.me/5531993121211?text=Olá!%20Gostaria%20de%20agendar%20uma%20análise%20gratuita%20para%20escalar%20meu%20negócio.'
 
   const navItems = [
+    { label: 'Sobre', href: '#sobre' },
     { label: 'Serviços', href: '#services' },
     { label: 'Cases', href: '#cases' },
     { label: 'Clientes', href: '#clients' },
@@ -23,16 +23,14 @@ export default function Header() {
     <header className="fixed w-full top-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/images/logo.png"
-              alt="Multinexo Logo"
-              width={360}
-              height={120}
-              priority
-              className="h-16 w-auto"
-            />
+          {/* Wordmark */}
+          <Link href="/" className="flex flex-col leading-none">
+            <span className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+              Daniel Aguiar
+            </span>
+            <span className="text-[11px] sm:text-xs font-medium text-gray-500 tracking-wide">
+              Estrategista de Marketing Digital
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

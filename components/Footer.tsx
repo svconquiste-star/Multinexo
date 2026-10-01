@@ -12,18 +12,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center mb-6">
-              <Image
-                src="/images/logo.png"
-                alt="Multinexo Logo"
-                width={280}
-                height={93}
-                className="h-24 w-auto"
-              />
+            <Link href="/" className="inline-block mb-4">
+              <span className="text-2xl font-extrabold tracking-tight text-white">Daniel Aguiar</span>
+              <span className="block text-sm font-medium text-gray-400">Estrategista de Marketing Digital</span>
             </Link>
-            <p className="text-gray-400 leading-relaxed">
-              Estrategista de Marketing Digital. Escalo negócios com tráfego, estratégia e IA como vantagem competitiva.
+            <p className="text-gray-400 leading-relaxed mb-6">
+              Escalo negócios com tráfego, estratégia e IA como vantagem competitiva — no Brasil e no exterior.
             </p>
+            <Image
+              src="/images/logo.png"
+              alt="Multinexo"
+              width={200}
+              height={67}
+              className="h-12 w-auto opacity-80"
+            />
           </div>
 
           {/* Services */}
@@ -75,7 +77,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 mb-6 md:mb-0">
-              © 2026 Multinexo. Todos os direitos reservados.
+              © 2026 Daniel Aguiar · Multinexo. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6">
               <a href="https://www.instagram.com/daguiar.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors">

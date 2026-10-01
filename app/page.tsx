@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import TrustBar from '@/components/TrustBar'
+import Sobre from '@/components/Sobre'
 import Services from '@/components/Services'
 import ExpertAffiliate from '@/components/ExpertAffiliate'
 import Cases from '@/components/Cases'
@@ -20,6 +21,7 @@ export default function Home() {
       <Header />
       <Hero />
       <TrustBar />
+      <Sobre />
       <Services />
       <ExpertAffiliate />
       <Cases />
