@@ -58,8 +58,8 @@ export default function Header() {
                 </Link>
               )
             )}
-            <Link href="#contact" className="btn-primary">
-              Começar Agora
+            <Link href="#agendar" className="btn-primary">
+              Análise Gratuita
             </Link>
           </nav>
 
@@ -98,8 +98,8 @@ export default function Header() {
                 </Link>
               )
             )}
-            <Link href="#contact" className="block w-full btn-primary text-center" onClick={() => setIsOpen(false)}>
-              Começar Agora
+            <Link href="#agendar" className="block w-full btn-primary text-center" onClick={() => setIsOpen(false)}>
+              Análise Gratuita
             </Link>
           </nav>
         )}

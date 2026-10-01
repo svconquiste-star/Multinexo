@@ -1,39 +1,35 @@
 'use client'
 
-import { Star } from 'lucide-react'
+import { Star, Quote } from 'lucide-react'
 
 const testimonials = [
   {
     id: 1,
-    quote: "A Multinexo transformou completamente nossos resultados. Aumentamos as vendas de forma consistente com a gestão de tráfego deles.",
-    name: 'Carlos Silva',
-    company: 'Loja de Smartphone - SP',
+    quote: "Transformou completamente nossos resultados. Aumentamos as vendas de forma consistente com a gestão de tráfego.",
+    segment: 'Loja de smartphones',
+    local: 'São Paulo/SP',
     rating: 5,
-    avatar: '👨‍💼',
   },
   {
     id: 2,
     quote: "Reduzimos bastante o custo por lead com os funis inteligentes. O atendimento por IA 24/7 aumentou muito nossas aprovações.",
-    name: 'Ana Costa',
-    company: 'Agência de Empréstimo - MG',
+    segment: 'Agência de empréstimo',
+    local: 'Minas Gerais/MG',
     rating: 5,
-    avatar: '👩‍💼',
   },
   {
     id: 3,
     quote: "Aumentamos muito nossos agendamentos com a automação de funis. Recomendo para clínicas que querem crescer.",
-    name: 'Dr. Rafael Mendes',
-    company: 'Clínica de Estética - RJ',
+    segment: 'Clínica de estética',
+    local: 'Rio de Janeiro/RJ',
     rating: 5,
-    avatar: '👨‍⚕️',
   },
   {
     id: 4,
-    quote: "O chatbot IA deles resolveu 85% das dúvidas dos pacientes automaticamente. Economia de tempo e custo foi impressionante.",
-    name: 'Dra. Juliana Rocha',
-    company: 'Consultório Odontológico - BA',
+    quote: "O atendimento com IA resolveu grande parte das dúvidas dos pacientes automaticamente. A economia de tempo foi impressionante.",
+    segment: 'Consultório odontológico',
+    local: 'Bahia/BA',
     rating: 5,
-    avatar: '👩‍⚕️',
   },
 ]
 
@@ -42,7 +38,7 @@ export default function SocialProof() {
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="section-title">O que meus clientes dizem</h2>
+          <h2 className="section-title">Quem trabalhou comigo recomenda</h2>
           <p className="section-subtitle">
             Depoimentos de empresas que escalaram seus negócios trabalhando comigo
           </p>
@@ -60,7 +56,7 @@ export default function SocialProof() {
                     <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <div className="text-4xl">{testimonial.avatar}</div>
+                <Quote size={32} className="text-purple-200" />
               </div>
 
               <p className="text-gray-700 mb-6 leading-relaxed italic text-lg">
@@ -68,8 +64,8 @@ export default function SocialProof() {
               </p>
 
               <div className="border-t border-gray-200 pt-4">
-                <p className="font-bold text-gray-900 text-base">{testimonial.name}</p>
-                <p className="text-gray-600 text-sm">{testimonial.company}</p>
+                <p className="font-bold text-gray-900 text-base">{testimonial.segment}</p>
+                <p className="text-gray-600 text-sm">{testimonial.local}</p>
               </div>
             </div>
           ))}

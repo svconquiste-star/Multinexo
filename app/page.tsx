@@ -1,6 +1,8 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
+import TrustBar from '@/components/TrustBar'
 import Services from '@/components/Services'
+import ExpertAffiliate from '@/components/ExpertAffiliate'
 import Cases from '@/components/Cases'
 import TrafficResults from '@/components/TrafficResults'
 import DashboardShowcase from '@/components/DashboardShowcase'
@@ -17,7 +19,9 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <TrustBar />
       <Services />
+      <ExpertAffiliate />
       <Cases />
       <TrafficResults />
       <DashboardShowcase />

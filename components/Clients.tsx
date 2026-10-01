@@ -6,12 +6,14 @@ type Client = {
   logo?: string
   round?: boolean
   dark?: boolean
+  wide?: boolean
 }
 
 const clients: Client[] = [
   { id: 1, name: 'Bravo Bet', logo: '/images/clients/bravo-bet.svg', dark: true },
   { id: 2, name: 'Seu Phone Betim', logo: '/images/clients/seu-phone.jpg', round: true },
   { id: 3, name: 'Rei do Sabor Hamburgueria', logo: '/images/clients/rei-do-sabor.jpg', round: true },
+  { id: 9, name: 'Expert & Affiliate — Forex/OB', logo: '/images/clients/iq-option-expert.jpg', wide: true },
   { id: 4, name: 'C3 Empréstimo' },
   { id: 5, name: 'CredTop' },
   { id: 6, name: 'Empréstimo Braz' },
@@ -26,7 +28,7 @@ export default function Clients() {
         <div className="text-center mb-16">
           <h2 className="section-title">Quem já confiou no meu trabalho</h2>
           <p className="section-subtitle">
-            Negócios locais e experts que escalaram com tráfego, estratégia e IA
+            Negócios locais, experts e afiliados que escalaram com tráfego, estratégia e IA
           </p>
         </div>
 
@@ -45,6 +47,16 @@ export default function Clients() {
                       src={client.logo}
                       alt={client.name}
                       className="h-16 w-16 rounded-full object-cover shadow-sm"
+                      loading="lazy"
+                    />
+                    <p className="text-center text-xs font-semibold text-gray-700 leading-tight">{client.name}</p>
+                  </div>
+                ) : client.wide ? (
+                  <div className="flex flex-col items-center gap-2">
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="max-h-14 max-w-full w-auto object-contain"
                       loading="lazy"
                     />
                     <p className="text-center text-xs font-semibold text-gray-700 leading-tight">{client.name}</p>

@@ -3,6 +3,7 @@
 import { Mail, Phone, MapPin, Instagram, Linkedin } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import WhatsAppLink from './WhatsAppLink'
 
 export default function Footer() {
   return (
@@ -60,7 +61,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} />
-                <a href="https://wa.me/5531993121211" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+55 31 99312-1211</a>
+                <WhatsAppLink href="https://wa.me/5531993121211?text=Olá!%20Gostaria%20de%20agendar%20uma%20análise%20gratuita." location="footer" className="hover:text-white transition-colors">+55 31 99312-1211</WhatsAppLink>
               </li>
               <li className="flex items-center space-x-3">
                 <MapPin size={20} />

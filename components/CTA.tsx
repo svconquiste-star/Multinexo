@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowRight, Calendar } from 'lucide-react'
+import WhatsAppLink from './WhatsAppLink'
 
 export default function CTA() {
   const whatsappLink = 'https://wa.me/5531993121211?text=Olá!%20Gostaria%20de%20agendar%20uma%20análise%20gratuita%20para%20escalar%20meu%20negócio.'
@@ -14,7 +15,7 @@ export default function CTA() {
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center text-white mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Pronto para escalar o seu negócio?
+            Dê o próximo passo: agende sua análise gratuita
           </h2>
           <p className="text-xl text-white text-opacity-90 mb-8">
             Fale comigo e descubra como transformar tráfego em crescimento previsível. Automatizo atendimento, captação e vendas para gerar clientes todos os dias — com tudo medido em dashboard.
@@ -67,18 +68,17 @@ export default function CTA() {
               </div>
             </div>
 
-            <a
+            <WhatsAppLink
               href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              location="cta"
               className="w-full py-4 bg-gradient-primary text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 group"
             >
-              <span>Agendar Consulta via WhatsApp</span>
+              <span>Quero minha análise gratuita</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            </WhatsAppLink>
 
             <p className="text-center text-gray-600 text-sm mt-6">
-              Responderemos em poucos minutos! ⚡
+              ⚡ Resposta em minutos, direto no seu WhatsApp
             </p>
           </div>
         </div>

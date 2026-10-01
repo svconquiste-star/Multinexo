@@ -36,7 +36,7 @@ export default function Cases() {
         <div className="text-center mb-16">
           <h2 className="section-title">Resultados que eu já entreguei</h2>
           <p className="section-subtitle">
-            Veja como transformei negócios reais com tráfego, estratégia e IA
+            Resultados reais de quem parou de depender de sorte no marketing — com tráfego, estratégia e IA
           </p>
         </div>
 

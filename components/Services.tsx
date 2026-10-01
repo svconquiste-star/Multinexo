@@ -1,35 +1,42 @@
 'use client'
 
 import { BarChart3, Bot, LayoutDashboard, Lightbulb } from 'lucide-react'
+import WhatsAppLink from './WhatsAppLink'
+
+const WHATS = 'https://wa.me/5531993121211?text='
 
 const services = [
   {
     id: 1,
     title: 'Tráfego & Estratégia',
-    description: 'Gestão de tráfego pago com foco em escala e ROI real. Estruturo campanhas no Google e Meta Ads guiadas por estratégia — não por achismo — para gerar clientes de forma previsível.',
+    description: 'Mais clientes pelo Google e Meta Ads, com cada real guiado por estratégia e dados — não por achismo. Crescimento previsível, não sorte.',
     icon: BarChart3,
     color: 'from-purple-500 to-purple-600',
+    msg: 'Olá! Tenho interesse em Tráfego & Estratégia.',
   },
   {
     id: 2,
     title: 'IA como Vantagem Competitiva',
-    description: 'Automatizo atendimento, captação e qualificação com Inteligência Artificial. Sua operação responde em segundos, 24/7, enquanto você foca no que realmente faz o negócio crescer.',
+    description: 'Seu atendimento responde em segundos, 24/7, e qualifica os leads sozinho — enquanto você foca no que realmente faz o negócio crescer.',
     icon: Bot,
     color: 'from-pink-500 to-pink-600',
+    msg: 'Olá! Tenho interesse em Automação com IA.',
   },
   {
     id: 3,
     title: 'Criação de Dashboard',
-    description: 'Dashboards sob medida que centralizam suas métricas de tráfego, vendas e atendimento. Você acompanha cada resultado em tempo real e toma decisões com dados — sem planilhas confusas.',
+    description: 'Enxergue em tempo real o que traz resultado e pare de decidir no escuro. Tráfego, vendas e atendimento em um painel só — sem planilha confusa.',
     icon: LayoutDashboard,
     color: 'from-blue-500 to-blue-600',
+    msg: 'Olá! Tenho interesse em Criação de Dashboard.',
   },
   {
     id: 4,
     title: 'Consultoria',
-    description: 'Consultoria estratégica de marketing para destravar o seu crescimento. Analiso seu funil, posicionamento e canais e entrego um plano claro de ação focado em resultado.',
+    description: 'Um plano claro para destravar o seu crescimento. Analiso seu funil, posicionamento e canais e entrego o caminho focado em resultado.',
     icon: Lightbulb,
     color: 'from-amber-500 to-orange-500',
+    msg: 'Olá! Tenho interesse em Consultoria.',
   },
 ]
 
@@ -40,7 +47,7 @@ export default function Services() {
         <div className="text-center mb-16">
           <h2 className="section-title">Como eu escalo o seu negócio</h2>
           <p className="section-subtitle">
-            Tráfego, IA, dados e estratégia trabalhando juntos para transformar o seu marketing em crescimento previsível.
+            Tudo o que o seu negócio precisa para atrair, converter e medir — em um só lugar.
           </p>
         </div>
 
@@ -59,12 +66,16 @@ export default function Services() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">{service.description}</p>
 
-                <a href="#contact" className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors cursor-pointer">
+                <WhatsAppLink
+                  href={`${WHATS}${encodeURIComponent(service.msg)}`}
+                  location={`servico-${service.id}`}
+                  className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors cursor-pointer"
+                >
                   Quero isso no meu negócio
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </a>
+                </WhatsAppLink>
               </div>
             )
           })}
