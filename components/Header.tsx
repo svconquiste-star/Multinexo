@@ -16,6 +16,7 @@ export default function Header() {
     { label: 'Serviços', href: '#services' },
     { label: 'Cases', href: '#cases' },
     { label: 'Clientes', href: '#clients' },
+    { label: '🇪🇺 Europa', href: '/europa' },
     { label: 'Contato', href: whatsappLink, external: true },
   ]
 
@@ -65,6 +66,9 @@ export default function Header() {
           <button
             onClick={toggleMenu}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -72,7 +76,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <nav className="md:hidden pb-4 space-y-4">
+          <nav id="mobile-menu" className="md:hidden pb-4 space-y-4">
             {navItems.map((item) =>
               item.external ? (
                 <a

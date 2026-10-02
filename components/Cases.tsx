@@ -34,9 +34,9 @@ export default function Cases() {
     <section id="cases" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="section-title">Resultados que eu já entreguei</h2>
+          <h2 className="section-title">O tipo de resultado que busco pra cada segmento</h2>
           <p className="section-subtitle">
-            Resultados reais de quem parou de depender de sorte no marketing — com tráfego, estratégia e IA
+            Exemplos do que costuma ser possível por segmento — veja números de campanhas reais na seção abaixo
           </p>
         </div>
 

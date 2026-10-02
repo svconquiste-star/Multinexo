@@ -57,6 +57,18 @@ export interface Dict {
     footerHtml: string
     items: { title: string; description: string }[]
   }
+  niche: {
+    badge: string
+    title: string
+    subtitle: string
+    deliverables: { title: string; desc: string }[]
+    authorityTitle: string
+    authorityText: string
+    forWhomTitle: string
+    forWhom: string[]
+    cta: string
+    microcopy: string
+  }
   authority: {
     title: string
     subtitle: string
@@ -93,7 +105,7 @@ const ptBR: Dict = {
     subheadHtml:
       'Eu trago <strong>mais clientes</strong> para o seu negócio — com tráfego, estratégia e IA. Tudo <strong>em português</strong> e <strong>100% remoto</strong>, onde quer que você esteja.',
     publicsHtml:
-      'Para <strong>empresas, lojas locais, afiliados, experts e influencers</strong> brasileiros na Europa.',
+      'Para <strong>empresas, lojas locais, afiliados, experts e influencers</strong> brasileiros na Europa — incluindo <strong>Forex, Opções Binárias e iGaming</strong>.',
     cta: 'Quero minha análise gratuita',
     microcopy: '⚡ Atendimento em português • Resposta em minutos • Sem compromisso',
     countries: ['🇵🇹 Portugal', '🇮🇪 Irlanda', '🇪🇸 Espanha', '🇬🇧 Reino Unido'],
@@ -143,6 +155,32 @@ const ptBR: Dict = {
       { title: 'Consultoria', description: 'Um plano claro para crescer no mercado europeu. Analiso seu posicionamento, funil e canais e entrego o caminho focado em resultado.' },
     ],
   },
+  niche: {
+    badge: 'Para Forex, Opções Binárias & iGaming',
+    title: 'É expert, afiliado ou operador de Forex, Opções Binárias ou iGaming na Europa? Pare de depender de sorte no alcance.',
+    subtitle:
+      'Sou o estrategista por trás de experts, afiliados e operadores desse mercado: crio a estratégia, o funil, o tráfego e a copy que transformam a sua autoridade (ou plataforma) em um fluxo previsível de novos seguidores, jogadores e indicações — sempre dentro das regras de publicidade de cada país europeu.',
+    deliverables: [
+      { title: 'Estratégia', desc: 'Defino o posicionamento, a oferta e o plano de aquisição certos para o seu público europeu — com foco em dados e nas regras de cada mercado, não em achismo.' },
+      { title: 'Funil', desc: 'Estruturo a jornada do seguidor ao lead qualificado: do primeiro contato até a entrada na sua lista, grupo, plataforma ou mentoria.' },
+      { title: 'Tráfego', desc: 'Gestão de campanhas (Meta e Google, onde permitido) e estratégias alternativas de aquisição nos mercados em que a mídia paga é restrita.' },
+      { title: 'Copy', desc: 'Textos e criativos que comunicam autoridade e geram ação — adaptados às normas de publicidade de cada país europeu.' },
+    ],
+    authorityTitle: 'Experiência com performance de verdade',
+    authorityText:
+      'Acompanho a performance de portfólios com dezenas de experts e afiliados desse mercado, medindo cada euro investido até o retorno — payback, ROI e qualidade de captação — sempre atento às regras de publicidade de cada país. É essa mentalidade de dados (e de conformidade) que aplico no seu projeto.',
+    forWhomTitle: 'Para quem é',
+    forWhom: [
+      'Experts de Forex',
+      'Experts de Opções Binárias',
+      'Afiliados de corretoras',
+      'Afiliados e operadores de iGaming',
+      'Plataformas de apostas e casino online',
+      'Mentores e donos de grupo',
+    ],
+    cta: 'Agendar reunião no WhatsApp',
+    microcopy: 'Resposta rápida • Diagnóstico sem compromisso',
+  },
   authority: {
     title: 'Por que comigo',
     subtitle: 'Mais de 40 negócios escalados. O que me diferencia é como eu trabalho.',
@@ -169,7 +207,7 @@ const ptBR: Dict = {
     metrics: [
       { value: '+40', label: 'Negócios escalados' },
       { value: '3x', label: 'ROI médio em tráfego' },
-      { value: '4.9★', label: 'Avaliação média' },
+      { value: '24/7', label: 'Atendimento com IA' },
     ],
     testimonials: [
       { quote: 'Transformou completamente nossos resultados. Aumentamos as vendas de forma consistente com a gestão de tráfego.', segment: 'Loja de smartphones' },
@@ -184,6 +222,7 @@ const ptBR: Dict = {
       { question: 'Você atende brasileiros em quais países?', answer: 'Atendo brasileiros que empreendem em Portugal (Lisboa, Porto), Irlanda (Dublin), Espanha (Barcelona, Madri), Reino Unido (Londres) e em qualquer outro país. Como o trabalho é 100% remoto, a sua localização não é limitação.' },
       { question: 'O atendimento é remoto mesmo? Como funciona com o fuso horário?', answer: 'Sim, tudo é feito de forma remota, por WhatsApp e videochamada. Combinamos os horários de conversa respeitando o seu fuso, e a execução das campanhas e automações roda de forma contínua, independentemente do horário.' },
       { question: 'Você atende influenciadores, experts e afiliados?', answer: 'Sim. Trabalho com influenciadores, criadores de conteúdo, experts, mentores e afiliados de qualquer nicho, montando a estratégia, o funil, o tráfego e a copy para transformar audiência e autoridade em clientes e vendas reais.' },
+      { question: 'Você atende Forex, Opções Binárias e iGaming na Europa?', answer: 'Atendo experts, afiliados e operadores desse mercado com estratégia, funil, tráfego e copy. Esse segmento tem regras de publicidade rígidas e diferentes em cada país (opções binárias, por exemplo, têm a publicidade de varejo proibida na União Europeia), então eu desenho a captação dentro do que cada plataforma e país permitem, sem prometer ganhos. Na análise gratuita eu vejo o seu caso e o que é viável.' },
       { question: 'Atende loja física e negócio local também?', answer: 'Com certeza. Para lojas e negócios locais eu uso anúncios geolocalizados, que mostram o seu negócio para quem está na sua cidade ou bairro — tanto a comunidade brasileira quanto o público local do seu país.' },
       { question: 'Preciso estar no Brasil ou ter CNPJ brasileiro?', answer: 'Não. Trabalho com o seu negócio onde ele estiver. O que importa é entender o seu público e o mercado em que você atua para montar a estratégia certa.' },
       { question: 'Em qual idioma é o atendimento?', answer: 'Todo o atendimento e a estratégia são em português. Você conversa com alguém que entende a realidade de quem empreende fora do Brasil, sem barreira de idioma.' },
@@ -211,6 +250,7 @@ const ptBR: Dict = {
     afiliado: 'Olá! Sou afiliado e quero estruturar funil e tráfego para vender mais. Pode fazer minha análise gratuita?',
     expert: 'Olá! Sou expert/mentor e quero transformar minha autoridade em mais alunos e clientes. Podemos conversar?',
     influencer: 'Olá! Sou influenciador(a)/criador(a) de conteúdo e quero transformar minha audiência em vendas. Pode me ajudar?',
+    nicho: 'Olá! Atuo com Forex, Opções Binárias ou iGaming na Europa e quero estruturar estratégia, funil e tráfego. Podemos agendar uma reunião?',
   },
 }
 
@@ -230,7 +270,7 @@ const ptPT: Dict = {
     subheadHtml:
       'Eu trago <strong>mais clientes</strong> para o seu negócio — com tráfego, estratégia e IA. Tudo <strong>em português</strong> e <strong>100% remoto</strong>, onde quer que esteja.',
     publicsHtml:
-      'Para <strong>empresas, lojas locais, afiliados, experts e influencers</strong> na Europa.',
+      'Para <strong>empresas, lojas locais, afiliados, experts e influencers</strong> na Europa — incluindo <strong>Forex, Opções Binárias e iGaming</strong>.',
     cta: 'Quero a minha análise gratuita',
     microcopy: '⚡ Atendimento em português • Resposta em minutos • Sem compromisso',
     countries: ['🇵🇹 Portugal', '🇮🇪 Irlanda', '🇪🇸 Espanha', '🇬🇧 Reino Unido'],
@@ -280,6 +320,32 @@ const ptPT: Dict = {
       { title: 'Consultoria', description: 'Um plano claro para crescer no mercado europeu. Analiso o seu posicionamento, funil e canais e entrego o caminho focado em resultados.' },
     ],
   },
+  niche: {
+    badge: 'Para Forex, Opções Binárias & iGaming',
+    title: 'É expert, afiliado ou operador de Forex, Opções Binárias ou iGaming na Europa? Deixe de depender da sorte no alcance.',
+    subtitle:
+      'Sou o estratega por trás de experts, afiliados e operadores deste mercado: construo a estratégia, o funil, o tráfego e a copy que transformam a sua autoridade (ou plataforma) num fluxo previsível de novos seguidores, jogadores e indicações — sempre dentro das regras de publicidade de cada país europeu.',
+    deliverables: [
+      { title: 'Estratégia', desc: 'Defino o posicionamento, a oferta e o plano de aquisição certos para o seu público europeu — com foco em dados e nas regras de cada mercado, não em palpites.' },
+      { title: 'Funil', desc: 'Construo a jornada do seguidor ao lead qualificado: do primeiro contacto até à entrada na sua lista, grupo, plataforma ou mentoria.' },
+      { title: 'Tráfego', desc: 'Gestão de campanhas (Meta e Google, onde permitido) e estratégias alternativas de aquisição nos mercados em que a publicidade paga é restrita.' },
+      { title: 'Copy', desc: 'Textos e criativos que comunicam autoridade e geram ação — adaptados às normas de publicidade de cada país europeu.' },
+    ],
+    authorityTitle: 'Experiência com performance a sério',
+    authorityText:
+      'Acompanho a performance de portefólios com dezenas de experts e afiliados deste mercado, medindo cada euro investido até ao retorno — payback, ROI e qualidade de captação — sempre atento às regras de publicidade de cada país. É esta mentalidade de dados (e de conformidade) que aplico no seu projeto.',
+    forWhomTitle: 'Para quem é',
+    forWhom: [
+      'Experts de Forex',
+      'Experts de Opções Binárias',
+      'Afiliados de corretoras',
+      'Afiliados e operadores de iGaming',
+      'Plataformas de apostas e casino online',
+      'Mentores e donos de grupo',
+    ],
+    cta: 'Agendar reunião no WhatsApp',
+    microcopy: 'Resposta rápida • Diagnóstico sem compromisso',
+  },
   authority: {
     title: 'Porquê comigo',
     subtitle: 'Mais de 40 negócios escalados. O que me distingue é a forma como trabalho.',
@@ -306,7 +372,7 @@ const ptPT: Dict = {
     metrics: [
       { value: '+40', label: 'Negócios escalados' },
       { value: '3x', label: 'ROI médio em tráfego' },
-      { value: '4.9★', label: 'Avaliação média' },
+      { value: '24/7', label: 'Atendimento com IA' },
     ],
     testimonials: [
       { quote: 'Transformou completamente os nossos resultados. Aumentámos as vendas de forma consistente com a gestão de tráfego.', segment: 'Loja de smartphones' },
@@ -321,6 +387,7 @@ const ptPT: Dict = {
       { question: 'Atende clientes em que países?', answer: 'Trabalho com negócios em Portugal (Lisboa, Porto), Irlanda (Dublin), Espanha (Barcelona, Madrid), Reino Unido (Londres) e em qualquer outro país. Como o trabalho é 100% remoto, a sua localização não é limitação.' },
       { question: 'O atendimento é mesmo remoto? Como funciona com o fuso horário?', answer: 'Sim, tudo é feito de forma remota, por WhatsApp e videochamada. Combinamos os horários respeitando o seu fuso, e a execução das campanhas e automações funciona de forma contínua, independentemente da hora.' },
       { question: 'Atende influencers, experts e afiliados?', answer: 'Sim. Trabalho com influencers, criadores de conteúdo, experts, mentores e afiliados de qualquer nicho, construindo a estratégia, o funil, o tráfego e a copy para transformar audiência e autoridade em clientes e vendas reais.' },
+      { question: 'Atende Forex, Opções Binárias e iGaming na Europa?', answer: 'Trabalho com experts, afiliados e operadores deste mercado, com estratégia, funil, tráfego e copy. Este segmento tem regras de publicidade rígidas e diferentes em cada país (as opções binárias, por exemplo, têm a publicidade de retalho proibida na União Europeia), por isso desenho a captação dentro do que cada plataforma e país permitem, sem prometer ganhos. Na análise gratuita avalio o seu caso e o que é viável.' },
       { question: 'Também atende loja física e negócio local?', answer: 'Sem dúvida. Para lojas e negócios locais uso anúncios geolocalizados, que mostram o seu negócio a quem está na sua cidade ou zona — tanto a comunidade portuguesa como o público local.' },
       { question: 'Preciso de ter sede ou empresa registada em Portugal?', answer: 'Não. Trabalho com o seu negócio onde ele estiver. O que importa é perceber o seu público e o mercado em que atua para construir a estratégia certa.' },
       { question: 'Em que idioma é o atendimento?', answer: 'Todo o atendimento e a estratégia são em português. Fala com alguém que percebe a realidade de quem empreende na Europa, sem barreira de idioma.' },
@@ -348,6 +415,7 @@ const ptPT: Dict = {
     afiliado: 'Olá! Sou afiliado e quero estruturar funil e tráfego para vender mais. Pode fazer a minha análise gratuita?',
     expert: 'Olá! Sou expert/mentor e quero transformar a minha autoridade em mais alunos e clientes. Podemos falar?',
     influencer: 'Olá! Sou influencer/criador(a) de conteúdo e quero transformar a minha audiência em vendas. Pode ajudar?',
+    nicho: 'Olá! Atuo em Forex, Opções Binárias ou iGaming na Europa e quero estruturar estratégia, funil e tráfego. Podemos marcar uma reunião?',
   },
 }
 
@@ -367,7 +435,7 @@ const en: Dict = {
     subheadHtml:
       'I bring <strong>more clients</strong> to your business — with paid traffic, strategy and AI. <strong>100% remote</strong>, wherever you are.',
     publicsHtml:
-      'For <strong>companies, local stores, affiliates, experts and influencers</strong> across Europe.',
+      'For <strong>companies, local stores, affiliates, experts and influencers</strong> across Europe — including <strong>Forex, Binary Options and iGaming</strong>.',
     cta: 'Get my free analysis',
     microcopy: '⚡ Fast replies • Free analysis • No commitment',
     countries: ['🇮🇪 Ireland', '🇵🇹 Portugal', '🇪🇸 Spain', '🇬🇧 United Kingdom'],
@@ -414,6 +482,32 @@ const en: Dict = {
       { title: 'Consulting', description: 'A clear plan to grow in the European market. I analyse your positioning, funnel and channels and deliver a results-focused path.' },
     ],
   },
+  niche: {
+    badge: 'For Forex, Binary Options & iGaming',
+    title: 'Expert, affiliate or operator in Forex, Binary Options or iGaming in Europe? Stop relying on luck for reach.',
+    subtitle:
+      'I’m the strategist behind experts, affiliates and operators in this market: I build the strategy, funnel, traffic and copy that turn your authority (or platform) into a predictable flow of new followers, players and referrals — always within each European country’s advertising rules.',
+    deliverables: [
+      { title: 'Strategy', desc: 'I define the right positioning, offer and acquisition plan for your European audience — built on data and each market’s rules, not guesswork.' },
+      { title: 'Funnel', desc: 'I build the journey from follower to qualified lead: from first contact to your list, group, platform or mentorship.' },
+      { title: 'Traffic', desc: 'Campaign management (Meta and Google, where allowed) and alternative acquisition strategies for markets where paid media is restricted.' },
+      { title: 'Copy', desc: 'Copy and creatives that communicate authority and drive action — adapted to each European country’s advertising rules.' },
+    ],
+    authorityTitle: 'Real performance experience',
+    authorityText:
+      'I track the performance of portfolios with dozens of experts and affiliates in this market, measuring every euro invested through to return — payback, ROI and lead quality — always mindful of each country’s advertising rules. That’s the data (and compliance) mindset I bring to your project.',
+    forWhomTitle: 'Who it’s for',
+    forWhom: [
+      'Forex experts',
+      'Binary Options experts',
+      'Broker affiliates',
+      'iGaming affiliates & operators',
+      'Betting & online casino platforms',
+      'Mentors & group owners',
+    ],
+    cta: 'Book a call on WhatsApp',
+    microcopy: 'Fast reply • No-commitment diagnosis',
+  },
   authority: {
     title: 'Why me',
     subtitle: 'Over 40 businesses scaled. What sets me apart is how I work.',
@@ -440,7 +534,7 @@ const en: Dict = {
     metrics: [
       { value: '+40', label: 'Businesses scaled' },
       { value: '3x', label: 'Average traffic ROI' },
-      { value: '4.9★', label: 'Average rating' },
+      { value: '24/7', label: 'AI support' },
     ],
     testimonials: [
       { quote: 'It completely transformed our results. We grew sales consistently with the traffic management.', segment: 'Smartphone store' },
@@ -455,6 +549,7 @@ const en: Dict = {
       { question: 'Which countries do you work with?', answer: 'I work with businesses in Ireland (Dublin), Portugal (Lisbon, Porto), Spain (Barcelona, Madrid), the UK (London) and any other country. Since the work is 100% remote, your location is not a limitation.' },
       { question: 'Is it really remote? How does it work with time zones?', answer: 'Yes, everything is done remotely, via WhatsApp and video calls. We agree on call times that respect your time zone, and the campaigns and automations run continuously, regardless of the hour.' },
       { question: 'Do you work with influencers, experts and affiliates?', answer: 'Yes. I work with influencers, content creators, experts, mentors and affiliates in any niche, building the strategy, funnel, traffic and copy to turn audience and authority into real clients and sales.' },
+      { question: 'Do you work with Forex, Binary Options and iGaming in Europe?', answer: 'I work with experts, affiliates and operators in this market on strategy, funnel, traffic and copy. This segment has strict advertising rules that differ by country (retail advertising of binary options, for example, is banned in the European Union), so I design acquisition within what each platform and country allows, without promising returns. In the free analysis I look at your case and what is viable.' },
       { question: 'Do you also work with physical and local stores?', answer: 'Absolutely. For local stores and businesses I use geo-targeted ads that show your business to people in your city or area — both the local market and any community you serve.' },
       { question: 'Do I need to be based in a specific country or have a local company?', answer: 'No. I work with your business wherever it is. What matters is understanding your audience and your market to build the right strategy.' },
       { question: 'What language is the service in?', answer: 'I serve clients in English and Portuguese. You talk to someone who understands the reality of running a business abroad, with no language barrier.' },
@@ -482,6 +577,7 @@ const en: Dict = {
     afiliado: 'Hi! I’m an affiliate and want to set up a funnel and traffic to sell more. Can you do my free analysis?',
     expert: 'Hi! I’m an expert/mentor and want to turn my authority into more students and clients. Can we talk?',
     influencer: 'Hi! I’m an influencer/content creator and want to turn my audience into sales. Can you help?',
+    nicho: 'Hi! I work in Forex, Binary Options or iGaming in Europe and want to set up strategy, funnel and traffic. Can we book a call?',
   },
 }
 

@@ -21,16 +21,15 @@ export default function PoliticaDePrivacidadePage() {
           <h1 className="text-3xl sm:text-4xl font-bold mb-6">Política de Privacidade</h1>
           <p className="text-gray-700 leading-relaxed mb-8">
             Esta Política de Privacidade descreve como a Multinexo ("nós") coleta, utiliza, armazena e
-            compartilha dados pessoais quando você utiliza este site. Este texto é um modelo e deve ser revisado
-            para refletir a realidade do seu negócio.
+            compartilha dados pessoais quando você utiliza este site.
           </p>
 
           <div className="space-y-10">
             <section>
               <h2 className="text-xl font-bold mb-3">1. Quem somos</h2>
               <p className="text-gray-700 leading-relaxed">
-                Controlador: Multinexo. Para informações oficiais (razão social, CNPJ e endereço), inclua os
-                dados da empresa aqui.
+                Controlador: Multinexo, marca sob a qual Daniel Aguiar presta serviços de marketing digital e
+                tráfego pago, com atuação em Betim, Minas Gerais, Brasil. Contato: contato@multinexo.com.
               </p>
             </section>
 
@@ -113,7 +112,7 @@ export default function PoliticaDePrivacidadePage() {
               <p className="text-gray-700 leading-relaxed mt-2">
                 E-mail: contato@multinexo.com
                 <br />
-                WhatsApp: +55 31 9312-1211
+                WhatsApp: +55 31 99312-1211
               </p>
             </section>
 

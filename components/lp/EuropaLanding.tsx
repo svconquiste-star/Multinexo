@@ -3,6 +3,7 @@ import LpHero from './LpHero'
 import LpAudiences from './LpAudiences'
 import LpPains from './LpPains'
 import LpServices from './LpServices'
+import LpNicheExpert from './LpNicheExpert'
 import LpAuthority from './LpAuthority'
 import LpHowItWorks from './LpHowItWorks'
 import LpProof from './LpProof'
@@ -22,6 +23,7 @@ export default function EuropaLanding({ locale }: { locale: Locale }) {
       <LpAudiences t={t} />
       <LpPains t={t} />
       <LpServices t={t} />
+      <LpNicheExpert t={t} />
       <LpAuthority t={t} />
       <LpHowItWorks t={t} />
       <LpProof t={t} />

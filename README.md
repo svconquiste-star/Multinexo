@@ -1,12 +1,19 @@
 # Multinexo - Site Moderno com Next.js
 
-Site de alta conversão para serviços de Marketing Digital com IA.
+Site pessoal de Daniel Aguiar (marca Multinexo) — serviços de tráfego pago, IA e dashboards para Brasil e Europa.
 
 ## Serviços
 
-- **Gestão de Tráfego**: Otimização de campanhas e ROI
-- **Automações com IA**: Processos inteligentes e eficientes
-- **Atendimento com Agentes de IA**: Suporte 24/7 automatizado
+- **Tráfego & Estratégia**: Google Ads e Meta Ads orientados a dado
+- **IA como Vantagem Competitiva**: atendimento automatizado 24/7
+- **Criação de Dashboard**: painel único de tráfego, vendas e atendimento
+- **Consultoria**: plano de crescimento sob medida
+
+## Páginas e recursos
+
+- `/` — home em PT-BR
+- `/europa`, `/europa/pt`, `/europa/en` — landing multi-idioma pra público europeu (hreflang configurado)
+- `/admin` + `/proposta/[slug]` — sistema interno de upload/envio de propostas com link expirável (requer `PROPOSTAS_TOKEN` e `PROPOSTAS_DIR`, ver `.env.example`)
 
 ## Tecnologias
 

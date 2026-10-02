@@ -20,8 +20,7 @@ export default function NormasPage() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl font-bold mb-6">Normas de Uso</h1>
           <p className="text-gray-700 leading-relaxed mb-8">
-            Estas normas definem regras básicas de uso deste site. Este texto é um modelo e deve ser revisado
-            para refletir as condições do seu negócio.
+            Estas normas definem regras básicas de uso deste site, operado pela Multinexo (Daniel Aguiar).
           </p>
 
           <div className="space-y-10">
@@ -92,7 +91,7 @@ export default function NormasPage() {
               <p className="text-gray-700 leading-relaxed mt-2">
                 E-mail: contato@multinexo.com
                 <br />
-                WhatsApp: +55 31 9312-1211
+                WhatsApp: +55 31 99312-1211
               </p>
             </section>
 
