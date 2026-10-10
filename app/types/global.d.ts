@@ -6,5 +6,7 @@ declare global {
     gtag?: (...args: any[]) => void
     fbq?: (...args: any[]) => void
     dataLayer?: any[]
+    /** true quando o layout negou o consentimento no carregamento (Europa/UK sem aceite). */
+    __mxDeny?: boolean
   }
 }

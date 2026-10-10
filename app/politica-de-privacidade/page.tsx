@@ -5,7 +5,7 @@ import Header from '@/components/Header'
 
 export const metadata: Metadata = {
   title: 'Política de Privacidade | Multinexo',
-  description: 'Política de Privacidade e proteção de dados pessoais (LGPD).',
+  description: 'Política de Privacidade e proteção de dados pessoais (LGPD e GDPR).',
   alternates: {
     canonical: '/politica-de-privacidade',
   },
@@ -18,10 +18,11 @@ export default function PoliticaDePrivacidadePage() {
 
       <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-6">Política de Privacidade</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-3">Política de Privacidade</h1>
+          <p className="text-sm text-gray-500 mb-6">Última atualização: 10 de outubro de 2026.</p>
           <p className="text-gray-700 leading-relaxed mb-8">
             Esta Política de Privacidade descreve como a Multinexo ("nós") coleta, utiliza, armazena e
-            compartilha dados pessoais quando você utiliza este site.
+            compartilha dados pessoais quando você utiliza este site, inclusive o formulário de diagnóstico.
           </p>
 
           <div className="space-y-10">
@@ -37,35 +38,76 @@ export default function PoliticaDePrivacidadePage() {
               <h2 className="text-xl font-bold mb-3">2. Dados que podemos coletar</h2>
               <p className="text-gray-700 leading-relaxed mb-3">Podemos coletar, conforme aplicável:</p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                <li>Dados de contato informados por você (ex.: nome, e-mail, telefone).</li>
+                <li>Dados que você nos envia ao entrar em contato (ex.: nome, e-mail, telefone).</li>
+                <li>
+                  Respostas do formulário de diagnóstico: primeiro nome, empresa e cidade, segmento, se já
+                  anuncia, faixa de investimento mensal em anúncios e prazo para começar.
+                </li>
                 <li>Dados de navegação e uso (ex.: páginas visitadas, data e hora, cliques).</li>
-                <li>Dados técnicos (ex.: endereço IP, dispositivo, navegador, cookies).</li>
+                <li>
+                  Dados técnicos (ex.: endereço IP, dispositivo, navegador, cookies) e a origem do clique no
+                  anúncio (parâmetros de campanha, como utm_campaign).
+                </li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">3. Como usamos seus dados</h2>
+              <h2 className="text-xl font-bold mb-3">3. Formulário de diagnóstico</h2>
+              <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                <li>
+                  Você só preenche o necessário para avaliarmos se o serviço faz sentido para o seu negócio. Não
+                  pedimos telefone, e-mail, CPF nem documentos.
+                </li>
+                <li>
+                  As respostas ficam no seu navegador durante o preenchimento. O site não as guarda em servidor
+                  próprio.
+                </li>
+                <li>
+                  Se o seu perfil for compatível, você pode abrir uma conversa por WhatsApp com as respostas já
+                  escritas na mensagem. Esse envio é iniciado por você, a partir do seu número, e a conversa
+                  também segue os termos e a política do próprio WhatsApp.
+                </li>
+                <li>
+                  Para medir o desempenho dos anúncios, enviamos à Meta (Pixel) e ao Google (Analytics) apenas
+                  eventos com categorias e faixas (por exemplo: mercado, segmento, faixa de investimento e
+                  prazo). Nome, empresa e textos livres não são enviados a essas ferramentas.
+                </li>
+                <li>
+                  Ao marcar a caixa do formulário, você consente em ser contatado por WhatsApp e com esta
+                  política. Você pode retirar o consentimento a qualquer momento pelos contatos abaixo.
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-bold mb-3">4. Como usamos seus dados</h2>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Responder solicitações e contatos.</li>
+                <li>Avaliar se o seu perfil é compatível com o serviço e iniciar o atendimento.</li>
+                <li>Medir e melhorar o desempenho do site e das campanhas de anúncios.</li>
                 <li>Prestar e melhorar nossos serviços.</li>
-                <li>Personalizar conteúdos e comunicações, quando aplicável.</li>
                 <li>Cumprir obrigações legais e regulatórias.</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">4. Bases legais (LGPD)</h2>
+              <h2 className="text-xl font-bold mb-3">5. Bases legais (LGPD e GDPR)</h2>
               <p className="text-gray-700 leading-relaxed">
-                Tratamos dados pessoais com base, conforme o caso, no consentimento, execução de contrato,
-                cumprimento de obrigação legal/regulatória, exercício regular de direitos e/ou legítimo interesse.
+                No Brasil, tratamos dados pessoais com base na LGPD. Para visitantes da União Europeia e do Reino
+                Unido, aplicamos também o GDPR e o UK GDPR. Conforme o caso, as bases são o consentimento (por
+                exemplo, no formulário e nos cookies de medição e publicidade), a execução de procedimentos
+                preliminares a um contrato, o cumprimento de obrigação legal ou regulatória, o exercício regular
+                de direitos e o legítimo interesse.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">5. Compartilhamento de dados</h2>
+              <h2 className="text-xl font-bold mb-3">6. Compartilhamento de dados</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
-                Podemos compartilhar dados com fornecedores e parceiros necessários para operação do site e
-                prestação do serviço (ex.: hospedagem, analytics, ferramentas de marketing), sempre que aplicável.
+                Podemos compartilhar dados com fornecedores necessários para operar o site e medir campanhas,
+                como hospedagem, Meta (Pixel e WhatsApp) e Google (Analytics). Esses provedores tratam os dados
+                conforme as próprias políticas e podem armazená-los fora do seu país, o que pode implicar
+                transferência internacional de dados.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Também poderemos compartilhar dados para cumprimento de obrigação legal, ordem judicial ou
@@ -74,38 +116,53 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">6. Cookies e tecnologias semelhantes</h2>
-              <p className="text-gray-700 leading-relaxed">
-                Utilizamos cookies para melhorar a experiência, entender o uso do site e apoiar ações de marketing.
-                Você pode gerenciar cookies no seu navegador. Se houver banner/gerenciador de consentimento,
-                descreva aqui.
+              <h2 className="text-xl font-bold mb-3">7. Cookies e consentimento</h2>
+              <p className="text-gray-700 leading-relaxed mb-3">
+                Utilizamos cookies e tecnologias semelhantes para entender o uso do site e apoiar ações de
+                marketing (Meta Pixel e Google Analytics).
               </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold mb-3">7. Armazenamento, retenção e segurança</h2>
-              <p className="text-gray-700 leading-relaxed">
-                Adotamos medidas de segurança para proteger dados pessoais. Mantemos dados somente pelo tempo
-                necessário para cumprir as finalidades descritas nesta política, obrigações legais e para resguardar
-                direitos.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold mb-3">8. Seus direitos como titular</h2>
-              <p className="text-gray-700 leading-relaxed mb-3">Você pode solicitar:</p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                <li>Confirmação de tratamento e acesso.</li>
-                <li>Correção de dados incompletos, inexatos ou desatualizados.</li>
-                <li>Anonimização, bloqueio ou eliminação de dados desnecessários.</li>
-                <li>Portabilidade, quando aplicável.</li>
-                <li>Informação sobre compartilhamentos.</li>
-                <li>Revogação do consentimento, quando aplicável.</li>
+                <li>
+                  Para visitantes de Portugal, Irlanda, Espanha e Reino Unido, e nas páginas /europa, esses
+                  recursos só são ativados depois que você aceita no banner de cookies. Você pode recusar, e a
+                  escolha fica salva no seu navegador.
+                </li>
+                <li>
+                  Nas demais regiões, esses recursos podem ser carregados ao acessar o site. Você pode gerenciar
+                  ou bloquear cookies nas configurações do seu navegador.
+                </li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">9. Contato</h2>
+              <h2 className="text-xl font-bold mb-3">8. Armazenamento, retenção e segurança</h2>
+              <p className="text-gray-700 leading-relaxed">
+                Adotamos medidas de segurança para proteger dados pessoais. Mantemos dados somente pelo tempo
+                necessário para cumprir as finalidades descritas nesta política, obrigações legais e para
+                resguardar direitos.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-bold mb-3">9. Seus direitos como titular</h2>
+              <p className="text-gray-700 leading-relaxed mb-3">Você pode solicitar:</p>
+              <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                <li>Confirmação de tratamento e acesso.</li>
+                <li>Correção de dados incompletos, inexatos ou desatualizados.</li>
+                <li>Anonimização, bloqueio ou eliminação (apagamento) de dados desnecessários.</li>
+                <li>Limitação do tratamento e oposição a ele, quando aplicável.</li>
+                <li>Portabilidade, quando aplicável.</li>
+                <li>Informação sobre compartilhamentos.</li>
+                <li>Retirada do consentimento a qualquer momento, quando aplicável.</li>
+              </ul>
+              <p className="text-gray-700 leading-relaxed mt-3">
+                Você também pode apresentar reclamação à autoridade de proteção de dados do seu país (no Brasil,
+                a ANPD).
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-bold mb-3">10. Contato</h2>
               <p className="text-gray-700 leading-relaxed">
                 Para exercer seus direitos ou tirar dúvidas, entre em contato:
               </p>
@@ -117,17 +174,10 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">10. Atualizações desta política</h2>
+              <h2 className="text-xl font-bold mb-3">11. Atualizações desta política</h2>
               <p className="text-gray-700 leading-relaxed">
-                Podemos atualizar esta Política de Privacidade periodicamente. Recomendamos que você revise esta
-                página para acompanhar eventuais alterações.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold mb-3">Aviso</h2>
-              <p className="text-gray-700 leading-relaxed">
-                Este texto é um modelo informativo e não substitui aconselhamento jurídico.
+                Podemos atualizar esta Política de Privacidade periodicamente. A data da última atualização está
+                no topo desta página.
               </p>
             </section>
           </div>

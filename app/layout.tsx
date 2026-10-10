@@ -1,6 +1,17 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import ConsentBanner from '@/components/consent/ConsentBanner'
 import './globals.css'
+
+// Contexto Europa/UK = páginas /europa* OU ?mercado=PT|IE|ES|UK. Sem aceite
+// gravado, GA4 e Pixel nascem com consentimento negado (GDPR/ePrivacy).
+// Mesma regra de components/consent/consent.ts — mantenha as duas iguais.
+// String.raw preserva as barras invertidas da regex.
+const CONSENT_SNIPPET = String.raw`
+  var mxEu = /^\/europa(\/|$)/.test(location.pathname) || /[?&]mercado=(PT|IE|ES|UK)(&|$)/i.test(location.search);
+  var mxC = null; try { mxC = localStorage.getItem('mx_consent'); } catch (e) {}
+  window.__mxDeny = mxEu && mxC !== 'granted';
+`
 
 const SITE_URL = 'https://multinexo.com.br'
 const SITE_TITLE = 'Daniel Aguiar | Estrategista de Marketing Digital — Tráfego, IA e Dashboards'
@@ -178,46 +189,57 @@ export default function RootLayout({
 
         {children}
 
-        {/* Meta Pixel Code (noscript fallback) */}
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=1023132310698997&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
+        {/* Banner de consentimento — só aparece em contexto Europa/UK */}
+        <ConsentBanner />
+
+        {/*
+          O fallback <noscript><img …facebook.com/tr…> foi removido de propósito:
+          o React o transforma em <link rel="preload">, e isso mandava um PageView
+          à Meta para todo visitante, com ou sem consentimento (e em duplicidade
+          com o fbq PageView abaixo).
+        */}
       </body>
 
-      {/* Google tag (gtag.js) */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-45HQ87876L"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
+      {/*
+        GA4 + Meta Pixel. Fora de Europa/UK carregam logo (como antes). Em
+        Europa/UK sem aceite gravado NÃO são carregados: o script espera o evento
+        'mx:consent' (disparado pelo banner) e só então injeta gtag.js e fbevents.js.
+      */}
+      <Script id="analytics-loader" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-45HQ87876L');
-        `}
-      </Script>
-
-      {/* Meta Pixel Code */}
-      <Script id="meta-pixel" strategy="afterInteractive">
-        {`
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1023132310698997');
-          fbq('track', 'PageView');
+          ${CONSENT_SNIPPET}
+          function mxLoadGA() {
+            if (window.__mxGA) return; window.__mxGA = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-45HQ87876L';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () { window.dataLayer.push(arguments); };
+            window.gtag('js', new Date());
+            window.gtag('config', 'G-45HQ87876L');
+          }
+          function mxLoadPixel() {
+            if (window.__mxPx) return; window.__mxPx = true;
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1023132310698997');
+            fbq('track', 'PageView');
+          }
+          function mxLoadAll() { mxLoadGA(); mxLoadPixel(); }
+          if (!window.__mxDeny) {
+            mxLoadAll();
+          } else {
+            window.addEventListener('mx:consent', function (e) {
+              if (e.detail === 'granted') mxLoadAll();
+            });
+          }
         `}
       </Script>
     </html>
