@@ -1,8 +1,9 @@
 'use client'
 
 // Faixa de prova social logo abaixo do Hero (acima da dobra).
-const logos = [
-  { src: '/images/clients/bravo-bet.svg', alt: 'Bravo Bet', dark: true },
+// Itens com `text` aparecem como etiqueta escura (cliente sem logo publicado).
+const logos: { src?: string; alt: string; dark?: boolean; round?: boolean; text?: string }[] = [
+  { text: 'iGaming', alt: 'iGaming', dark: true },
   { src: '/images/clients/iq-option-expert.jpg', alt: 'IQ Option — Expert & Affiliate' },
   { src: '/images/clients/seu-phone.jpg', alt: 'Seu Phone Betim', round: true },
   { src: '/images/clients/rei-do-sabor.jpg', alt: 'Rei do Sabor Hamburgueria', round: true },
@@ -17,12 +18,12 @@ export default function TrustBar() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
           {logos.map((l) =>
-            l.dark ? (
+            l.text ? (
               <span
-                key={l.src}
-                className="inline-flex items-center rounded-lg bg-gray-900 px-4 py-3 opacity-90 hover:opacity-100 transition"
+                key={l.text}
+                className="inline-flex items-center rounded-lg bg-gray-900 px-4 py-3 text-sm font-bold uppercase tracking-wide text-white opacity-90 hover:opacity-100 transition"
               >
-                <img src={l.src} alt={l.alt} loading="lazy" className="h-5 w-auto object-contain" />
+                {l.text}
               </span>
             ) : (
               <img
@@ -40,6 +41,10 @@ export default function TrustBar() {
           )}
           <span className="text-sm text-gray-500">
             CredTop · Empréstimo Braz · Consultório Bem de Vida
+          </span>
+          {/* Depois do Consultório Bem de Vida, como etiqueta (igual ao iGaming). */}
+          <span className="inline-flex items-center rounded-lg bg-gray-900 px-4 py-3 text-sm font-bold uppercase tracking-wide text-white opacity-90 hover:opacity-100 transition">
+            Gaming
           </span>
         </div>
       </div>

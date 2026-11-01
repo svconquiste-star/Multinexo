@@ -14,9 +14,11 @@ import FAQ from '@/components/FAQ'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
+import LeadFormProvider from '@/components/lead/LeadFormProvider'
 
 export default function Home() {
   return (
+    <LeadFormProvider>
     <main className="min-h-screen">
       <Header />
       <Hero />
@@ -35,5 +37,6 @@ export default function Home() {
       <Footer />
       <FloatingWhatsApp />
     </main>
+    </LeadFormProvider>
   )
 }

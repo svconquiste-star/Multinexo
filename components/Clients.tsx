@@ -10,7 +10,7 @@ type Client = {
 }
 
 const clients: Client[] = [
-  { id: 1, name: 'Bravo Bet', logo: '/images/clients/bravo-bet.svg', dark: true },
+  { id: 1, name: 'iGaming' },
   { id: 2, name: 'Seu Phone Betim' },
   { id: 3, name: 'Rei do Sabor Hamburgueria' },
   { id: 9, name: 'Expert & Affiliate — Forex/OB', logo: '/images/clients/iq-option-expert.jpg', wide: true },
@@ -19,6 +19,7 @@ const clients: Client[] = [
   { id: 6, name: 'Empréstimo Braz' },
   { id: 7, name: 'Hamburguer Irmão' },
   { id: 8, name: 'Consultório Bem de Vida' },
+  { id: 10, name: 'Gaming' },
 ]
 
 export default function Clients() {

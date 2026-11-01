@@ -13,6 +13,14 @@ const CONSENT_SNIPPET = String.raw`
   window.__mxDeny = mxEu && mxC !== 'granted';
 `
 
+// Testes no localhost não podem mandar evento para o GA4/Pixel de produção.
+// Com ?mx_debug=1 os scripts carregam mesmo no localhost e o GA4 entra em
+// debug_mode (aparece no DebugView, inclusive em produção).
+const ENV_SNIPPET = String.raw`
+  window.__mxLocal = /^(localhost|127\.0\.0\.1|\[::1\]|.+\.localhost)$/.test(location.hostname);
+  window.__mxDebug = /[?&]mx_debug=1(&|$)/.test(location.search);
+`
+
 const SITE_URL = 'https://multinexo.com.br'
 const SITE_TITLE = 'Daniel Aguiar | Estrategista de Marketing Digital — Tráfego, IA e Dashboards'
 const SITE_DESCRIPTION =
@@ -189,6 +197,20 @@ export default function RootLayout({
 
         {children}
 
+        {/*
+          Conversão do Google Ads: clique em qualquer link do WhatsApp. Usa
+          window.gtag, que só existe depois do consentimento (Europa/UK) e não
+          existe no localhost; sem gtag, não dispara nada.
+        */}
+        <Script id="ads-whatsapp-conv" strategy="afterInteractive">
+          {`document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a');
+  if (!e.defaultPrevented && a && /wa\\.me|api\\.whatsapp\\.com/.test(a.href)) {
+    window.gtag && window.gtag('event', 'conversion', {'send_to': 'AW-18518810455/1seBCMCrxa8dENe-uv5E'});
+  }
+});`}
+        </Script>
+
         {/* Banner de consentimento — só aparece em contexto Europa/UK */}
         <ConsentBanner />
 
@@ -208,6 +230,7 @@ export default function RootLayout({
       <Script id="analytics-loader" strategy="afterInteractive">
         {`
           ${CONSENT_SNIPPET}
+          ${ENV_SNIPPET}
           function mxLoadGA() {
             if (window.__mxGA) return; window.__mxGA = true;
             var s = document.createElement('script');
@@ -217,7 +240,10 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             window.gtag = function () { window.dataLayer.push(arguments); };
             window.gtag('js', new Date());
-            window.gtag('config', 'G-45HQ87876L');
+            window.gtag('config', 'G-45HQ87876L', window.__mxDebug ? { debug_mode: true } : {});
+            // Tag do Google Ads: necessária para a conversão do clique no WhatsApp
+            // (ads-whatsapp-conv, abaixo) ser registrada na conta.
+            window.gtag('config', 'AW-18518810455');
           }
           function mxLoadPixel() {
             if (window.__mxPx) return; window.__mxPx = true;
@@ -232,7 +258,10 @@ export default function RootLayout({
             fbq('init', '1023132310698997');
             fbq('track', 'PageView');
           }
-          function mxLoadAll() { mxLoadGA(); mxLoadPixel(); }
+          function mxLoadAll() {
+            if (window.__mxLocal && !window.__mxDebug) return;
+            mxLoadGA(); mxLoadPixel();
+          }
           if (!window.__mxDeny) {
             mxLoadAll();
           } else {

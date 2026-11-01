@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import CaseView from '@/components/case/CaseView'
+import LeadFormProvider from '@/components/lead/LeadFormProvider'
 import { CASES, CASE_SLUGS } from '@/lib/cases'
 
 export const dynamicParams = false
@@ -32,5 +33,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 export default function CasePage({ params }: { params: { slug: string } }) {
   const study = CASES[params.slug]
   if (!study) notFound()
-  return <CaseView study={study} />
+  return (
+    <LeadFormProvider>
+      <CaseView study={study} />
+    </LeadFormProvider>
+  )
 }

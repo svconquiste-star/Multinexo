@@ -19,7 +19,7 @@ export default function PoliticaDePrivacidadePage() {
       <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl font-bold mb-3">Política de Privacidade</h1>
-          <p className="text-sm text-gray-500 mb-6">Última atualização: 10 de outubro de 2026.</p>
+          <p className="text-sm text-gray-500 mb-6">Última atualização: 1 de novembro de 2026.</p>
           <p className="text-gray-700 leading-relaxed mb-8">
             Esta Política de Privacidade descreve como a Multinexo ("nós") coleta, utiliza, armazena e
             compartilha dados pessoais quando você utiliza este site, inclusive o formulário de diagnóstico.
@@ -43,6 +43,10 @@ export default function PoliticaDePrivacidadePage() {
                   Respostas do formulário de diagnóstico: primeiro nome, empresa e cidade, segmento, se já
                   anuncia, faixa de investimento mensal em anúncios e prazo para começar.
                 </li>
+                <li>
+                  Dados do formulário de contato do site: nome, telefone, empresa, área da empresa, serviços de
+                  interesse e a descrição do problema e da solução que você busca.
+                </li>
                 <li>Dados de navegação e uso (ex.: páginas visitadas, data e hora, cliques).</li>
                 <li>
                   Dados técnicos (ex.: endereço IP, dispositivo, navegador, cookies) e a origem do clique no
@@ -52,7 +56,7 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">3. Formulário de diagnóstico</h2>
+              <h2 className="text-xl font-bold mb-3">3. Formulário de diagnóstico (página /diagnostico)</h2>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>
                   Você só preenche o necessário para avaliarmos se o serviço faz sentido para o seu negócio. Não
@@ -80,7 +84,35 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">4. Como usamos seus dados</h2>
+              <h2 className="text-xl font-bold mb-3">4. Formulário de contato do site</h2>
+              <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                <li>
+                  Ao clicar nos botões de WhatsApp da página inicial e dos cases, você preenche um formulário
+                  com nome, telefone, empresa, área da empresa, serviços de interesse e uma descrição do seu
+                  cenário. Esses dados são gravados em um banco de dados do nosso servidor.
+                </li>
+                <li>
+                  Usamos esses dados para entrar em contato com você, por WhatsApp ou telefone, e dar andamento ao
+                  atendimento, caso você não inicie a conversa. Em seguida, o site abre o WhatsApp com os mesmos
+                  dados já escritos na mensagem, e o envio dela é iniciado por você.
+                </li>
+                <li>
+                  Guardamos também a origem do clique (página, botão e parâmetros de campanha), o navegador e uma
+                  versão codificada (hash) do endereço IP, para segurança e para medir os anúncios.
+                </li>
+                <li>
+                  Mantemos esses dados pelo tempo necessário para o contato comercial e, em regra, por até 12
+                  meses, salvo se você pedir antes a eliminação pelos contatos abaixo.
+                </li>
+                <li>
+                  Ao marcar a caixa de autorização do formulário, você consente em ser contatado e com esta
+                  política. Você pode retirar o consentimento a qualquer momento.
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-bold mb-3">5. Como usamos seus dados</h2>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Responder solicitações e contatos.</li>
                 <li>Avaliar se o seu perfil é compatível com o serviço e iniciar o atendimento.</li>
@@ -91,7 +123,7 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">5. Bases legais (LGPD e GDPR)</h2>
+              <h2 className="text-xl font-bold mb-3">6. Bases legais (LGPD e GDPR)</h2>
               <p className="text-gray-700 leading-relaxed">
                 No Brasil, tratamos dados pessoais com base na LGPD. Para visitantes da União Europeia e do Reino
                 Unido, aplicamos também o GDPR e o UK GDPR. Conforme o caso, as bases são o consentimento (por
@@ -102,7 +134,7 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">6. Compartilhamento de dados</h2>
+              <h2 className="text-xl font-bold mb-3">7. Compartilhamento de dados</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
                 Podemos compartilhar dados com fornecedores necessários para operar o site e medir campanhas,
                 como hospedagem, Meta (Pixel e WhatsApp) e Google (Analytics). Esses provedores tratam os dados
@@ -116,7 +148,7 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">7. Cookies e consentimento</h2>
+              <h2 className="text-xl font-bold mb-3">8. Cookies e consentimento</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
                 Utilizamos cookies e tecnologias semelhantes para entender o uso do site e apoiar ações de
                 marketing (Meta Pixel e Google Analytics).
@@ -135,7 +167,7 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">8. Armazenamento, retenção e segurança</h2>
+              <h2 className="text-xl font-bold mb-3">9. Armazenamento, retenção e segurança</h2>
               <p className="text-gray-700 leading-relaxed">
                 Adotamos medidas de segurança para proteger dados pessoais. Mantemos dados somente pelo tempo
                 necessário para cumprir as finalidades descritas nesta política, obrigações legais e para
@@ -144,7 +176,7 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">9. Seus direitos como titular</h2>
+              <h2 className="text-xl font-bold mb-3">10. Seus direitos como titular</h2>
               <p className="text-gray-700 leading-relaxed mb-3">Você pode solicitar:</p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Confirmação de tratamento e acesso.</li>
@@ -162,7 +194,7 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">10. Contato</h2>
+              <h2 className="text-xl font-bold mb-3">11. Contato</h2>
               <p className="text-gray-700 leading-relaxed">
                 Para exercer seus direitos ou tirar dúvidas, entre em contato:
               </p>
@@ -174,7 +206,7 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold mb-3">11. Atualizações desta política</h2>
+              <h2 className="text-xl font-bold mb-3">12. Atualizações desta política</h2>
               <p className="text-gray-700 leading-relaxed">
                 Podemos atualizar esta Política de Privacidade periodicamente. A data da última atualização está
                 no topo desta página.

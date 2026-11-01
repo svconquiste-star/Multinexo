@@ -3,11 +3,13 @@
 import { Star, Quote } from 'lucide-react'
 import type { Dict } from './i18n'
 
-const logos = [
-  { src: '/images/clients/bravo-bet.svg', alt: 'Bravo Bet', dark: true },
+// Itens com `text` aparecem como etiqueta escura (cliente sem logo publicado).
+const logos: { src?: string; alt: string; round?: boolean; text?: string }[] = [
+  { text: 'iGaming', alt: 'iGaming' },
   { src: '/images/clients/iq-option-expert.jpg', alt: 'IQ Option — Expert & Affiliate' },
   { src: '/images/clients/seu-phone.jpg', alt: 'Seu Phone', round: true },
   { src: '/images/clients/rei-do-sabor.jpg', alt: 'Rei do Sabor', round: true },
+  { text: 'Gaming', alt: 'Gaming' },
 ]
 
 export default function LpProof({ t }: { t: Dict }) {
@@ -51,12 +53,12 @@ export default function LpProof({ t }: { t: Dict }) {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
           {logos.map((l) =>
-            l.dark ? (
+            l.text ? (
               <span
-                key={l.src}
-                className="inline-flex items-center rounded-lg bg-gray-900 px-4 py-3 opacity-90"
+                key={l.text}
+                className="inline-flex items-center rounded-lg bg-gray-900 px-4 py-3 text-sm font-bold uppercase tracking-wide text-white opacity-90"
               >
-                <img src={l.src} alt={l.alt} loading="lazy" className="h-5 w-auto object-contain" />
+                {l.text}
               </span>
             ) : (
               <img

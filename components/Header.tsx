@@ -3,9 +3,12 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import WhatsAppLink from './WhatsAppLink'
+import { useLeadForm } from '@/components/lead/context'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const leadForm = useLeadForm()
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
@@ -38,15 +41,14 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) =>
               item.external ? (
-                <a
+                <WhatsAppLink
                   key={item.href}
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  location="header"
                   className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
                 >
                   {item.label}
-                </a>
+                </WhatsAppLink>
               ) : (
                 <Link
                   key={item.href}
@@ -57,9 +59,15 @@ export default function Header() {
                 </Link>
               )
             )}
-            <Link href="#agendar" className="btn-primary">
-              Análise Gratuita
-            </Link>
+            {leadForm ? (
+              <button type="button" onClick={() => leadForm.open('header-cta')} className="btn-primary">
+                Análise Gratuita
+              </button>
+            ) : (
+              <Link href="#agendar" className="btn-primary">
+                Análise Gratuita
+              </Link>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -79,16 +87,15 @@ export default function Header() {
           <nav id="mobile-menu" className="md:hidden pb-4 space-y-4">
             {navItems.map((item) =>
               item.external ? (
-                <a
+                <WhatsAppLink
                   key={item.href}
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  location="header-mobile"
                   className="block text-gray-700 hover:text-purple-600 transition-colors font-medium py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                </a>
+                </WhatsAppLink>
               ) : (
                 <Link
                   key={item.href}
@@ -100,9 +107,22 @@ export default function Header() {
                 </Link>
               )
             )}
-            <Link href="#agendar" className="block w-full btn-primary text-center" onClick={() => setIsOpen(false)}>
-              Análise Gratuita
-            </Link>
+            {leadForm ? (
+              <button
+                type="button"
+                className="block w-full btn-primary text-center"
+                onClick={() => {
+                  setIsOpen(false)
+                  leadForm.open('header-cta-mobile')
+                }}
+              >
+                Análise Gratuita
+              </button>
+            ) : (
+              <Link href="#agendar" className="block w-full btn-primary text-center" onClick={() => setIsOpen(false)}>
+                Análise Gratuita
+              </Link>
+            )}
           </nav>
         )}
       </div>
