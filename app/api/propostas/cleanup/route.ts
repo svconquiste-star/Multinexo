@@ -9,7 +9,8 @@ export const runtime = 'nodejs'
 export async function GET(req: Request) {
   const secret = process.env.CRON_SECRET
   const header = req.headers.get('authorization') || ''
-  if (secret && header !== `Bearer ${secret}`) {
+  // Sem CRON_SECRET definido a rota fica FECHADA (antes ficava aberta a qualquer um).
+  if (!secret || header !== `Bearer ${secret}`) {
     return Response.json({ error: 'Não autorizado.' }, { status: 401 })
   }
 
@@ -25,6 +26,7 @@ export async function GET(req: Request) {
     }
     return Response.json({ removidas })
   } catch (e: any) {
-    return Response.json({ error: e?.message || 'Falha na limpeza.' }, { status: 500 })
+    console.error('[propostas] falha na limpeza', e?.code || e?.name || '')
+    return Response.json({ error: 'Falha na limpeza.' }, { status: 500 })
   }
 }

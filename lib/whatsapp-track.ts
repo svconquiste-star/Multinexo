@@ -1,6 +1,10 @@
-// Rastreamento do clique que realmente abre o WhatsApp (GA4 + Meta Pixel).
-// Usado pelo WhatsAppLink (link direto) e pelo formulário de captação.
-// A conversão do Google Ads sai do ouvinte de clique do app/layout.tsx.
+// Rastreamento do clique que realmente abre o WhatsApp (GA4, Meta Pixel e
+// conversão do Google Ads). Usado pelo WhatsAppLink (link direto) e pelo
+// formulário de captação. Cada abertura do WhatsApp chama esta função uma
+// vez, e só aqui a conversão do Ads é disparada.
+
+// Ação de conversão do Google Ads (clique no WhatsApp).
+const ADS_CONVERSION = 'AW-18518810455/1seBCMCrxa8dENe-uv5E'
 
 // Tipo de página do clique, para separar os botões nos relatórios do GA4.
 export function pageType(): string {
@@ -20,5 +24,10 @@ export function trackWhatsAppClick(location: string) {
     window.gtag?.('event', 'generate_lead', { method: 'whatsapp', location })
     // Mesmo clique, com o botão e o tipo de página.
     window.gtag?.('event', 'whatsapp_click', { location, page_type: pageType() })
+  } catch {}
+  try {
+    // window.gtag só existe depois do consentimento (Europa/UK) e não existe
+    // no localhost: sem ele, nada é enviado.
+    window.gtag?.('event', 'conversion', { send_to: ADS_CONVERSION })
   } catch {}
 }

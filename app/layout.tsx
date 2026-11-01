@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import ConsentBanner from '@/components/consent/ConsentBanner'
+import AttributionCapture from '@/components/lead/AttributionCapture'
 import './globals.css'
 
 // Contexto Europa/UK = páginas /europa* OU ?mercado=PT|IE|ES|UK. Sem aceite
@@ -26,24 +27,14 @@ const SITE_TITLE = 'Daniel Aguiar | Estrategista de Marketing Digital — Tráfe
 const SITE_DESCRIPTION =
   'Sou o Daniel Aguiar. Escalo negócios com tráfego pago, estratégia e IA como vantagem competitiva. Consultoria e criação de dashboards para crescimento previsível e mensurável.'
 
+// <title> com até ~60 caracteres (o Google corta o resto). Redes sociais
+// (openGraph/twitter) usam o título completo, que não tem esse limite.
+const PAGE_TITLE = 'Daniel Aguiar | Gestor de Tráfego Pago, IA e Dashboards'
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: SITE_TITLE,
+  title: PAGE_TITLE,
   description: SITE_DESCRIPTION,
-  keywords: [
-    'marketing digital',
-    'estrategista de marketing digital',
-    'gestão de tráfego',
-    'tráfego pago',
-    'Google Ads',
-    'Meta Ads',
-    'automação com IA',
-    'agente de IA no WhatsApp',
-    'atendimento com IA',
-    'criação de dashboard',
-    'consultoria de marketing digital',
-    'marketing digital Betim MG',
-  ],
   authors: [{ name: 'Daniel Aguiar' }],
   creator: 'Daniel Aguiar',
   publisher: 'Daniel Aguiar · Multinexo',
@@ -198,18 +189,11 @@ export default function RootLayout({
         {children}
 
         {/*
-          Conversão do Google Ads: clique em qualquer link do WhatsApp. Usa
-          window.gtag, que só existe depois do consentimento (Europa/UK) e não
-          existe no localhost; sem gtag, não dispara nada.
+          Guarda gclid, gbraid, wbraid, UTM e fbclid assim que qualquer página
+          carrega, para o lead do formulário não perder a origem do anúncio.
+          (A conversão do Google Ads sai de lib/whatsapp-track.ts.)
         */}
-        <Script id="ads-whatsapp-conv" strategy="afterInteractive">
-          {`document.addEventListener('click', function (e) {
-  var a = e.target.closest && e.target.closest('a');
-  if (!e.defaultPrevented && a && /wa\\.me|api\\.whatsapp\\.com/.test(a.href)) {
-    window.gtag && window.gtag('event', 'conversion', {'send_to': 'AW-18518810455/1seBCMCrxa8dENe-uv5E'});
-  }
-});`}
-        </Script>
+        <AttributionCapture />
 
         {/* Banner de consentimento — só aparece em contexto Europa/UK */}
         <ConsentBanner />
@@ -242,7 +226,7 @@ export default function RootLayout({
             window.gtag('js', new Date());
             window.gtag('config', 'G-45HQ87876L', window.__mxDebug ? { debug_mode: true } : {});
             // Tag do Google Ads: necessária para a conversão do clique no WhatsApp
-            // (ads-whatsapp-conv, abaixo) ser registrada na conta.
+            // (lib/whatsapp-track.ts) ser registrada na conta.
             window.gtag('config', 'AW-18518810455');
           }
           function mxLoadPixel() {

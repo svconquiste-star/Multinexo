@@ -27,6 +27,7 @@ export async function POST(req: Request) {
     if (item) await deleteFile(item.fullPath)
     return Response.json({ removidas: item ? 1 : 0 })
   } catch (e: any) {
-    return Response.json({ error: e?.message || 'Falha ao excluir.' }, { status: 500 })
+    console.error('[propostas] falha ao excluir', e?.code || e?.name || '')
+    return Response.json({ error: 'Falha ao excluir.' }, { status: 500 })
   }
 }

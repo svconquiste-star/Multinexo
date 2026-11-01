@@ -3,7 +3,11 @@
 import { ArrowRight, Calendar } from 'lucide-react'
 import WhatsAppLink from './WhatsAppLink'
 
-export default function CTA() {
+export default function CTA({
+  tagline = 'Transformo empresas locais e experts em máquinas previsíveis de crescimento com tráfego, IA e estratégia',
+}: {
+  tagline?: string
+}) {
   const whatsappLink = 'https://wa.me/5531993121211?text=Olá!%20Gostaria%20de%20agendar%20uma%20análise%20gratuita%20para%20escalar%20meu%20negócio.'
 
   return (
@@ -84,9 +88,7 @@ export default function CTA() {
         </div>
 
         <div className="text-center">
-          <p className="text-white text-opacity-80">
-            Transformo empresas locais e experts em máquinas previsíveis de crescimento com tráfego, IA e estratégia
-          </p>
+          <p className="text-white text-opacity-80">{tagline}</p>
         </div>
       </div>
     </section>

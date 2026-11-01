@@ -56,11 +56,10 @@ export async function POST(req: Request) {
     const buffer = Buffer.from(await file.arrayBuffer())
     await saveFile(slug, expiresAtMs, ext, buffer)
   } catch (e: any) {
+    console.error('[propostas] falha ao salvar', e?.code || e?.name || '')
     return Response.json(
       {
-        error:
-          'Falha ao salvar. Verifique o volume/permissão de PROPOSTAS_DIR. ' +
-          (e?.message || ''),
+        error: 'Falha ao salvar. Verifique o volume/permissão de PROPOSTAS_DIR.',
       },
       { status: 500 }
     )

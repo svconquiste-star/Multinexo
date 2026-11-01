@@ -34,6 +34,7 @@ export async function GET(req: Request) {
     propostas.sort((a, b) => (a.expiresAt < b.expiresAt ? 1 : -1))
     return Response.json({ propostas })
   } catch (e: any) {
-    return Response.json({ error: e?.message || 'Falha ao listar.' }, { status: 500 })
+    console.error('[propostas] falha ao listar', e?.code || e?.name || '')
+    return Response.json({ error: 'Falha ao listar.' }, { status: 500 })
   }
 }

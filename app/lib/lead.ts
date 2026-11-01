@@ -40,6 +40,8 @@ export interface LeadData {
   utm_content: string | null
   utm_term: string | null
   gclid: string | null
+  gbraid: string | null
+  wbraid: string | null
   fbclid: string | null
   referrer: string | null
 }
@@ -151,6 +153,8 @@ export function parseLead(body: unknown): ParseResult {
       utm_content: optional(b.utm_content, 120),
       utm_term: optional(b.utm_term, 120),
       gclid: optional(b.gclid, 200),
+      gbraid: optional(b.gbraid, 200),
+      wbraid: optional(b.wbraid, 200),
       fbclid: optional(b.fbclid, 200),
       referrer: optional(b.referrer, 300),
     },

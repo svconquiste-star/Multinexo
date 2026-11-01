@@ -43,3 +43,9 @@ yarn-error.log*
 
 # dados locais de propostas (dev)
 .propostas-data/
+
+# Configuração local do Claude Code (pode ter permissões e links pessoais)
+.claude/
+
+# Cache do TypeScript
+*.tsbuildinfo

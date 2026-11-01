@@ -5,33 +5,13 @@ import { LeadFormCtx, type LeadFormContext } from './context'
 import { X, ArrowLeft, ArrowRight, MessageCircle, CheckCircle2 } from 'lucide-react'
 import { waUrl } from '@/components/lp/wa'
 import { trackWhatsAppClick } from '@/lib/whatsapp-track'
+import { captureAttr } from '@/lib/attribution'
 import { LIMITS, SERVICOS, normalizePhone, type ServicoId } from '@/app/lib/lead'
 
 // Formulário de captação que abre antes do WhatsApp. Ao enviar, grava o lead
 // no banco (POST /api/lead) e, no mesmo toque, abre o WhatsApp com a mensagem
 // pronta. Sem esperar o servidor: se o banco falhar, o cliente chega ao
 // WhatsApp do mesmo jeito.
-
-const ATTR_KEY = 'mx_lead_attr'
-const ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'] as const
-type Attr = Partial<Record<(typeof ATTR_KEYS)[number], string>>
-
-function captureAttr(): Attr {
-  let stored: Attr = {}
-  try {
-    stored = JSON.parse(sessionStorage.getItem(ATTR_KEY) || '{}')
-  } catch {}
-  const q = new URLSearchParams(window.location.search)
-  const next: Attr = { ...stored }
-  for (const k of ATTR_KEYS) {
-    const v = q.get(k)
-    if (v) next[k] = v.slice(0, 200)
-  }
-  try {
-    sessionStorage.setItem(ATTR_KEY, JSON.stringify(next))
-  } catch {}
-  return next
-}
 
 // Código curto, sem caracteres ambíguos, que vai na mensagem e na linha do banco.
 function newRef(): string {
@@ -290,8 +270,8 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
     trackWhatsAppClick(locationRef.current)
 
     const href = waUrl(buildMessage({ nome, empresa, area, servicos, outro, problema, solucao, ref }))
-    // Clique programático num link real: abre o WhatsApp e o ouvinte de
-    // conversão do Google Ads (app/layout.tsx) conta uma vez.
+    // Clique programático num link real, no mesmo toque do envio (o celular não
+    // bloqueia a janela). A medição já foi feita acima (trackWhatsAppClick).
     const a = document.createElement('a')
     a.href = href
     a.target = '_blank'
@@ -345,9 +325,6 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
                   href={done.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  // Já foi medido no envio: impede que o ouvinte de conversão do
-                  // Google Ads (no mesmo `document`) conte este clique de novo.
-                  onClick={(e) => e.nativeEvent.stopImmediatePropagation()}
                   className="mt-6 inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700"
                 >
                   <MessageCircle size={18} /> O WhatsApp não abriu? Toque aqui

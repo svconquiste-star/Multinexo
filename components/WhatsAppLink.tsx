@@ -33,8 +33,8 @@ export default function WhatsAppLink({
   function handleClick(e: MouseEvent<HTMLAnchorElement>) {
     onClick?.()
     if (leadForm) {
-      // preventDefault também impede que o ouvinte de conversão do Google Ads
-      // (app/layout.tsx) conte este clique: a conversão sai quando o WhatsApp abre.
+      // Só abre o formulário: nenhuma conversão aqui. Ela sai de
+      // trackWhatsAppClick quando o WhatsApp realmente abre (no envio).
       e.preventDefault()
       leadForm.open(location)
       return

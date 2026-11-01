@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS "SITE_MULTINEXO_CLIENTES".leads (
   utm_content     text,
   utm_term        text,
   gclid           text,
+  gbraid          text,                                  -- Google Ads, iPhone
+  wbraid          text,                                  -- Google Ads, iPhone
   fbclid          text,
   referrer        text,
   user_agent      text,
@@ -41,6 +43,10 @@ CREATE TABLE IF NOT EXISTS "SITE_MULTINEXO_CLIENTES".leads (
   contatado_em    timestamptz,
   observacoes     text
 );
+
+-- Para quem criou a tabela antes de gbraid/wbraid existirem.
+ALTER TABLE "SITE_MULTINEXO_CLIENTES".leads ADD COLUMN IF NOT EXISTS gbraid text;
+ALTER TABLE "SITE_MULTINEXO_CLIENTES".leads ADD COLUMN IF NOT EXISTS wbraid text;
 
 CREATE INDEX IF NOT EXISTS leads_created_at_idx ON "SITE_MULTINEXO_CLIENTES".leads (created_at DESC);
 CREATE INDEX IF NOT EXISTS leads_telefone_idx   ON "SITE_MULTINEXO_CLIENTES".leads (telefone);

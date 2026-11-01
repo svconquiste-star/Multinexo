@@ -1,111 +1,84 @@
-# Guia de Deployment - Multinexo
+# Guia de Deploy — Multinexo
 
-## Deploy no Vercel (Recomendado)
+O site roda em **Coolify** (VPS), com build por Nixpacks. O deploy acontece sozinho a cada push na branch `main`.
 
-### Pré-requisitos
-- Conta no [Vercel](https://vercel.com)
-- Repositório no GitHub
+> **Não use `output: 'export'`** (site estático) no `next.config.js`. O site tem rotas de API (`/api/lead`, `/api/propostas/*`) e páginas dinâmicas (`/diagnostico`, `/proposta/[slug]`) que precisam do servidor Node. Por isso Vercel estático e GitHub Pages **não servem** para este projeto.
 
-### Passos
+## Coolify
 
-1. **Conectar repositório ao Vercel**
-   - Acesse https://vercel.com/new
-   - Selecione seu repositório GitHub
-   - Vercel detectará automaticamente que é um projeto Next.js
+- **Build:** `npm run build`
+- **Start:** `npm start` (porta 3000)
+- **Node:** variável `NIXPACKS_NODE_VERSION=22`
 
-2. **Configurar variáveis de ambiente**
-   - Na aba "Environment Variables", adicione:
-     - `NEXT_PUBLIC_SITE_URL`: URL do seu site
+### Variáveis de ambiente
 
-3. **Deploy**
-   - Clique em "Deploy"
-   - Vercel fará o build e deploy automaticamente
+| Variável | Para que serve | Observações |
+|---|---|---|
+| `NIXPACKS_NODE_VERSION` | Versão do Node no build | Só no build |
+| `DATABASE_URL` | Conexão com o Postgres (formulário de captação) | `postgres://USUARIO:SENHA@HOST:PORTA/BANCO`, uma linha, sem aspas, sem `<>`. Em tempo de execução |
+| `LEAD_HASH_SALT` | Sal do hash do IP guardado com cada lead | Texto longo e aleatório. Sem ele, o IP não é guardado |
+| `PROPOSTAS_TOKEN` | Senha do painel `/admin` (propostas) | Obrigatória para o painel |
+| `PROPOSTAS_DIR` | Pasta das propostas | Aponte para um **volume persistente** (ex.: `/app/propostas`); sem isso as propostas somem a cada deploy |
+| `CRON_SECRET` | Segredo da limpeza `GET /api/propostas/cleanup` | Sem ele a rota responde 401 a todos |
 
-### Deploy automático
-- Qualquer push para a branch `main` fará deploy automático
+Nunca coloque valores reais no repositório: o `.env.example` só tem os nomes. Para rodar local, copie para `.env.local` (ignorado pelo git).
 
-## Deploy no GitHub Pages
+### Banco de dados (formulário de captação)
 
-### Pré-requisitos
-- Repositório público no GitHub
+O formulário grava em `"SITE_MULTINEXO_CLIENTES".leads`. Para criar o schema e a tabela (idempotente), uma vez, a partir de uma máquina com acesso ao banco:
 
-### Passos
-
-1. **Configurar next.config.js**
-   ```javascript
-   const nextConfig = {
-     output: 'export',
-     images: {
-       unoptimized: true,
-     },
-   }
-   ```
-
-2. **Criar GitHub Action**
-   - Crie `.github/workflows/deploy.yml`
-   - Configure para fazer build e push para `gh-pages`
-
-3. **Ativar GitHub Pages**
-   - Vá para Settings > Pages
-   - Selecione `gh-pages` como source
-
-## Deploy Local
-
-### Desenvolvimento
 ```bash
-npm run dev
+DATABASE_URL='postgres://USUARIO:SENHA@HOST:PORTA/BANCO' node scripts/db-setup.mjs
 ```
 
-### Build para produção
+O SQL está em `db/leads.sql`. O site só grava (`INSERT`); a consulta e o acompanhamento (`status`, `contatado_em`, `observacoes`) são feitos por um programa de SQL. Se `DATABASE_URL` estiver ausente ou errada, o formulário ainda abre o WhatsApp, mas **o lead não é salvo** (veja os avisos `[lead]` no log do container; `28P01` = senha incorreta).
+
+### Limpeza de propostas (opcional)
+
+Uma *Scheduled Task* do Coolify pode chamar `GET /api/propostas/cleanup` com `Authorization: Bearer <CRON_SECRET>`. A limpeza também acontece ao servir e listar propostas.
+
+### Domínio
+
+Em *Domains* da aplicação no Coolify, aponte `multinexo.com.br` (e `www`). O HTTPS é emitido pelo proxy do Coolify.
+
+## Rodar localmente
+
 ```bash
+npm install
+npm run dev        # http://localhost:3000
+```
+
+Antes de subir, valide:
+
+```bash
+npx tsc --noEmit
 npm run build
-npm start
 ```
 
-## Estrutura do Projeto
+Depois de `npm run build`, apague a pasta `.next` antes de voltar para `npm run dev` (senão os arquivos estáticos dão 404).
+
+No localhost, o GA4 e o Pixel **não carregam** (para os testes não irem para a produção). Use `?mx_debug=1` na URL para carregá-los e ver os eventos no DebugView do GA4.
+
+## Estrutura
 
 ```
-multinexo-site/
-├── app/
-│   ├── layout.tsx       # Layout principal
-│   ├── page.tsx         # Página inicial
-│   └── globals.css      # Estilos globais
-├── components/
-│   ├── Header.tsx       # Navegação
-│   ├── Hero.tsx         # Seção hero
-│   ├── Services.tsx     # Serviços
-│   ├── Cases.tsx        # Cases de sucesso
-│   ├── Clients.tsx      # Clientes e testimonials
-│   ├── CTA.tsx          # Call-to-action
-│   └── Footer.tsx       # Rodapé
-├── package.json         # Dependências
-└── tailwind.config.js   # Configuração TailwindCSS
+app/
+  layout.tsx            # layout, metadados, GA4/Pixel e consentimento
+  page.tsx              # home
+  cases/[slug]/         # páginas de case (dados em lib/cases.ts)
+  europa/               # landing da Europa (pt-BR, pt-PT, en)
+  diagnostico/          # formulário de qualificação (tráfego pago)
+  admin/, proposta/     # propostas
+  api/lead/             # recebe o lead (só grava)
+  api/propostas/        # API das propostas
+components/
+  lead/                 # formulário de captação antes do WhatsApp
+  case/, lp/, consent/, diagnostico/
+db/leads.sql            # schema e tabela do formulário
+scripts/db-setup.mjs    # cria o schema e a tabela
 ```
-
-## Customizações
-
-### Cores
-Edite `tailwind.config.js` para mudar as cores principais:
-```javascript
-colors: {
-  primary: '#8B5CF6',    // Roxo
-  secondary: '#EC4899',  // Rosa
-}
-```
-
-### Conteúdo
-Edite os componentes em `components/` para atualizar:
-- Textos
-- Imagens
-- Links
-- Preços
-
-### Domínio customizado
-No Vercel ou GitHub Pages, adicione seu domínio nas configurações do projeto.
 
 ## Suporte
 
-Para dúvidas sobre deployment, consulte:
-- [Documentação Next.js](https://nextjs.org/docs)
-- [Documentação Vercel](https://vercel.com/docs)
-- [Documentação GitHub Pages](https://docs.github.com/en/pages)
+- [Documentação do Next.js](https://nextjs.org/docs)
+- [Documentação do Coolify](https://coolify.io/docs)
