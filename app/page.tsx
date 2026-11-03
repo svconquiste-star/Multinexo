@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
-import Hero from '@/components/Hero'
+import AdsHero from '@/components/ads/AdsHero'
+import AdsSteps from '@/components/ads/AdsSteps'
 import TrustBar from '@/components/TrustBar'
 import Sobre from '@/components/Sobre'
 import Services from '@/components/Services'
@@ -22,7 +23,7 @@ export default function Home() {
     <LeadFormProvider variant="short">
     <main className="min-h-screen">
       <Header />
-      <Hero />
+      <AdsHero location="hero" />
       <TrustBar />
       <Sobre />
       <Services
@@ -30,6 +31,7 @@ export default function Home() {
         subtitle="Procurando uma agência de tráfego pago, uma empresa de tráfego pago ou uma consultoria de tráfego pago? Aqui você fala direto comigo: atrair, converter e medir, em um só lugar."
       />
       <AdsFit />
+      <AdsSteps />
       <ExpertAffiliate />
       <Cases />
       <TrafficResults />

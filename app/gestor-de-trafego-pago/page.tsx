@@ -47,7 +47,7 @@ export default function GestorDeTrafegoPago() {
           subtitle="Campanhas, página de captação, atendimento e dashboard em um só lugar."
         />
         <AdsSteps />
-        <CTA tagline="Ajudo empresas e negócios locais a crescer com tráfego pago, IA e estratégia" />
+        <CTA />
         <FAQ />
         <Footer homeHref="/gestor-de-trafego-pago" />
         <FloatingWhatsApp />

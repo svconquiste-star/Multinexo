@@ -4,7 +4,7 @@ import { ArrowRight, Calendar } from 'lucide-react'
 import WhatsAppLink from './WhatsAppLink'
 
 export default function CTA({
-  tagline = 'Ajudo empresas locais e experts a crescer com tráfego, IA e estratégia',
+  tagline = 'Ajudo empresas e negócios locais a crescer com tráfego pago, IA e estratégia',
 }: {
   tagline?: string
 }) {

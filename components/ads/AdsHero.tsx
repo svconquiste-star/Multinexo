@@ -3,9 +3,10 @@
 import { ArrowRight, Zap } from 'lucide-react'
 import WhatsAppLink from '@/components/WhatsAppLink'
 
-// Hero da página para o Google Ads: a palavra-chave está no H1 e a oferta é só
-// tráfego pago, página de captação e dashboard.
-export default function AdsHero() {
+// Hero da landing do Google Ads e da home (mesma copy nas duas): a palavra-chave
+// está no H1 e a oferta é só tráfego pago, página de captação e dashboard.
+// `location` identifica o botão nos relatórios ('ads-hero' na landing, 'hero' na home).
+export default function AdsHero({ location = 'ads-hero' }: { location?: string }) {
   return (
     <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 gradient-primary relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -mr-48 -mt-48"></div>
@@ -31,7 +32,7 @@ export default function AdsHero() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-3">
             <WhatsAppLink
               href="https://wa.me/5531993121211?text=Olá!%20Quero%20uma%20análise%20gratuita%20do%20meu%20tráfego%20pago."
-              location="ads-hero"
+              location={location}
               className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-white text-purple-600 font-bold rounded-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               <span>Quero minha análise gratuita</span>
