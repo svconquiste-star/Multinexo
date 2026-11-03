@@ -1,0 +1,74 @@
+# Deploy automático: a cada push na main, confere os tipos e o build e, só se
+# tudo passar, pede ao Coolify um novo deploy. Se o build quebrar, nada vai ao ar.
+#
+# Segredos necessários (GitHub > Settings > Secrets and variables > Actions):
+#   COOLIFY_WEBHOOK_URL  URL do "Deploy Webhook" da aplicação no Coolify
+#                        (Application > Webhooks), algo como
+#                        https://SEU-COOLIFY/api/v1/deploy?uuid=ID_DA_APP&force=false
+#   COOLIFY_TOKEN        Token de API do Coolify (Keys & Tokens > API tokens),
+#                        com permissão de deploy
+
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # permite rodar na mão, pela aba Actions
+
+# Um deploy por vez; um push novo espera o anterior terminar.
+concurrency:
+  group: deploy-main
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  checar:
+    name: Tipos e build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Conferir tipos
+        run: npx tsc --noEmit
+
+      - name: Build de produção
+        run: npm run build
+
+  deploy:
+    name: Deploy no Coolify
+    needs: checar
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Pedir o deploy ao Coolify
+        env:
+          COOLIFY_WEBHOOK_URL: ${{ secrets.COOLIFY_WEBHOOK_URL }}
+          COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
+        run: |
+          if [ -z "$COOLIFY_WEBHOOK_URL" ] || [ -z "$COOLIFY_TOKEN" ]; then
+            echo "::error::Cadastre os segredos COOLIFY_WEBHOOK_URL e COOLIFY_TOKEN no GitHub (veja o topo deste arquivo)."
+            exit 1
+          fi
+          # -f: falha se o Coolify responder erro; a resposta não é impressa (pode ter dados internos).
+          code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 60 \
+            -H "Authorization: Bearer $COOLIFY_TOKEN" \
+            "$COOLIFY_WEBHOOK_URL")
+          echo "Coolify respondeu HTTP $code"
+          if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
+            echo "::error::O Coolify recusou o pedido de deploy (HTTP $code). Confira a URL do webhook e o token."
+            exit 1
+          fi
+          echo "Deploy solicitado. Acompanhe em Deployments no Coolify."

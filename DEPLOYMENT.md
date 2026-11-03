@@ -1,6 +1,28 @@
 # Guia de Deploy — Multinexo
 
-O site roda em **Coolify** (VPS), com build por Nixpacks. O deploy acontece sozinho a cada push na branch `main`.
+O site roda em **Coolify** (VPS), com build por Nixpacks. O deploy acontece sozinho a cada push na branch `main`, pelo fluxo do GitHub Actions descrito abaixo.
+
+## Deploy automático (GitHub Actions)
+
+O arquivo `.github/workflows/deploy.yml` roda a cada push na `main`:
+
+1. **Tipos e build:** `npm ci`, `npx tsc --noEmit` e `npm run build`. Se algo falhar, **não há deploy**.
+2. **Deploy:** só se o passo 1 passar, chama o webhook de deploy do Coolify.
+
+Também dá para rodar na mão: GitHub → aba **Actions** → **Deploy** → *Run workflow*.
+
+### Configuração (uma vez)
+
+1. No Coolify, abra a aplicação → **Webhooks** e copie a URL de **Deploy Webhook** (algo como `https://SEU-COOLIFY/api/v1/deploy?uuid=ID_DA_APP&force=false`).
+2. No Coolify, em **Keys & Tokens → API tokens**, crie um token com permissão de deploy (a API precisa estar habilitada em *Settings*).
+3. No GitHub, em **Settings → Secrets and variables → Actions → New repository secret**, cadastre:
+   - `COOLIFY_WEBHOOK_URL` = a URL do passo 1
+   - `COOLIFY_TOKEN` = o token do passo 2
+4. No Coolify, em **Advanced** da aplicação, **desligue o "Auto Deploy"** (o deploy automático pelo webhook do GitHub). Se ficar ligado, cada push gera **dois deploys**, e o Coolify faria o deploy mesmo quando o build do GitHub falhasse.
+
+Se o passo de deploy falhar com "Cadastre os segredos…", falta o passo 3. Se falhar com "HTTP 401/403", o token está errado; "HTTP 404", a URL do webhook está errada.
+
+As variáveis de ambiente do site (`DATABASE_URL` etc.) continuam sendo configuradas **no Coolify**, não no GitHub.
 
 > **Não use `output: 'export'`** (site estático) no `next.config.js`. O site tem rotas de API (`/api/lead`, `/api/propostas/*`) e páginas dinâmicas (`/diagnostico`, `/proposta/[slug]`) que precisam do servidor Node. Por isso Vercel estático e GitHub Pages **não servem** para este projeto.
 
