@@ -1,6 +1,6 @@
 'use client'
 
-import { MessageCircle, ArrowRight } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
 import WhatsAppLink from './WhatsAppLink'
 
 export default function FloatingWhatsApp() {
@@ -19,20 +19,7 @@ export default function FloatingWhatsApp() {
       >
         <MessageCircle size={34} className="group-hover:animate-bounce" />
       </WhatsAppLink>
-
-      {/* Barra fixa — mobile */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 p-3 bg-white/90 backdrop-blur border-t border-gray-200">
-        <WhatsAppLink
-          href={whatsappLink}
-          location="mobile-bar"
-          className="w-full py-3.5 bg-green-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg"
-          ariaLabel="Agendar análise gratuita no WhatsApp"
-        >
-          <MessageCircle size={20} />
-          <span>Agendar análise gratuita</span>
-          <ArrowRight size={18} />
-        </WhatsAppLink>
-      </div>
+      {/* No celular não há botão flutuante (a barra verde fixa foi removida a pedido). */}
     </>
   )
 }
