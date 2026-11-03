@@ -20,7 +20,7 @@ const entregaveis = [
   {
     icon: BarChart3,
     title: 'Tráfego',
-    desc: 'Gestão de campanhas (Meta e Google) para atrair a audiência certa e transformar investimento em captação previsível.',
+    desc: 'Gestão de campanhas (Meta e Google) para atrair a audiência certa e transformar investimento em captação.',
   },
   {
     icon: PenLine,
@@ -46,7 +46,7 @@ export default function ExpertAffiliate() {
             É expert ou afiliado de Forex e Opções Binárias? Pare de depender de sorte no alcance.
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Eu sou o <strong className="text-white">estrategista por trás de experts e afiliados</strong>: crio a estratégia, o funil, o tráfego e a copy que transformam a sua autoridade em um fluxo <strong className="text-white">previsível</strong> de novos seguidores, alunos e indicações no mercado digital.
+            Eu sou o <strong className="text-white">estrategista por trás de experts e afiliados</strong>: crio a estratégia, o funil, o tráfego e a copy que transformam a sua autoridade em um <strong className="text-white">fluxo constante</strong> de novos seguidores, alunos e indicações no mercado digital.
           </p>
         </div>
 

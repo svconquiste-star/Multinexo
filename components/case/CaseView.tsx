@@ -75,7 +75,7 @@ export default function CaseView({ study }: { study: CaseStudy }) {
           >
             <MessageCircle size={20} /> Quero resultados assim
           </WhatsAppLink>
-          <p className="mt-3 text-sm text-gray-400">Resposta em minutos • Análise gratuita • Sem compromisso</p>
+          <p className="mt-3 text-sm text-gray-400">Atendimento direto no WhatsApp • Análise gratuita • Sem compromisso</p>
         </div>
       </section>
 

@@ -107,7 +107,7 @@ const ptBR: Dict = {
     publicsHtml:
       'Para <strong>empresas, lojas locais, afiliados, experts e influencers</strong> brasileiros na Europa — incluindo <strong>Forex, Opções Binárias e iGaming</strong>.',
     cta: 'Quero minha análise gratuita',
-    microcopy: '⚡ Atendimento em português • Resposta em minutos • Sem compromisso',
+    microcopy: '⚡ Atendimento em português • Análise gratuita • Sem compromisso',
     countries: ['🇵🇹 Portugal', '🇮🇪 Irlanda', '🇪🇸 Espanha', '🇬🇧 Reino Unido'],
   },
   audiences: {
@@ -150,7 +150,7 @@ const ptBR: Dict = {
       'Atendo <strong>qualquer segmento</strong> — restaurante, estética, serviços, loja online, infoproduto — e o que o seu negócio precisar.',
     items: [
       { title: 'Tráfego & Estratégia', description: 'Anúncios geolocalizados para loja local e campanhas de captação para afiliados, experts e influencers. Cada euro guiado por estratégia e dados.' },
-      { title: 'IA no WhatsApp', description: 'Atendimento que responde em segundos, 24/7, mesmo com a diferença de fuso. A IA qualifica o lead do seu anúncio ou da sua audiência e não deixa oportunidade sem resposta.' },
+      { title: 'IA no WhatsApp', description: 'Atendimento que responde automaticamente, mesmo com a diferença de fuso. A IA qualifica o lead do seu anúncio ou da sua audiência e não deixa oportunidade sem resposta.' },
       { title: 'Criação de Dashboard', description: 'Enxergue em tempo real o que traz cliente e pare de decidir no escuro. Tráfego, contatos e vendas num painel só — sem planilha confusa.' },
       { title: 'Consultoria', description: 'Um plano claro para crescer no mercado europeu. Analiso seu posicionamento, funil e canais e entrego o caminho focado em resultado.' },
     ],
@@ -159,7 +159,7 @@ const ptBR: Dict = {
     badge: 'Para Forex, Opções Binárias & iGaming',
     title: 'É expert, afiliado ou operador de Forex, Opções Binárias ou iGaming na Europa? Pare de depender de sorte no alcance.',
     subtitle:
-      'Sou o estrategista por trás de experts, afiliados e operadores desse mercado: crio a estratégia, o funil, o tráfego e a copy que transformam a sua autoridade (ou plataforma) em um fluxo previsível de novos seguidores, jogadores e indicações — sempre dentro das regras de publicidade de cada país europeu.',
+      'Sou o estrategista por trás de experts, afiliados e operadores desse mercado: crio a estratégia, o funil, o tráfego e a copy que transformam a sua autoridade (ou plataforma) em um fluxo constante de novos seguidores, jogadores e indicações — sempre dentro das regras de publicidade de cada país europeu.',
     deliverables: [
       { title: 'Estratégia', desc: 'Defino o posicionamento, a oferta e o plano de aquisição certos para o seu público europeu — com foco em dados e nas regras de cada mercado, não em achismo.' },
       { title: 'Funil', desc: 'Estruturo a jornada do seguidor ao lead qualificado: do primeiro contato até a entrada na sua lista, grupo, plataforma ou mentoria.' },
@@ -189,7 +189,7 @@ const ptBR: Dict = {
       { title: 'Em português', text: 'Você fala com alguém que entende a sua realidade de brasileiro empreendendo fora.' },
       { title: '100% remoto', text: 'Trabalho com você em qualquer país, respeitando o seu fuso. Sem deslocamento.' },
       { title: 'Orientado a dados', text: 'Cada euro investido é medido no dashboard. Nada de achismo, tudo em números.' },
-      { title: 'IA no atendimento', text: 'Automação que responde e qualifica os seus leads 24/7, mesmo offline.' },
+      { title: 'IA no atendimento', text: 'Automação que responde e qualifica os seus leads, mesmo offline.' },
     ],
   },
   how: {
@@ -203,16 +203,13 @@ const ptBR: Dict = {
     ],
   },
   proof: {
-    title: 'Resultados reais de quem confiou no meu trabalho',
+    title: 'Quem já confiou no meu trabalho',
     metrics: [
-      { value: '+40', label: 'Negócios escalados' },
-      { value: '3x', label: 'ROI médio em tráfego' },
-      { value: '24/7', label: 'Atendimento com IA' },
+      { value: 'Google + Meta', label: 'Campanhas nos dois' },
+      { value: 'Dashboard', label: 'Resultados à vista' },
+      { value: 'IA', label: 'No atendimento' },
     ],
-    testimonials: [
-      { quote: 'Transformou completamente nossos resultados. Aumentamos as vendas de forma consistente com a gestão de tráfego.', segment: 'Loja de smartphones' },
-      { quote: 'O atendimento por IA 24/7 não deixa cliente sem resposta, mesmo com a diferença de horário. Fez toda a diferença.', segment: 'Serviços' },
-    ],
+    testimonials: [],
     logosCaption: 'Marcas e negócios que já confiaram',
   },
   faq: {
@@ -234,7 +231,7 @@ const ptBR: Dict = {
     title: 'Pronto para atrair mais clientes na Europa?',
     subtext: 'Chame agora no WhatsApp e receba a sua análise gratuita. Em português, 100% remoto e sem compromisso.',
     button: 'Quero minha análise gratuita',
-    microcopy: '⚡ Resposta em minutos, direto no seu WhatsApp',
+    microcopy: '⚡ Direto no seu WhatsApp',
   },
   footer: {
     tagline: 'Marketing digital para brasileiros que empreendem na Europa — tráfego, estratégia, IA e dashboards, em português e 100% remoto.',
@@ -272,7 +269,7 @@ const ptPT: Dict = {
     publicsHtml:
       'Para <strong>empresas, lojas locais, afiliados, experts e influencers</strong> na Europa — incluindo <strong>Forex, Opções Binárias e iGaming</strong>.',
     cta: 'Quero a minha análise gratuita',
-    microcopy: '⚡ Atendimento em português • Resposta em minutos • Sem compromisso',
+    microcopy: '⚡ Atendimento em português • Análise gratuita • Sem compromisso',
     countries: ['🇵🇹 Portugal', '🇮🇪 Irlanda', '🇪🇸 Espanha', '🇬🇧 Reino Unido'],
   },
   audiences: {
@@ -315,7 +312,7 @@ const ptPT: Dict = {
       'Trabalho com <strong>qualquer segmento</strong> — restaurante, estética, serviços, loja online, infoproduto — e o que o seu negócio precisar.',
     items: [
       { title: 'Tráfego & Estratégia', description: 'Anúncios geolocalizados para lojas locais e campanhas de captação para afiliados, experts e influencers. Cada euro guiado por estratégia e dados.' },
-      { title: 'IA no WhatsApp', description: 'Atendimento que responde em segundos, 24/7, mesmo com a diferença de fuso. A IA qualifica o lead do seu anúncio ou da sua audiência e não deixa nenhuma oportunidade sem resposta.' },
+      { title: 'IA no WhatsApp', description: 'Atendimento que responde automaticamente, mesmo com a diferença de fuso. A IA qualifica o lead do seu anúncio ou da sua audiência e não deixa nenhuma oportunidade sem resposta.' },
       { title: 'Criação de Dashboard', description: 'Veja em tempo real o que traz clientes e deixe de decidir às escuras. Tráfego, contactos e vendas num só painel — sem folhas de cálculo confusas.' },
       { title: 'Consultoria', description: 'Um plano claro para crescer no mercado europeu. Analiso o seu posicionamento, funil e canais e entrego o caminho focado em resultados.' },
     ],
@@ -324,7 +321,7 @@ const ptPT: Dict = {
     badge: 'Para Forex, Opções Binárias & iGaming',
     title: 'É expert, afiliado ou operador de Forex, Opções Binárias ou iGaming na Europa? Deixe de depender da sorte no alcance.',
     subtitle:
-      'Sou o estratega por trás de experts, afiliados e operadores deste mercado: construo a estratégia, o funil, o tráfego e a copy que transformam a sua autoridade (ou plataforma) num fluxo previsível de novos seguidores, jogadores e indicações — sempre dentro das regras de publicidade de cada país europeu.',
+      'Sou o estratega por trás de experts, afiliados e operadores deste mercado: construo a estratégia, o funil, o tráfego e a copy que transformam a sua autoridade (ou plataforma) num fluxo constante de novos seguidores, jogadores e indicações — sempre dentro das regras de publicidade de cada país europeu.',
     deliverables: [
       { title: 'Estratégia', desc: 'Defino o posicionamento, a oferta e o plano de aquisição certos para o seu público europeu — com foco em dados e nas regras de cada mercado, não em palpites.' },
       { title: 'Funil', desc: 'Construo a jornada do seguidor ao lead qualificado: do primeiro contacto até à entrada na sua lista, grupo, plataforma ou mentoria.' },
@@ -354,7 +351,7 @@ const ptPT: Dict = {
       { title: 'Em português', text: 'Fala com alguém que percebe a sua realidade de quem empreende fora.' },
       { title: '100% remoto', text: 'Trabalho consigo em qualquer país, respeitando o seu fuso. Sem deslocações.' },
       { title: 'Orientado a dados', text: 'Cada euro investido é medido no dashboard. Nada de palpites, tudo em números.' },
-      { title: 'IA no atendimento', text: 'Automação que responde e qualifica os seus leads 24/7, mesmo offline.' },
+      { title: 'IA no atendimento', text: 'Automação que responde e qualifica os seus leads, mesmo offline.' },
     ],
   },
   how: {
@@ -368,16 +365,13 @@ const ptPT: Dict = {
     ],
   },
   proof: {
-    title: 'Resultados reais de quem confiou no meu trabalho',
+    title: 'Quem já confiou no meu trabalho',
     metrics: [
-      { value: '+40', label: 'Negócios escalados' },
-      { value: '3x', label: 'ROI médio em tráfego' },
-      { value: '24/7', label: 'Atendimento com IA' },
+      { value: 'Google + Meta', label: 'Campanhas nos dois' },
+      { value: 'Dashboard', label: 'Resultados à vista' },
+      { value: 'IA', label: 'No atendimento' },
     ],
-    testimonials: [
-      { quote: 'Transformou completamente os nossos resultados. Aumentámos as vendas de forma consistente com a gestão de tráfego.', segment: 'Loja de smartphones' },
-      { quote: 'O atendimento com IA 24/7 não deixa nenhum cliente sem resposta, mesmo com a diferença de horário. Fez toda a diferença.', segment: 'Serviços' },
-    ],
+    testimonials: [],
     logosCaption: 'Marcas e negócios que já confiaram',
   },
   faq: {
@@ -399,7 +393,7 @@ const ptPT: Dict = {
     title: 'Pronto para atrair mais clientes na Europa?',
     subtext: 'Fale agora no WhatsApp e receba a sua análise gratuita. Em português, 100% remoto e sem compromisso.',
     button: 'Quero a minha análise gratuita',
-    microcopy: '⚡ Resposta em minutos, diretamente no seu WhatsApp',
+    microcopy: '⚡ Diretamente no seu WhatsApp',
   },
   footer: {
     tagline: 'Marketing digital para quem empreende na Europa — tráfego, estratégia, IA e dashboards, em português e 100% remoto.',
@@ -477,7 +471,7 @@ const en: Dict = {
       'I work with <strong>any niche</strong> — restaurant, beauty, services, online store, info-products — and whatever your business needs.',
     items: [
       { title: 'Traffic & Strategy', description: 'Geo-targeted ads for local stores and lead-generation campaigns for affiliates, experts and influencers. Every euro guided by strategy and data.' },
-      { title: 'AI on WhatsApp', description: 'Support that replies in seconds, 24/7, even across time zones. The AI qualifies leads from your ads or audience and never leaves an opportunity unanswered.' },
+      { title: 'AI on WhatsApp', description: 'Support that replies automatically, even across time zones. The AI qualifies leads from your ads or audience and never leaves an opportunity unanswered.' },
       { title: 'Dashboard Creation', description: 'See in real time what brings clients and stop deciding in the dark. Traffic, contacts and sales in a single panel — no messy spreadsheets.' },
       { title: 'Consulting', description: 'A clear plan to grow in the European market. I analyse your positioning, funnel and channels and deliver a results-focused path.' },
     ],
@@ -486,7 +480,7 @@ const en: Dict = {
     badge: 'For Forex, Binary Options & iGaming',
     title: 'Expert, affiliate or operator in Forex, Binary Options or iGaming in Europe? Stop relying on luck for reach.',
     subtitle:
-      'I’m the strategist behind experts, affiliates and operators in this market: I build the strategy, funnel, traffic and copy that turn your authority (or platform) into a predictable flow of new followers, players and referrals — always within each European country’s advertising rules.',
+      'I’m the strategist behind experts, affiliates and operators in this market: I build the strategy, funnel, traffic and copy that turn your authority (or platform) into a steady flow of new followers, players and referrals — always within each European country’s advertising rules.',
     deliverables: [
       { title: 'Strategy', desc: 'I define the right positioning, offer and acquisition plan for your European audience — built on data and each market’s rules, not guesswork.' },
       { title: 'Funnel', desc: 'I build the journey from follower to qualified lead: from first contact to your list, group, platform or mentorship.' },
@@ -516,7 +510,7 @@ const en: Dict = {
       { title: 'Your language', text: 'You talk to someone who understands the reality of running a business abroad.' },
       { title: '100% remote', text: 'I work with you in any country, respecting your time zone. No travel needed.' },
       { title: 'Data-driven', text: 'Every euro invested is measured in the dashboard. No guesswork, just numbers.' },
-      { title: 'AI support', text: 'Automation that answers and qualifies your leads 24/7, even when you’re offline.' },
+      { title: 'AI support', text: 'Automation that answers and qualifies your leads, even when you’re offline.' },
     ],
   },
   how: {
@@ -530,16 +524,13 @@ const en: Dict = {
     ],
   },
   proof: {
-    title: 'Real results from people who trusted my work',
+    title: 'Who has already trusted my work',
     metrics: [
-      { value: '+40', label: 'Businesses scaled' },
-      { value: '3x', label: 'Average traffic ROI' },
-      { value: '24/7', label: 'AI support' },
+      { value: 'Google + Meta', label: 'Campaigns on both' },
+      { value: 'Dashboard', label: 'Results at a glance' },
+      { value: 'AI', label: 'In support' },
     ],
-    testimonials: [
-      { quote: 'It completely transformed our results. We grew sales consistently with the traffic management.', segment: 'Smartphone store' },
-      { quote: 'The 24/7 AI support leaves no client without an answer, even across time zones. It made all the difference.', segment: 'Services' },
-    ],
+    testimonials: [],
     logosCaption: 'Brands and businesses that already trusted me',
   },
   faq: {

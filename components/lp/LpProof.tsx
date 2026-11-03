@@ -19,17 +19,18 @@ export default function LpProof({ t }: { t: Dict }) {
       <div className="max-w-5xl mx-auto">
         <h2 className="section-title">{p.title}</h2>
 
-        {/* Métricas */}
+        {/* Métricas (itens sem número: só o que o Daniel consegue comprovar) */}
         <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-4 mb-14">
           {p.metrics.map((m) => (
             <div key={m.label} className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-purple-600 mb-1">{m.value}</p>
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-600 mb-1">{m.value}</p>
               <p className="text-gray-600 text-sm font-medium">{m.label}</p>
             </div>
           ))}
         </div>
 
-        {/* Depoimentos */}
+        {/* Depoimentos (sem depoimentos anônimos: o bloco só aparece se houver itens) */}
+        {p.testimonials.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
           {p.testimonials.map((tst) => (
             <div key={tst.segment} className="bg-white rounded-2xl p-7 shadow-lg border border-gray-100">
@@ -46,6 +47,7 @@ export default function LpProof({ t }: { t: Dict }) {
             </div>
           ))}
         </div>
+        )}
 
         {/* Logos */}
         <p className="text-center text-xs font-semibold uppercase tracking-wider text-gray-400 mb-6">

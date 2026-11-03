@@ -19,7 +19,7 @@ export default function AdsHero() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Gestor de Tráfego Pago: mais clientes todos os dias para o seu negócio
+            Gestor de Tráfego Pago para atrair mais clientes ao seu negócio
           </h1>
 
           <p className="text-xl text-white text-opacity-90 mb-8 leading-relaxed max-w-2xl">
@@ -39,21 +39,21 @@ export default function AdsHero() {
             </WhatsAppLink>
           </div>
           <p className="text-sm text-white text-opacity-80 mb-12">
-            ⚡ Resposta em minutos • Análise gratuita • Sem compromisso
+            ⚡ Atendimento direto no WhatsApp • Análise gratuita • Sem compromisso
           </p>
 
-          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white border-opacity-20">
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 border-t border-white border-opacity-20">
             <div>
-              <p className="text-3xl font-bold">+40</p>
-              <p className="text-white text-opacity-80">Negócios atendidos</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold">Google + Meta</p>
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">Google + Meta</p>
               <p className="text-white text-opacity-80">Campanhas nos dois</p>
             </div>
             <div>
-              <p className="text-3xl font-bold">24/7</p>
-              <p className="text-white text-opacity-80">Atendimento com IA</p>
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">Dashboard</p>
+              <p className="text-white text-opacity-80">Resultados à vista</p>
+            </div>
+            <div>
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">WhatsApp</p>
+              <p className="text-white text-opacity-80">Atendimento direto</p>
             </div>
           </div>
         </div>

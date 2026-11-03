@@ -96,7 +96,7 @@ export const CASES: Record<string, CaseStudy> = {
     metaDescription:
       '443 contatos em 17 dias, a R$ 1,00 por contato, com campanhas no Meta Ads, página de captação e dashboard. Veja a estratégia por trás do resultado.',
     client: {
-      intro: 'Um negócio de serviços que dependia de indicações e queria um fluxo previsível de novos contatos.',
+      intro: 'Um negócio de serviços que dependia de indicações e queria um fluxo constante de novos contatos.',
       facts: [
         { label: 'Quem usa', value: 'Cliente Contratante' },
         { label: 'Segmento', value: 'Prestação de serviços', pending: true },

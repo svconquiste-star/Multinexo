@@ -23,8 +23,11 @@ export default function AdsSteps() {
     <section id="como-funciona" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="section-title">Como funciona a gestão de tráfego pago</h2>
-          <p className="section-subtitle">Do primeiro contato ao resultado medido, em quatro etapas.</p>
+          <h2 className="section-title">Consultoria de tráfego pago: como funciona</h2>
+          <p className="section-subtitle">
+            Procurando uma agência de tráfego pago ou uma empresa de tráfego pago? Aqui você fala direto com quem
+            cuida das campanhas, do primeiro contato ao resultado medido, em quatro etapas.
+          </p>
         </div>
         <ol className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {steps.map((s, i) => (

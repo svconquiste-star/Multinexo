@@ -4,7 +4,7 @@ import { ArrowRight, Calendar } from 'lucide-react'
 import WhatsAppLink from './WhatsAppLink'
 
 export default function CTA({
-  tagline = 'Transformo empresas locais e experts em máquinas previsíveis de crescimento com tráfego, IA e estratégia',
+  tagline = 'Ajudo empresas locais e experts a crescer com tráfego, IA e estratégia',
 }: {
   tagline?: string
 }) {
@@ -22,7 +22,7 @@ export default function CTA({
             Dê o próximo passo: agende sua análise gratuita
           </h2>
           <p className="text-xl text-white text-opacity-90 mb-8">
-            Fale comigo e descubra como transformar tráfego em crescimento previsível. Automatizo atendimento, captação e vendas para gerar clientes todos os dias — com tudo medido em dashboard.
+            Fale comigo e descubra como transformar tráfego em contatos. Automatizo atendimento, captação e vendas, com tudo medido em dashboard.
           </p>
         </div>
 
@@ -45,7 +45,7 @@ export default function CTA({
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">Tráfego & Estratégia</p>
-                  <p className="text-gray-600">Campanhas guiadas por estratégia para gerar clientes todos os dias</p>
+                  <p className="text-gray-600">Campanhas guiadas por estratégia para atrair mais clientes</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -56,7 +56,7 @@ export default function CTA({
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">IA + Dashboard</p>
-                  <p className="text-gray-600">Atendimento automatizado 24/7 e resultados medidos em tempo real</p>
+                  <p className="text-gray-600">Atendimento automatizado e resultados medidos em painel</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -82,7 +82,7 @@ export default function CTA({
             </WhatsAppLink>
 
             <p className="text-center text-gray-600 text-sm mt-6">
-              ⚡ Resposta em minutos, direto no seu WhatsApp
+              ⚡ Direto no seu WhatsApp
             </p>
           </div>
         </div>

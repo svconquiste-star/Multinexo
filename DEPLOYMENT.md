@@ -39,6 +39,7 @@ As variáveis de ambiente do site (`DATABASE_URL` etc.) continuam sendo configur
 | `NIXPACKS_NODE_VERSION` | Versão do Node no build | Só no build |
 | `DATABASE_URL` | Conexão com o Postgres (formulário de captação) | `postgres://USUARIO:SENHA@HOST:PORTA/BANCO`, uma linha, sem aspas, sem `<>`. Em tempo de execução |
 | `LEAD_HASH_SALT` | Sal do hash do IP guardado com cada lead | Texto longo e aleatório. Sem ele, o IP não é guardado |
+| `NEXT_PUBLIC_CLARITY_ID` | ID do projeto no Microsoft Clarity (gravação de sessão e mapa de calor) | Opcional. É variável de **build** (marque "Build Variable" no Coolify e faça novo deploy). Sem ela, o Clarity fica desligado |
 | `PROPOSTAS_TOKEN` | Senha do painel `/admin` (propostas) | Obrigatória para o painel |
 | `PROPOSTAS_DIR` | Pasta das propostas | Aponte para um **volume persistente** (ex.: `/app/propostas`); sem isso as propostas somem a cada deploy |
 | `CRON_SECRET` | Segredo da limpeza `GET /api/propostas/cleanup` | Sem ele a rota responde 401 a todos |
@@ -59,9 +60,11 @@ O SQL está em `db/leads.sql`. O site só grava (`INSERT`); a consulta e o acomp
 
 Uma *Scheduled Task* do Coolify pode chamar `GET /api/propostas/cleanup` com `Authorization: Bearer <CRON_SECRET>`. A limpeza também acontece ao servir e listar propostas.
 
-### Domínio
+### Domínio e www
 
-Em *Domains* da aplicação no Coolify, aponte `multinexo.com.br` (e `www`). O HTTPS é emitido pelo proxy do Coolify.
+Em *Domains* da aplicação no Coolify, cadastre **os dois**: `https://multinexo.com.br` e `https://www.multinexo.com.br`. Sem o `www` cadastrado, o proxy (Traefik) responde com o certificado padrão e o navegador mostra erro de certificado. O HTTPS é emitido pelo proxy do Coolify.
+
+O `next.config.js` já redireciona `www.multinexo.com.br` para o domínio sem www (308). O `http → https` (hoje 307) é feito pelo Traefik e não dá para mudar pelo código.
 
 ## Rodar localmente
 

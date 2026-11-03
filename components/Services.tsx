@@ -9,7 +9,7 @@ const services = [
   {
     id: 1,
     title: 'Tráfego & Estratégia',
-    description: 'Mais clientes pelo Google e Meta Ads, com cada real guiado por estratégia e dados — não por achismo. Crescimento previsível, não sorte.',
+    description: 'Mais clientes pelo Google e Meta Ads, com cada real guiado por estratégia e dados — não por achismo.',
     icon: BarChart3,
     color: 'from-purple-500 to-purple-600',
     msg: 'Olá! Tenho interesse em Tráfego & Estratégia.',
@@ -17,7 +17,7 @@ const services = [
   {
     id: 2,
     title: 'IA como Vantagem Competitiva',
-    description: 'Seu atendimento responde em segundos, 24/7, e qualifica os leads sozinho — enquanto você foca no que realmente faz o negócio crescer.',
+    description: 'Seu atendimento responde automaticamente e qualifica os leads — enquanto você foca no que realmente faz o negócio crescer.',
     icon: Bot,
     color: 'from-pink-500 to-pink-600',
     msg: 'Olá! Tenho interesse em Automação com IA.',
@@ -40,15 +40,19 @@ const services = [
   },
 ]
 
-export default function Services() {
+export default function Services({
+  title = 'Como eu escalo o seu negócio',
+  subtitle = 'Tudo o que o seu negócio precisa para atrair, converter e medir — em um só lugar.',
+}: {
+  title?: string
+  subtitle?: string
+}) {
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="section-title">Como eu escalo o seu negócio</h2>
-          <p className="section-subtitle">
-            Tudo o que o seu negócio precisa para atrair, converter e medir — em um só lugar.
-          </p>
+          <h2 className="section-title">{title}</h2>
+          <p className="section-subtitle">{subtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -96,7 +100,7 @@ export default function Services() {
               <div className="text-3xl">🤖</div>
               <div>
                 <p className="text-xl font-bold mb-2">IA a seu favor</p>
-                <p className="text-white text-opacity-90">Automações que atendem e qualificam seus leads 24/7, sem aumentar sua operação</p>
+                <p className="text-white text-opacity-90">Automações que atendem e qualificam seus leads, sem aumentar sua operação</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
@@ -109,8 +113,8 @@ export default function Services() {
             <div className="flex items-start space-x-4">
               <div className="text-3xl">📈</div>
               <div>
-                <p className="text-xl font-bold mb-2">Foco em crescimento previsível</p>
-                <p className="text-white text-opacity-90">O objetivo não é dar sorte uma vez, é construir uma máquina que gera clientes todo dia</p>
+                <p className="text-xl font-bold mb-2">Foco em crescimento com dados</p>
+                <p className="text-white text-opacity-90">O objetivo não é dar sorte uma vez, é construir um processo que atrai clientes e que você consegue medir</p>
               </div>
             </div>
           </div>

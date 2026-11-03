@@ -114,14 +114,15 @@ export async function POST(req: Request) {
       `INSERT INTO "SITE_MULTINEXO_CLIENTES".leads
         (ref_code, nome, telefone, empresa, area_empresa, servicos, servico_outro, problema, solucao,
          origem_botao, page_path, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
-         gclid, gbraid, wbraid, fbclid, referrer, user_agent, ip_hash, consentimento, consentimento_em)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,true,now())`,
+         gclid, gbraid, wbraid, fbclid, referrer, user_agent, ip_hash, formulario, consentimento, consentimento_em)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,true,now())`,
       [
         d.ref_code, d.nome, d.telefone, d.empresa, d.area_empresa, d.servicos, d.servico_outro,
         d.problema, d.solucao, d.origem_botao, d.page_path, d.utm_source, d.utm_medium,
         d.utm_campaign, d.utm_content, d.utm_term, d.gclid, d.gbraid, d.wbraid, d.fbclid, d.referrer,
         (req.headers.get('user-agent') || '').slice(0, 300) || null,
         ipHash,
+        d.formulario,
       ]
     )
   } catch (e) {

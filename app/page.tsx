@@ -9,7 +9,6 @@ import TrafficResults from '@/components/TrafficResults'
 import DashboardShowcase from '@/components/DashboardShowcase'
 import AutomacoesIA from '@/components/AutomacoesIA'
 import Clients from '@/components/Clients'
-import SocialProof from '@/components/SocialProof'
 import FAQ from '@/components/FAQ'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
@@ -31,7 +30,6 @@ export default function Home() {
       <DashboardShowcase />
       <AutomacoesIA />
       <Clients />
-      <SocialProof />
       <CTA />
       <FAQ />
       <Footer />

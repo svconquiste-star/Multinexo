@@ -5,14 +5,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import WhatsAppLink from './WhatsAppLink'
 
-export default function Footer() {
+export default function Footer({ homeHref = '/' }: { homeHref?: string }) {
   return (
     <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-block mb-4">
+            <Link href={homeHref} className="inline-block mb-4">
               <span className="text-2xl font-extrabold tracking-tight text-white">Daniel Aguiar</span>
               <span className="block text-sm font-medium text-gray-400">Estrategista de Marketing Digital</span>
             </Link>
@@ -20,10 +20,10 @@ export default function Footer() {
               Escalo negócios com tráfego, estratégia e IA como vantagem competitiva — no Brasil e no exterior.
             </p>
             <Image
-              src="/images/logo.png"
+              src="/images/logo-footer.webp"
               alt="Multinexo"
-              width={200}
-              height={67}
+              width={300}
+              height={200}
               className="h-12 w-auto opacity-80"
             />
           </div>

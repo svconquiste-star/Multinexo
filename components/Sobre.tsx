@@ -10,7 +10,7 @@ const WHATS =
 const qualidades = [
   'Estratégia antes de tudo — cada real investido segue um plano com objetivo claro, nada de impulsionar por impulsionar.',
   'Orientado a dados — acompanho cada resultado em dashboard, em tempo real, e decido por números.',
-  'IA como vantagem — automações que atendem e qualificam seus leads 24/7, sem aumentar a sua operação.',
+  'IA como vantagem — automações que atendem e qualificam seus leads, sem aumentar a sua operação.',
   'Atendimento próximo — você fala direto comigo, com transparência e foco no seu resultado.',
 ]
 
@@ -35,16 +35,16 @@ export default function Sobre() {
 
           <div className="grid grid-cols-3 gap-4 max-w-sm">
             <div>
-              <p className="text-2xl font-bold text-gray-900">+40</p>
-              <p className="text-xs text-gray-500">Negócios escalados</p>
+              <p className="text-lg font-bold text-gray-900">Tráfego</p>
+              <p className="text-xs text-gray-500">Google e Meta Ads</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-900">3x</p>
-              <p className="text-xs text-gray-500">ROI médio em tráfego</p>
+              <p className="text-lg font-bold text-gray-900">Dados</p>
+              <p className="text-xs text-gray-500">Resultados em dashboard</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-900">24/7</p>
-              <p className="text-xs text-gray-500">Atendimento com IA</p>
+              <p className="text-lg font-bold text-gray-900">IA</p>
+              <p className="text-xs text-gray-500">No atendimento</p>
             </div>
           </div>
         </div>
@@ -52,13 +52,13 @@ export default function Sobre() {
         {/* Coluna conteúdo */}
         <div className="lg:col-span-3">
           <p className="text-lg text-gray-700 leading-relaxed mb-5">
-            Eu ajudo negócios a atrair mais clientes todos os dias com um sistema completo de
+            Eu ajudo negócios a atrair mais clientes com um sistema completo de
             marketing — <strong className="text-gray-900">tráfego, estratégia, automação com IA e
             dashboards</strong>. Atendo negócios locais, empresas, experts, afiliados e influencers,
             no Brasil e no exterior, sempre de forma remota e orientada a resultado.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            Meu trabalho não é dar sorte uma vez: é construir uma máquina previsível de clientes,
+            Meu trabalho não é dar sorte uma vez: é construir um processo para atrair clientes,
             com cada real medido e cada decisão guiada por dados.
           </p>
 

@@ -10,6 +10,7 @@ const ADS_CONVERSION = 'AW-18518810455/1seBCMCrxa8dENe-uv5E'
 export function pageType(): string {
   const p = window.location.pathname
   if (p === '/') return 'home'
+  if (p.startsWith('/gestor-de-trafego-pago')) return 'ads_lp'
   if (p.startsWith('/europa')) return 'europa'
   if (p.startsWith('/cases')) return 'case'
   if (p.startsWith('/diagnostico')) return 'diagnostico'

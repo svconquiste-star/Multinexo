@@ -8,7 +8,7 @@ const flows = [
     image: '/images/automacoes/atendente.png',
     icon: Bot,
     title: 'Atendente de IA no WhatsApp',
-    description: 'Um agente de IA que responde, consulta dados e atende seus clientes 24/7 — com memória de conversa e envio automático de mensagens.',
+    description: 'Um agente de IA que responde, consulta dados e atende seus clientes — com memória de conversa e envio automático de mensagens.',
   },
   {
     id: 2,

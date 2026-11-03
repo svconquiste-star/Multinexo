@@ -11,7 +11,8 @@ export default function AdsHeader() {
     <header className="fixed w-full top-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="flex flex-col leading-none">
+          {/* Linka para a própria landing (a home tem conteúdo que a landing deve evitar). */}
+          <Link href="/gestor-de-trafego-pago" className="flex flex-col leading-none">
             <span className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
               Daniel Aguiar
             </span>

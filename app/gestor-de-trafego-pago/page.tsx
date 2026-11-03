@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import AdsHeader from '@/components/ads/AdsHeader'
 import AdsHero from '@/components/ads/AdsHero'
 import AdsSteps from '@/components/ads/AdsSteps'
+import AdsCases from '@/components/ads/AdsCases'
+import AdsFit from '@/components/ads/AdsFit'
 import Services from '@/components/Services'
 import FAQ from '@/components/FAQ'
 import CTA from '@/components/CTA'
@@ -34,15 +36,20 @@ export const metadata: Metadata = {
 
 export default function GestorDeTrafegoPago() {
   return (
-    <LeadFormProvider>
+    <LeadFormProvider variant="short">
       <main className="min-h-screen">
         <AdsHeader />
         <AdsHero />
-        <Services />
+        <AdsCases />
+        <AdsFit />
+        <Services
+          title="Serviço de tráfego pago: o que você recebe"
+          subtitle="Campanhas, página de captação, atendimento e dashboard em um só lugar."
+        />
         <AdsSteps />
-        <CTA tagline="Transformo empresas e negócios locais em máquinas previsíveis de crescimento com tráfego pago, IA e estratégia" />
+        <CTA tagline="Ajudo empresas e negócios locais a crescer com tráfego pago, IA e estratégia" />
         <FAQ />
-        <Footer />
+        <Footer homeHref="/gestor-de-trafego-pago" />
         <FloatingWhatsApp />
       </main>
     </LeadFormProvider>

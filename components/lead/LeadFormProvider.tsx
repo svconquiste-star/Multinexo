@@ -66,7 +66,27 @@ const FIELD =
   'w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200'
 const LABEL = 'block text-sm font-semibold text-gray-700 mb-1.5'
 
-export default function LeadFormProvider({ children }: { children: ReactNode }) {
+/** Mensagem do formulário curto (nome + o que quer melhorar). */
+function buildShortMessage(f: { nome: string; problema: string; ref: string }): string {
+  return [
+    'Olá, Daniel! Vim pelo site e quero uma análise gratuita.',
+    `Nome: ${f.nome}`,
+    `Quero melhorar: ${cut(f.problema.replace(/\s+/g, ' '), 300)}`,
+    `Ref: ${f.ref}`,
+  ].join('\n')
+}
+
+// variant="full" (padrão): 3 etapas. variant="short": uma tela só, com nome,
+// WhatsApp e uma pergunta (usado na landing do Google Ads, onde o formulário
+// completo afastava quem chegava pelo celular).
+export default function LeadFormProvider({
+  children,
+  variant = 'full',
+}: {
+  children: ReactNode
+  variant?: 'full' | 'short'
+}) {
+  const short = variant === 'short'
   const [isOpen, setIsOpen] = useState(false)
   const [step, setStep] = useState<1 | 2 | 3>(1)
   const [done, setDone] = useState<{ href: string } | null>(null)
@@ -107,9 +127,9 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
     setError('')
     setIsOpen(true)
     try {
-      window.gtag?.('event', 'lead_form_open', { location })
+      window.gtag?.('event', 'lead_form_open', { location, form_variant: variant })
     } catch {}
-  }, [])
+  }, [variant])
 
   const close = useCallback(() => {
     setIsOpen(false)
@@ -158,7 +178,7 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
     if (startedRef.current) return
     startedRef.current = true
     try {
-      window.gtag?.('event', 'lead_form_start', { location: locationRef.current })
+      window.gtag?.('event', 'lead_form_start', { location: locationRef.current, form_variant: variant })
     } catch {}
   }
 
@@ -185,6 +205,14 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
     return ''
   }
 
+  function validateShort(): string {
+    if (nome.trim().length < 2) return 'Informe o seu nome.'
+    if (!normalizePhone(telefone)) return 'Informe um WhatsApp com DDD, por exemplo (31) 98765-4321.'
+    if (problema.trim().length < 5) return 'Conte, em poucas palavras, o que você quer melhorar.'
+    if (!consent) return 'Marque a autorização de contato para continuar.'
+    return ''
+  }
+
   function next() {
     const msg = validateStep(step)
     if (msg) return setError(msg)
@@ -199,12 +227,17 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
 
   function submit(e: React.FormEvent) {
     e.preventDefault()
-    if (step !== 3) return next()
-    for (const s of [1, 2, 3] as const) {
-      const msg = validateStep(s)
-      if (msg) {
-        setStep(s)
-        return setError(msg)
+    if (short) {
+      const msg = validateShort()
+      if (msg) return setError(msg)
+    } else {
+      if (step !== 3) return next()
+      for (const s of [1, 2, 3] as const) {
+        const msg = validateStep(s)
+        if (msg) {
+          setStep(s)
+          return setError(msg)
+        }
       }
     }
     if (submittedRef.current) return
@@ -214,14 +247,15 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
     const ref = newRef()
     const attr = captureAttr()
     const payload = {
+      formulario: short ? 'curto' : 'completo',
       nome,
       telefone,
-      empresa,
-      area_empresa: area,
-      servicos,
-      servico_outro: servicos.includes('outros') ? outro : '',
+      empresa: short ? '' : empresa,
+      area_empresa: short ? '' : area,
+      servicos: short ? [] : servicos,
+      servico_outro: !short && servicos.includes('outros') ? outro : '',
       problema,
-      solucao,
+      solucao: short ? '' : solucao,
       consentimento: true,
       ref_code: ref,
       origem_botao: locationRef.current,
@@ -263,13 +297,18 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
     try {
       window.gtag?.('event', 'lead_form_submit', {
         location: locationRef.current,
+        form_variant: variant,
         servicos: servicos.join(','),
         event_id: eventId,
       })
     } catch {}
     trackWhatsAppClick(locationRef.current)
 
-    const href = waUrl(buildMessage({ nome, empresa, area, servicos, outro, problema, solucao, ref }))
+    const href = waUrl(
+      short
+        ? buildShortMessage({ nome, problema, ref })
+        : buildMessage({ nome, empresa, area, servicos, outro, problema, solucao, ref })
+    )
     // Clique programático num link real, no mesmo toque do envio (o celular não
     // bloqueia a janela). A medição já foi feita acima (trackWhatsAppClick).
     const a = document.createElement('a')
@@ -301,6 +340,7 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
             role="dialog"
             aria-modal="true"
             aria-labelledby="lead-form-title"
+            data-clarity-mask="True"
             className="relative w-full max-w-lg max-h-[94vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl bg-white shadow-2xl"
           >
             <button
@@ -333,6 +373,91 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
                   Fechar
                 </button>
               </div>
+            ) : short ? (
+              <form onSubmit={submit} className="p-6 sm:p-8" noValidate>
+                <h2 id="lead-form-title" className="pr-8 text-2xl font-bold text-gray-900">
+                  Receba a sua análise gratuita
+                </h2>
+                <p className="mt-1 text-sm text-gray-600">
+                  Deixe 3 informações. Abrimos o WhatsApp com tudo pronto: você só toca em enviar.
+                </p>
+
+                <div className="mt-6 space-y-4">
+                  <div>
+                    <label className={LABEL} htmlFor="lf-nome">Nome *</label>
+                    <input
+                      id="lf-nome"
+                      data-autofocus
+                      className={FIELD}
+                      value={nome}
+                      maxLength={LIMITS.nome}
+                      autoComplete="name"
+                      placeholder="Seu nome"
+                      onChange={(e) => { touch(); setNome(e.target.value) }}
+                    />
+                  </div>
+                  <div>
+                    <label className={LABEL} htmlFor="lf-tel">WhatsApp *</label>
+                    <input
+                      id="lf-tel"
+                      className={FIELD}
+                      value={telefone}
+                      inputMode="tel"
+                      autoComplete="tel"
+                      placeholder="(31) 98765-4321"
+                      onChange={(e) => { touch(); setTelefone(formatPhone(e.target.value)) }}
+                    />
+                  </div>
+                  <div>
+                    <label className={LABEL} htmlFor="lf-problema">O que você quer melhorar? *</label>
+                    <textarea
+                      id="lf-problema"
+                      className={FIELD}
+                      rows={3}
+                      value={problema}
+                      maxLength={LIMITS.texto}
+                      placeholder="Ex.: quero atrair mais clientes pelo Google."
+                      onChange={(e) => { touch(); setProblema(e.target.value) }}
+                    />
+                  </div>
+                  {/* Isca: invisível para pessoas, preenchida só por robôs. */}
+                  <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', height: 0, overflow: 'hidden' }}>
+                    <label>
+                      Site
+                      <input tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
+                    </label>
+                  </div>
+                  <label className="flex cursor-pointer items-start gap-3 text-sm text-gray-700">
+                    <input
+                      type="checkbox"
+                      checked={consent}
+                      onChange={(e) => setConsent(e.target.checked)}
+                      className="mt-0.5 h-5 w-5 flex-shrink-0 accent-purple-600"
+                    />
+                    <span>
+                      Autorizo o contato por WhatsApp ou telefone e concordo com a{' '}
+                      <a href="/politica-de-privacidade" target="_blank" rel="noopener noreferrer" className="underline text-purple-700">
+                        Política de Privacidade
+                      </a>
+                      .
+                    </span>
+                  </label>
+                </div>
+
+                {error && (
+                  <p role="alert" className="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                    {error}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-green-600 px-6 py-3 text-base font-bold text-white shadow-lg hover:bg-green-700"
+                >
+                  <MessageCircle size={20} /> Enviar e abrir o WhatsApp
+                </button>
+                <p className="mt-4 text-center text-xs text-gray-500">Seus dados são usados só para o nosso contato.</p>
+              </form>
             ) : (
               <form onSubmit={submit} className="p-6 sm:p-8" noValidate>
                 <p className="text-xs font-semibold uppercase tracking-widest text-purple-600">Etapa {step} de 3</p>
@@ -473,7 +598,7 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
                           rows={3}
                           value={solucao}
                           maxLength={LIMITS.texto}
-                          placeholder="Ex.: anúncios que tragam contatos todos os dias."
+                          placeholder="Ex.: anúncios que tragam mais contatos."
                           onChange={(e) => setSolucao(e.target.value)}
                         />
                       </div>

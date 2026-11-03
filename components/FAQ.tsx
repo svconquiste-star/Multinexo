@@ -23,7 +23,7 @@ const faqs: Faq[] = [
       },
       {
         title: 'IA como Vantagem Competitiva',
-        text: 'Soluções de inteligência artificial para atendimento, captação e qualificação de leads, funcionando 24 horas por dia para reduzir tarefas manuais e tornar a operação mais eficiente.',
+        text: 'Soluções de inteligência artificial para atendimento, captação e qualificação de leads, para reduzir tarefas manuais e tornar a operação mais eficiente.',
       },
       {
         title: 'Criação de Dashboards',
@@ -71,7 +71,7 @@ const faqs: Faq[] = [
   {
     question: 'Como funciona o atendente de IA no WhatsApp?',
     intro:
-      'O atendente de IA funciona como um agente inteligente conectado ao WhatsApp, preparado para atender clientes e leads de forma automatizada. Ele pode responder perguntas, consultar informações, manter o contexto das conversas e enviar mensagens automaticamente, dependendo da configuração criada para o negócio. O atendimento pode funcionar 24 horas por dia, 7 dias por semana, ajudando a reduzir tarefas repetitivas e evitando que oportunidades fiquem sem resposta.',
+      'O atendente de IA funciona como um agente inteligente conectado ao WhatsApp, preparado para atender clientes e leads de forma automatizada. Ele pode responder perguntas, consultar informações, manter o contexto das conversas e enviar mensagens automaticamente, dependendo da configuração criada para o negócio. O atendimento automatizado ajuda a reduzir tarefas repetitivas e a evitar que oportunidades fiquem sem resposta.',
   },
   {
     question: 'Em quanto tempo começo a ver resultados?',

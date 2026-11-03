@@ -18,7 +18,7 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Mais clientes todos os dias — com tráfego, estratégia e IA 🚀
+            Mais clientes para o seu negócio — com tráfego, estratégia e IA 🚀
           </h1>
 
           <p className="text-xl text-white text-opacity-90 mb-8 leading-relaxed max-w-2xl">
@@ -36,22 +36,22 @@ export default function Hero() {
             </WhatsAppLink>
           </div>
           <p className="text-sm text-white text-opacity-80 mb-12">
-            ⚡ Resposta em minutos • Análise gratuita • Sem compromisso
+            ⚡ Atendimento direto no WhatsApp • Análise gratuita • Sem compromisso
           </p>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white border-opacity-20">
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 border-t border-white border-opacity-20">
             <div>
-              <p className="text-3xl font-bold">+40</p>
-              <p className="text-white text-opacity-80">Negócios escalados</p>
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">Google + Meta</p>
+              <p className="text-white text-opacity-80">Campanhas nos dois</p>
             </div>
             <div>
-              <p className="text-3xl font-bold">3x</p>
-              <p className="text-white text-opacity-80">ROI médio em tráfego</p>
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">Dashboard</p>
+              <p className="text-white text-opacity-80">Resultados à vista</p>
             </div>
             <div>
-              <p className="text-3xl font-bold">24/7</p>
-              <p className="text-white text-opacity-80">Atendimento com IA</p>
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">IA</p>
+              <p className="text-white text-opacity-80">No atendimento</p>
             </div>
           </div>
         </div>

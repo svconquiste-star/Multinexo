@@ -23,10 +23,12 @@ export const LIMITS = {
 }
 
 export interface LeadData {
+  /** 'curto' = landing do Google Ads (nome, WhatsApp e uma pergunta). */
+  formulario: 'curto' | 'completo'
   nome: string
   telefone: string // só dígitos, com 55
-  empresa: string
-  area_empresa: string
+  empresa: string | null
+  area_empresa: string | null
   servicos: ServicoId[]
   servico_outro: string | null
   problema: string
@@ -104,27 +106,38 @@ export function parseLead(body: unknown): ParseResult {
   const telefone = normalizePhone(b.telefone)
   if (!telefone) return { ok: false, field: 'telefone' }
 
-  const empresa = clean(b.empresa, LIMITS.empresa)
-  if (empresa.length < 2) return { ok: false, field: 'empresa' }
+  // Formulário curto (landing do Google Ads): só nome, WhatsApp e uma pergunta.
+  const formulario: 'curto' | 'completo' = b.formulario === 'curto' ? 'curto' : 'completo'
+  const curto = formulario === 'curto'
 
-  const area = clean(b.area_empresa, LIMITS.area)
-  if (area.length < 2) return { ok: false, field: 'area_empresa' }
-
-  const rawServicos = Array.isArray(b.servicos) ? b.servicos : []
-  const servicos = Array.from(
-    new Set(rawServicos.filter((s): s is string => typeof s === 'string' && SERVICO_IDS.has(s)))
-  ) as ServicoId[]
-  if (servicos.length === 0) return { ok: false, field: 'servicos' }
-
+  let empresa: string | null = null
+  let area: string | null = null
+  let servicos: ServicoId[] = []
   let servico_outro: string | null = null
-  if (servicos.includes('outros')) {
-    servico_outro = clean(b.servico_outro, LIMITS.outro)
-    if (servico_outro.length < 2) return { ok: false, field: 'servico_outro' }
+
+  if (!curto) {
+    empresa = clean(b.empresa, LIMITS.empresa)
+    if (empresa.length < 2) return { ok: false, field: 'empresa' }
+
+    area = clean(b.area_empresa, LIMITS.area)
+    if (area.length < 2) return { ok: false, field: 'area_empresa' }
+
+    const rawServicos = Array.isArray(b.servicos) ? b.servicos : []
+    servicos = Array.from(
+      new Set(rawServicos.filter((s): s is string => typeof s === 'string' && SERVICO_IDS.has(s)))
+    ) as ServicoId[]
+    if (servicos.length === 0) return { ok: false, field: 'servicos' }
+
+    if (servicos.includes('outros')) {
+      servico_outro = clean(b.servico_outro, LIMITS.outro)
+      if (servico_outro.length < 2) return { ok: false, field: 'servico_outro' }
+    }
   }
 
+  // No curto, "problema" guarda a resposta de "O que você quer melhorar?".
   const problema = cleanLong(b.problema, LIMITS.texto)
-  if (problema.length < 10) return { ok: false, field: 'problema' }
-  const solucao = cleanLong(b.solucao, LIMITS.texto) || null
+  if (problema.length < (curto ? 5 : 10)) return { ok: false, field: 'problema' }
+  const solucao = curto ? null : cleanLong(b.solucao, LIMITS.texto) || null
 
   if (b.consentimento !== true) return { ok: false, field: 'consentimento' }
 
@@ -136,6 +149,7 @@ export function parseLead(body: unknown): ParseResult {
   return {
     ok: true,
     data: {
+      formulario,
       nome,
       telefone,
       empresa,

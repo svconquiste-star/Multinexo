@@ -19,7 +19,7 @@ export default function PoliticaDePrivacidadePage() {
       <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl font-bold mb-3">Política de Privacidade</h1>
-          <p className="text-sm text-gray-500 mb-6">Última atualização: 1 de novembro de 2026.</p>
+          <p className="text-sm text-gray-500 mb-6">Última atualização: 3 de novembro de 2026.</p>
           <p className="text-gray-700 leading-relaxed mb-8">
             Esta Política de Privacidade descreve como a Multinexo ("nós") coleta, utiliza, armazena e
             compartilha dados pessoais quando você utiliza este site, inclusive o formulário de diagnóstico.
@@ -162,6 +162,12 @@ export default function PoliticaDePrivacidadePage() {
                 <li>
                   Nas demais regiões, esses recursos podem ser carregados ao acessar o site. Você pode gerenciar
                   ou bloquear cookies nas configurações do seu navegador.
+                </li>
+                <li>
+                  Também podemos usar o Microsoft Clarity, ferramenta que registra como os visitantes navegam
+                  (cliques, rolagem e movimentos do mouse) em gravações anônimas e mapas de calor, para melhorar a
+                  página. Os campos dos formulários são ocultados e o que você digita não é gravado. Na Europa e no
+                  Reino Unido, só é ativado depois que você aceita no banner de cookies.
                 </li>
               </ul>
             </section>

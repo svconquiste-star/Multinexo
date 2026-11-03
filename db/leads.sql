@@ -14,9 +14,9 @@ CREATE TABLE IF NOT EXISTS "SITE_MULTINEXO_CLIENTES".leads (
 
   nome            text        NOT NULL,
   telefone        text        NOT NULL,                  -- só dígitos, com DDI 55
-  empresa         text        NOT NULL,
-  area_empresa    text        NOT NULL,
-  servicos        text[]      NOT NULL,
+  empresa         text,                                  -- vazio no formulário curto
+  area_empresa    text,                                  -- vazio no formulário curto
+  servicos        text[]      NOT NULL,                  -- {} no formulário curto
   servico_outro   text,
   problema        text        NOT NULL,
   solucao         text,
@@ -44,9 +44,14 @@ CREATE TABLE IF NOT EXISTS "SITE_MULTINEXO_CLIENTES".leads (
   observacoes     text
 );
 
--- Para quem criou a tabela antes de gbraid/wbraid existirem.
+-- Para quem criou a tabela antes destas mudanças (idempotente).
 ALTER TABLE "SITE_MULTINEXO_CLIENTES".leads ADD COLUMN IF NOT EXISTS gbraid text;
 ALTER TABLE "SITE_MULTINEXO_CLIENTES".leads ADD COLUMN IF NOT EXISTS wbraid text;
+-- Qual formulário gerou o lead: 'completo' (home) ou 'curto' (landing do Google Ads).
+ALTER TABLE "SITE_MULTINEXO_CLIENTES".leads ADD COLUMN IF NOT EXISTS formulario text NOT NULL DEFAULT 'completo';
+-- O formulário curto não pergunta empresa nem área.
+ALTER TABLE "SITE_MULTINEXO_CLIENTES".leads ALTER COLUMN empresa DROP NOT NULL;
+ALTER TABLE "SITE_MULTINEXO_CLIENTES".leads ALTER COLUMN area_empresa DROP NOT NULL;
 
 CREATE INDEX IF NOT EXISTS leads_created_at_idx ON "SITE_MULTINEXO_CLIENTES".leads (created_at DESC);
 CREATE INDEX IF NOT EXISTS leads_telefone_idx   ON "SITE_MULTINEXO_CLIENTES".leads (telefone);
