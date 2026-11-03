@@ -52,7 +52,7 @@ export default function Sobre() {
         {/* Coluna conteúdo */}
         <div className="lg:col-span-3">
           <p className="text-lg text-gray-700 leading-relaxed mb-5">
-            Eu ajudo negócios a atrair mais clientes com um sistema completo de
+            Como gestor de tráfego pago, eu ajudo negócios a atrair mais clientes com um sistema completo de
             marketing — <strong className="text-gray-900">tráfego, estratégia, automação com IA e
             dashboards</strong>. Atendo negócios locais, empresas, experts, afiliados e influencers,
             no Brasil e no exterior, sempre de forma remota e orientada a resultado.

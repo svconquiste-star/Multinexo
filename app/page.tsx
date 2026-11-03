@@ -14,16 +14,22 @@ import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
 import LeadFormProvider from '@/components/lead/LeadFormProvider'
+import AdsFit from '@/components/ads/AdsFit'
 
 export default function Home() {
   return (
-    <LeadFormProvider>
+    // Formulário curto (nome, WhatsApp e uma pergunta), como na landing do Google Ads.
+    <LeadFormProvider variant="short">
     <main className="min-h-screen">
       <Header />
       <Hero />
       <TrustBar />
       <Sobre />
-      <Services />
+      <Services
+        title="Serviço de tráfego pago e consultoria: como eu escalo o seu negócio"
+        subtitle="Procurando uma agência de tráfego pago, uma empresa de tráfego pago ou uma consultoria de tráfego pago? Aqui você fala direto comigo: atrair, converter e medir, em um só lugar."
+      />
+      <AdsFit />
       <ExpertAffiliate />
       <Cases />
       <TrafficResults />
