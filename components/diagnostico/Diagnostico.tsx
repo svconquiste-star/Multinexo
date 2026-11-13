@@ -24,6 +24,7 @@ import {
   type Verba,
 } from './config'
 import { captureAttribution, track, type Attribution } from './track'
+import { saveFunnel } from './funil'
 import { buildWaUrl, makeRef, verbaLabel } from './whatsapp'
 
 type Step = 1 | 2 | 'result'
@@ -132,6 +133,7 @@ export default function Diagnostico({
     if (!viewedRef.current) {
       viewedRef.current = true
       track({ fb: 'ViewContent', params: { content_name: 'diagnostico', mercado: market.code } })
+      saveFunnel('aberto', market.code) // só registra quem veio do blog (utm_source=blog)
     }
   }, [market.code])
 
@@ -148,6 +150,7 @@ export default function Diagnostico({
     if (startedRef.current) return
     startedRef.current = true
     track({ fb: 'FormStart', fbCustom: true, ga: 'form_start', params: { mercado: market.code } })
+    saveFunnel('iniciado', market.code)
   }
 
   function submitStep1(e: React.FormEvent) {
@@ -180,6 +183,7 @@ export default function Diagnostico({
           },
         })
         refCode.current = makeRef(market.code)
+        saveFunnel('qualificado', market.code)
       } else {
         track({
           fb: 'LeadDesqualificado',
@@ -212,6 +216,7 @@ export default function Diagnostico({
           segmento: segmento || 'outro',
         },
       })
+      saveFunnel('concluido', market.code)
     }
     finalize(qualify({ verba, urgencia }, false), verba)
   }
@@ -494,6 +499,7 @@ export default function Diagnostico({
                 <WhatsAppLink
                   href={waHref}
                   location="diagnostico"
+                  onClick={() => saveFunnel('whatsapp', market.code)}
                   className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl transition-colors"
                 >
                   <MessageCircle size={20} />

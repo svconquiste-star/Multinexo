@@ -9,7 +9,7 @@ CREATE SCHEMA IF NOT EXISTS "SITE_MULTINEXO_CLIENTES";
 
 CREATE TABLE IF NOT EXISTS "SITE_MULTINEXO_CLIENTES".leads (
   id              uuid        PRIMARY KEY DEFAULT gen_random_uuid(),
-  ref_code        text        NOT NULL UNIQUE,          -- LD-XXXXXX, vai na mensagem do WhatsApp
+  ref_code        text        NOT NULL UNIQUE,          -- LD-XXXXXX (não vai na mensagem do WhatsApp)
   created_at      timestamptz NOT NULL DEFAULT now(),
 
   nome            text        NOT NULL,
@@ -56,3 +56,25 @@ ALTER TABLE "SITE_MULTINEXO_CLIENTES".leads ALTER COLUMN area_empresa DROP NOT N
 CREATE INDEX IF NOT EXISTS leads_created_at_idx ON "SITE_MULTINEXO_CLIENTES".leads (created_at DESC);
 CREATE INDEX IF NOT EXISTS leads_telefone_idx   ON "SITE_MULTINEXO_CLIENTES".leads (telefone);
 CREATE INDEX IF NOT EXISTS leads_status_idx     ON "SITE_MULTINEXO_CLIENTES".leads (status);
+
+-- ---------------------------------------------------------------------------
+-- Funil por artigo do blog (blog.multinexo.com.br -> /diagnostico).
+-- Só registra quem chegou com utm_source=blog. NÃO guarda dado pessoal: apenas o
+-- artigo (utm_campaign), a posição do botão (utm_medium), a etapa e um código
+-- aleatório de sessão. UNIQUE (sessao, etapa): cada etapa conta uma vez por visita.
+-- Etapas: aberto | iniciado | concluido | qualificado | whatsapp
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS "SITE_MULTINEXO_CLIENTES".funil_blog (
+  id          bigserial   PRIMARY KEY,
+  created_at  timestamptz NOT NULL DEFAULT now(),
+  sessao      text        NOT NULL,
+  etapa       text        NOT NULL,
+  artigo      text        NOT NULL,   -- slug do artigo (utm_campaign)
+  posicao     text,                   -- meio | fim | sidebar | home (utm_medium)
+  mercado     text,
+  CONSTRAINT funil_blog_etapa_chk CHECK (etapa IN ('aberto','iniciado','concluido','qualificado','whatsapp')),
+  CONSTRAINT funil_blog_sessao_etapa_uq UNIQUE (sessao, etapa)
+);
+
+CREATE INDEX IF NOT EXISTS funil_blog_artigo_idx ON "SITE_MULTINEXO_CLIENTES".funil_blog (artigo, etapa);
+CREATE INDEX IF NOT EXISTS funil_blog_created_at_idx ON "SITE_MULTINEXO_CLIENTES".funil_blog (created_at DESC);
