@@ -4,6 +4,9 @@ import AdsHero from '@/components/ads/AdsHero'
 import AdsSteps from '@/components/ads/AdsSteps'
 import AdsCases from '@/components/ads/AdsCases'
 import AdsFit from '@/components/ads/AdsFit'
+import AdsInvestimento from '@/components/ads/AdsInvestimento'
+import AdsProximosPassos from '@/components/ads/AdsProximosPassos'
+import AdsProofCompact from '@/components/ads/AdsProofCompact'
 import Services from '@/components/Services'
 import FAQ from '@/components/FAQ'
 import CTA from '@/components/CTA'
@@ -14,6 +17,10 @@ import LeadFormProvider from '@/components/lead/LeadFormProvider'
 // Página de destino para os anúncios do Google Ads. Fica SEM as seções da home
 // que podem pesar na análise da política de anúncios (Forex/Opções Binárias,
 // apostas, crédito): só tráfego pago, página de captação e dashboard.
+// Texto do honorário de gestão na seção "Investimento". Não inventamos valor:
+// para mostrar um preço, é só trocar esta linha (ex.: 'A partir de R$ 0.000 por mês').
+const PRECO_TEXTO = 'Orçamento sob medida após a análise gratuita'
+
 const TITLE = 'Gestor de Tráfego Pago | Daniel Aguiar'
 const DESCRIPTION =
   'Gestor de tráfego pago para o seu negócio: campanhas no Google Ads e Meta Ads, página de captação e dashboard. Peça sua análise gratuita.'
@@ -39,9 +46,13 @@ export default function GestorDeTrafegoPago() {
     <LeadFormProvider variant="short">
       <main className="min-h-screen">
         <AdsHeader />
-        <AdsHero />
+        <AdsHero>
+          <AdsProofCompact />
+        </AdsHero>
         <AdsCases />
         <AdsFit />
+        <AdsInvestimento preco={PRECO_TEXTO} />
+        <AdsProximosPassos />
         <Services
           title="Serviço de tráfego pago: o que você recebe"
           subtitle="Campanhas, página de captação, atendimento e dashboard em um só lugar."

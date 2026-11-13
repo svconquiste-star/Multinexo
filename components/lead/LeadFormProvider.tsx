@@ -13,7 +13,8 @@ import { LIMITS, SERVICOS, normalizePhone, type ServicoId } from '@/app/lib/lead
 // pronta. Sem esperar o servidor: se o banco falhar, o cliente chega ao
 // WhatsApp do mesmo jeito.
 
-// Código curto, sem caracteres ambíguos, que vai na mensagem e na linha do banco.
+// Código curto, sem caracteres ambíguos, que vai na linha do banco (ref_code) e nos
+// eventos do GA4 e do Meta Pixel (event_id/eventID). NÃO aparece na mensagem do WhatsApp.
 function newRef(): string {
   const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
   const bytes = new Uint8Array(6)
@@ -45,7 +46,6 @@ function buildMessage(f: {
   outro: string
   problema: string
   solucao: string
-  ref: string
 }): string {
   const nomes = f.servicos.map((id) =>
     id === 'outros' ? `Outros (${f.outro})` : SERVICOS.find((s) => s.id === id)?.label || id
@@ -58,7 +58,6 @@ function buildMessage(f: {
     `Problema: ${cut(f.problema.replace(/\s+/g, ' '), 300)}`,
   ]
   if (f.solucao) linhas.push(`Solução que busco: ${cut(f.solucao.replace(/\s+/g, ' '), 300)}`)
-  linhas.push(`Ref: ${f.ref}`)
   return linhas.join('\n')
 }
 
@@ -67,12 +66,11 @@ const FIELD =
 const LABEL = 'block text-sm font-semibold text-gray-700 mb-1.5'
 
 /** Mensagem do formulário curto (nome + o que quer melhorar). */
-function buildShortMessage(f: { nome: string; problema: string; ref: string }): string {
+function buildShortMessage(f: { nome: string; problema: string }): string {
   return [
     'Olá, Daniel! Vim pelo site e quero uma análise gratuita.',
     `Nome: ${f.nome}`,
     `Quero melhorar: ${cut(f.problema.replace(/\s+/g, ' '), 300)}`,
-    `Ref: ${f.ref}`,
   ].join('\n')
 }
 
@@ -306,8 +304,8 @@ export default function LeadFormProvider({
 
     const href = waUrl(
       short
-        ? buildShortMessage({ nome, problema, ref })
-        : buildMessage({ nome, empresa, area, servicos, outro, problema, solucao, ref })
+        ? buildShortMessage({ nome, problema })
+        : buildMessage({ nome, empresa, area, servicos, outro, problema, solucao })
     )
     // Clique programático num link real, no mesmo toque do envio (o celular não
     // bloqueia a janela). A medição já foi feita acima (trackWhatsAppClick).
