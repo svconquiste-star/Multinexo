@@ -4,11 +4,13 @@
 
 ## Sobre
 
-Daniel Aguiar é estrategista de marketing digital e o profissional por trás da marca Multinexo. Une gestão de tráfego, automações com Inteligência Artificial e criação de dashboards para transformar negócios locais, empresas, experts, afiliados e influencers em máquinas previsíveis de crescimento. O foco é resultado real e mensurável: cada ação é guiada por estratégia e acompanhada por dados. O atendimento é próximo e 100% remoto.
+Daniel Aguiar é estrategista de marketing digital e o profissional por trás da marca Multinexo. Une gestão de tráfego, automações com Inteligência Artificial e criação de dashboards para transformar negócios locais, empresas, experts, afiliados e influencers em negócios que crescem com base em dados. O foco é resultado real e mensurável: cada ação é guiada por estratégia e acompanhada por dados. O atendimento é próximo e 100% remoto.
 
 ## Serviços
 
-- **Tráfego & Estratégia**: gestão de tráfego pago (Google Ads e Meta Ads) guiada por estratégia e acompanhada em dashboard, para atrair mais clientes.
+- **Tráfego pago (mídia paga)**: gestão de campanhas no Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads e Kwai Ads, guiada por estratégia e acompanhada em dashboard, com gestão de budgets de médio e alto volume.
+- **SEO e GEO**: otimização para o Google (SEO) e para respostas de IAs como ChatGPT, Gemini e Google AI Overviews (GEO).
+- **Mensuração e tracking**: Google Analytics 4 (GA4), Google Tag Manager, rastreamento de conversões e qualificação de leads (MQL e SQL). Métricas acompanhadas: CAC, ROAS, LTV, CTR e CPL; testes A/B e otimização de conversão.
 - **IA como Vantagem Competitiva**: automação de atendimento, captação e qualificação com Inteligência Artificial — atendente de IA no WhatsApp e fábrica de conteúdo automática.
 - **Criação de Dashboard**: painéis sob medida que centralizam métricas de tráfego, vendas e atendimento para decisões baseadas em dados, em tempo real.
 - **Consultoria**: consultoria estratégica de marketing que analisa funil, posicionamento e canais e entrega um plano claro de ação focado em resultado.
@@ -36,6 +38,9 @@ Clientes que já confiaram no trabalho: iGaming, Seu Phone Betim, Rei do Sabor H
 ## Links
 
 - [Site principal](https://multinexo.com.br)
+- [Gestor de Tráfego Meta Ads (Facebook e Instagram)](https://multinexo.com.br/gestor-de-trafego-meta-ads)
+- [Gestor de Google Ads](https://multinexo.com.br/gestor-de-google-ads)
+- [Gestor de Tráfego Pago](https://multinexo.com.br/gestor-de-trafego-pago)
 - [Blog da Multinexo](https://blog.multinexo.com.br/)
 - [Política de Privacidade](https://multinexo.com.br/politica-de-privacidade)
 - [Normas de Uso](https://multinexo.com.br/normas)

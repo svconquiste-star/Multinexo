@@ -32,10 +32,9 @@ export default function Footer({ homeHref = '/' }: { homeHref?: string }) {
           <div>
             <h3 className="text-lg font-bold mb-6">Serviços</h3>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#services" className="hover:text-white transition-colors">Tráfego & Estratégia</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">IA como Vantagem Competitiva</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Criação de Dashboard</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Consultoria</a></li>
+              <li><a href={`${homeHref}#canais`} className="hover:text-white transition-colors">Tráfego pago</a></li>
+              <li><a href={`${homeHref}#canais`} className="hover:text-white transition-colors">Mensuração e tracking</a></li>
+              <li><a href={`${homeHref}#como-funciona`} className="hover:text-white transition-colors">Consultoria</a></li>
             </ul>
           </div>
 
@@ -44,7 +43,7 @@ export default function Footer({ homeHref = '/' }: { homeHref?: string }) {
             <h3 className="text-lg font-bold mb-6">Empresa</h3>
             <ul className="space-y-3 text-gray-400">
               <li><a href="https://blog.multinexo.com.br/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#agendar" className="hover:text-white transition-colors">Contato</a></li>
+              <li><a href={`${homeHref}#agendar`} className="hover:text-white transition-colors">Contato</a></li>
               <li>
                 <Link href="/politica-de-privacidade" className="hover:text-white transition-colors">
                   Política de Privacidade

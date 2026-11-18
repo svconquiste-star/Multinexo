@@ -9,7 +9,7 @@ const WHATS =
 
 const qualidades = [
   'Estratégia antes de tudo — cada real investido segue um plano com objetivo claro, nada de impulsionar por impulsionar.',
-  'Orientado a dados — acompanho cada resultado em dashboard, em tempo real, e decido por números.',
+  'Orientado a dados — acompanho CAC, ROAS, LTV, CTR e CPL em dashboard e decido por números, com testes A/B.',
   'IA como vantagem — automações que atendem e qualificam seus leads, sem aumentar a sua operação.',
   'Atendimento próximo — você fala direto comigo, com transparência e foco no seu resultado.',
 ]
@@ -30,13 +30,13 @@ export default function Sobre() {
           <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center text-white text-4xl font-extrabold shadow-lg mb-6">
             DA
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Daniel Aguiar</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Quem é Daniel Aguiar</h2>
           <p className="text-purple-600 font-semibold mb-6">Estrategista de Marketing Digital</p>
 
           <div className="grid grid-cols-3 gap-4 max-w-sm">
             <div>
               <p className="text-lg font-bold text-gray-900">Tráfego</p>
-              <p className="text-xs text-gray-500">Google e Meta Ads</p>
+              <p className="text-xs text-gray-500">Meta, Google, TikTok, LinkedIn e Kwai</p>
             </div>
             <div>
               <p className="text-lg font-bold text-gray-900">Dados</p>
@@ -53,8 +53,8 @@ export default function Sobre() {
         <div className="lg:col-span-3">
           <p className="text-lg text-gray-700 leading-relaxed mb-5">
             Como gestor de tráfego pago, eu ajudo negócios a atrair mais clientes com um sistema completo de
-            marketing — <strong className="text-gray-900">tráfego, estratégia, automação com IA e
-            dashboards</strong>. Atendo negócios locais, empresas, experts, afiliados e influencers,
+            marketing — <strong className="text-gray-900">tráfego pago, SEO e GEO, mensuração com GA4 e
+            Google Tag Manager, automação com IA e dashboards</strong>. Atendo negócios locais, empresas, experts, afiliados e influencers,
             no Brasil e no exterior, sempre de forma remota e orientada a resultado.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed mb-8">

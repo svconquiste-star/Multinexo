@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { CASE_SLUGS } from '@/lib/cases'
+import { SERVICO_SLUGS } from '@/lib/servicos'
 
 const BASE_URL = 'https://multinexo.com.br'
 
@@ -19,6 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    // Páginas de serviço por plataforma (lib/servicos.ts).
+    ...SERVICO_SLUGS.map((slug) => ({
+      url: `${BASE_URL}/${slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    })),
     {
       url: `${BASE_URL}/europa`,
       lastModified: now,

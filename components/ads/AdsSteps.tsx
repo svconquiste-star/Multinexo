@@ -1,11 +1,11 @@
 const steps = [
   {
     title: 'Análise gratuita',
-    text: 'Você me conta sobre o negócio, o público e o que já tentou. Eu analiso o cenário e mostro onde estão as oportunidades.',
+    text: 'Você chama no WhatsApp ou preenche o formulário curto. Eu analiso o negócio, o público e o que você já faz, e retorno em até 1 dia útil.',
   },
   {
     title: 'Plano e campanhas',
-    text: 'Defino a oferta, o público e a verba, e monto as campanhas no Google Ads e no Meta Ads com os anúncios certos.',
+    text: 'Você recebe a proposta. Se fizer sentido, defino a oferta, o público, a verba e os canais certos (Meta, Google, TikTok, LinkedIn ou Kwai) e monto as campanhas.',
   },
   {
     title: 'Página e atendimento',
@@ -17,17 +17,20 @@ const steps = [
   },
 ]
 
-// "Como funciona" da página para o Google Ads.
-export default function AdsSteps() {
+// "Como funciona" (landing e home). A home passa um título próprio.
+export default function AdsSteps({
+  title = 'Consultoria de tráfego pago: como funciona',
+  subtitle = 'Procurando uma agência de tráfego pago ou uma empresa de tráfego pago? Aqui você fala direto com quem cuida das campanhas, do primeiro contato ao resultado medido, em quatro etapas.',
+}: {
+  title?: string
+  subtitle?: string
+}) {
   return (
     <section id="como-funciona" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="section-title">Consultoria de tráfego pago: como funciona</h2>
-          <p className="section-subtitle">
-            Procurando uma agência de tráfego pago ou uma empresa de tráfego pago? Aqui você fala direto com quem
-            cuida das campanhas, do primeiro contato ao resultado medido, em quatro etapas.
-          </p>
+          <h2 className="section-title">{title}</h2>
+          <p className="section-subtitle">{subtitle}</p>
         </div>
         <ol className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {steps.map((s, i) => (

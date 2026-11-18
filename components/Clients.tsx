@@ -13,7 +13,7 @@ const clients: Client[] = [
   { id: 1, name: 'iGaming' },
   { id: 2, name: 'Seu Phone Betim' },
   { id: 3, name: 'Rei do Sabor Hamburgueria' },
-  { id: 9, name: 'Expert & Affiliate — Forex/OB', logo: '/images/clients/iq-option-expert.jpg', wide: true },
+  { id: 9, name: 'Expert & Affiliate', logo: '/images/clients/iq-option-expert.jpg', wide: true },
   { id: 4, name: 'C3 Empréstimo' },
   { id: 5, name: 'CredTop' },
   { id: 6, name: 'Empréstimo Braz' },

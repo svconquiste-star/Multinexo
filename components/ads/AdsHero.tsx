@@ -9,11 +9,24 @@ import WhatsAppLink from '@/components/WhatsAppLink'
 // `location` identifica o botão nos relatórios ('ads-hero' na landing, 'hero' na home).
 // `children` (opcional) aparece logo abaixo do botão: a landing coloca ali a faixa de prova.
 // No celular o Hero é compacto, para título, frase e botão caberem na primeira tela.
+const TITULO_LANDING = 'Gestor de Tráfego Pago para atrair mais clientes ao seu negócio'
+const FRASE_LANDING = (
+  <>
+    Cuido das campanhas, da página e do rastreamento no GA4 para você saber{' '}
+    <strong className="text-white">quanto custa cada cliente</strong>, no Meta, Google, TikTok, LinkedIn e Kwai Ads.
+  </>
+)
+
+// `title`/`subtitle`: a home usa os próprios, para não disputar a mesma busca com a landing.
 export default function AdsHero({
   location = 'ads-hero',
+  title = TITULO_LANDING,
+  subtitle = FRASE_LANDING,
   children,
 }: {
   location?: string
+  title?: string
+  subtitle?: ReactNode
   children?: ReactNode
 }) {
   return (
@@ -29,13 +42,11 @@ export default function AdsHero({
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-            Gestor de Tráfego Pago para atrair mais clientes ao seu negócio
+            {title}
           </h1>
 
           <p className="text-base sm:text-xl text-white text-opacity-90 mb-6 sm:mb-8 leading-relaxed max-w-2xl">
-            Eu crio e gerencio as suas campanhas no <strong className="text-white">Google Ads e no Meta Ads</strong>, com
-            página de captação e <strong className="text-white">dashboard</strong> para você ver, em tempo real, o que traz
-            cliente de verdade. Sem achismo.
+            {subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-3">
@@ -56,8 +67,8 @@ export default function AdsHero({
 
           <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white border-opacity-20">
             <div>
-              <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">Google + Meta</p>
-              <p className="text-white text-opacity-80">Campanhas nos dois</p>
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">5 canais</p>
+              <p className="text-white text-opacity-80">Meta, Google e mais</p>
             </div>
             <div>
               <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">Dashboard</p>

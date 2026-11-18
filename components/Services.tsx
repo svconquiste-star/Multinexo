@@ -9,7 +9,7 @@ const services = [
   {
     id: 1,
     title: 'Tráfego & Estratégia',
-    description: 'Mais clientes pelo Google e Meta Ads, com cada real guiado por estratégia e dados — não por achismo.',
+    description: 'Mais clientes pelo Meta Ads, Google Ads, TikTok, LinkedIn e Kwai Ads, com cada real guiado por estratégia e dados — não por achismo.',
     icon: BarChart3,
     color: 'from-purple-500 to-purple-600',
     msg: 'Olá! Tenho interesse em Tráfego & Estratégia.',

@@ -28,13 +28,13 @@ const RAW_CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || ''
 const CLARITY_ID = /^[a-z0-9]{6,20}$/i.test(RAW_CLARITY_ID) ? RAW_CLARITY_ID : ''
 
 const SITE_URL = 'https://multinexo.com.br'
-const SITE_TITLE = 'Daniel Aguiar | Estrategista de Marketing Digital — Tráfego, IA e Dashboards'
+const SITE_TITLE = 'Daniel Aguiar | Estrategista de Marketing Digital — Tráfego Pago, SEO, GEO e Dashboards'
 const SITE_DESCRIPTION =
-  'Sou o Daniel Aguiar. Escalo negócios com tráfego pago, estratégia e IA como vantagem competitiva. Consultoria e criação de dashboards para crescimento mensurável.'
+  'Daniel Aguiar, gestor de tráfego pago: Meta, Google, TikTok, LinkedIn e Kwai Ads, SEO, GEO, GA4 e GTM. Estratégia e dados para atrair clientes.'
 
 // <title> com até ~60 caracteres (o Google corta o resto). Redes sociais
 // (openGraph/twitter) usam o título completo, que não tem esse limite.
-const PAGE_TITLE = 'Daniel Aguiar | Gestor de Tráfego Pago, IA e Dashboards'
+const PAGE_TITLE = 'Daniel Aguiar | Tráfego Pago, SEO, GEO e Dashboards'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -93,6 +93,17 @@ const person = {
     'Gestão de tráfego',
     'Google Ads',
     'Meta Ads',
+    'TikTok Ads',
+    'LinkedIn Ads',
+    'Kwai Ads',
+    'SEO',
+    'GEO (Generative Engine Optimization)',
+    'Google Analytics 4',
+    'Google Tag Manager',
+    'Rastreamento de conversões',
+    'Qualificação de leads (MQL e SQL)',
+    'Testes A/B',
+    'Métricas de mídia paga: CAC, ROAS, LTV, CTR e CPL',
     'Automação com Inteligência Artificial',
     'Criação de dashboards',
     'Consultoria de marketing digital',
@@ -136,9 +147,27 @@ const business = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Tráfego & Estratégia',
+          name: 'Gestão de tráfego pago',
           description:
-            'Gestão de tráfego pago (Google Ads e Meta Ads) guiada por estratégia e acompanhada em dashboard.',
+            'Gestão de tráfego pago no Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads e Kwai Ads, guiada por estratégia e acompanhada em dashboard.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'SEO e GEO',
+          description:
+            'Otimização para o Google (SEO) e para respostas de IAs como ChatGPT, Gemini e Google AI Overviews (GEO).',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Mensuração e tracking',
+          description:
+            'Configuração de Google Analytics 4, Google Tag Manager e rastreamento de conversões, com qualificação de leads (MQL e SQL).',
         },
       },
       {

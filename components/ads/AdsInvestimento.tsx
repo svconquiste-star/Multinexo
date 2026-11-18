@@ -22,12 +22,12 @@ export default function AdsInvestimento({ preco }: { preco: string }) {
             <p className="text-sm font-semibold uppercase tracking-widest text-purple-600">1. Honorário de gestão</p>
             <p className="mt-3 text-xl font-bold text-gray-900">{preco}</p>
             <p className="mt-2 text-gray-600 leading-relaxed">
-              É o meu trabalho: planejar, criar e acompanhar as campanhas e o dashboard.
+              É o meu trabalho: planejar, criar e acompanhar as campanhas e o dashboard. O valor final depende do número de canais e do volume de campanhas.
             </p>
           </div>
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">2. Verba de anúncios</p>
-            <p className="mt-3 text-xl font-bold text-gray-900">Paga direto ao Google e à Meta</p>
+            <p className="mt-3 text-xl font-bold text-gray-900">Paga direto às plataformas de anúncio</p>
             <p className="mt-2 text-gray-600 leading-relaxed">
               Você define o valor junto comigo, de acordo com o seu objetivo. Esse dinheiro não passa por mim.
             </p>

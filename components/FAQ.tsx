@@ -13,13 +13,21 @@ type Faq = {
 
 const faqs: Faq[] = [
   {
-    question: 'Quais serviços vocês oferecem?',
+    question: 'Quais serviços você oferece?',
     intro:
-      'Oferecemos soluções para empresas que querem atrair mais oportunidades, melhorar seus processos comerciais e tomar decisões com base em dados.',
+      'Trabalho com empresas que querem atrair mais clientes, melhorar o processo comercial e decidir com base em dados.',
     items: [
       {
-        title: 'Tráfego & Estratégia',
-        text: 'Gestão de campanhas no Google Ads e Meta Ads, sempre orientada por estratégia, análise de dados e objetivos reais do negócio.',
+        title: 'Tráfego pago',
+        text: 'Gestão de campanhas no Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads e Kwai Ads, sempre orientada por estratégia, análise de dados e objetivos reais do negócio.',
+      },
+      {
+        title: 'SEO e GEO',
+        text: 'Otimização para o seu site aparecer no Google (SEO) e para o seu negócio ser citado nas respostas de IAs como ChatGPT, Gemini e Google AI Overviews (GEO).',
+      },
+      {
+        title: 'Mensuração e tracking',
+        text: 'Configuração de Google Analytics 4 (GA4), Google Tag Manager e rastreamento de conversões, com qualificação de leads em MQL e SQL.',
       },
       {
         title: 'IA como Vantagem Competitiva',
@@ -36,19 +44,24 @@ const faqs: Faq[] = [
     ],
   },
   {
+    question: 'Em quais plataformas de anúncio você trabalha?',
+    intro:
+      'Trabalho com Meta Ads (Facebook e Instagram), Google Ads (Pesquisa, YouTube e Display), TikTok Ads, LinkedIn Ads e Kwai Ads. A escolha dos canais depende de onde está o seu cliente e do objetivo da campanha. Em todos, a mensuração é feita com GA4, Google Tag Manager e as conversões de cada plataforma, acompanhando CAC, ROAS, LTV, CTR e CPL.',
+  },
+  {
     question: 'Como funciona a análise gratuita?',
     intro:
-      'O primeiro passo é agendar uma conversa pelo WhatsApp. Durante a call, um estrategista analisa o cenário atual do seu negócio, identifica oportunidades e apresenta possíveis caminhos para melhorar a estratégia e aumentar as conversões. A consulta é gratuita, sem compromisso e sem obrigação de contratação.',
+      'O primeiro passo é falar comigo pelo WhatsApp ou pelo formulário. Eu analiso o cenário atual do seu negócio, identifico oportunidades e apresento caminhos para melhorar a estratégia e as conversões, com retorno em até 1 dia útil. A análise é gratuita, sem compromisso e sem obrigação de contratação.',
   },
   {
     question: 'O atendimento é presencial ou online?',
     intro:
-      'Atendemos clientes de forma online ou presencial. Para empresas de fora de Betim, o atendimento é realizado por videochamada, proporcionando praticidade e agilidade independentemente da localização. Para clientes de Betim, o atendimento também pode ser presencial quando houver necessidade.',
+      'Atendo de forma online ou presencial. Para empresas de fora de Betim, o atendimento é por videochamada, com a mesma agilidade em qualquer cidade. Para clientes de Betim, também posso atender presencialmente quando houver necessidade.',
   },
   {
-    question: 'Como funciona o investimento?',
+    question: 'Quanto custa um gestor de tráfego pago?',
     intro:
-      'Cada empresa possui necessidades, objetivos e desafios diferentes. Por isso, não trabalhamos com um investimento padrão para todos os projetos. Durante a call inicial, analisamos o seu cenário, entendemos o que precisa ser feito e apresentamos uma solução compatível com a necessidade do seu negócio. Assim, você recebe uma proposta baseada no escopo real do projeto, e não em um pacote genérico.',
+      'O honorário da gestão começa em R$ 1.000 por mês e varia conforme o número de plataformas e o volume de campanhas. A verba de anúncios é separada e paga direto às plataformas (Meta, Google, TikTok, LinkedIn ou Kwai). Na análise gratuita, eu entendo o seu cenário e monto a proposta para o seu caso.',
   },
   {
     question: 'O que é a criação de dashboard?',
@@ -66,7 +79,7 @@ const faqs: Faq[] = [
       'Relatórios de performance',
     ],
     outro:
-      'Tudo isso com dados atualizados para facilitar o acompanhamento da operação e tornar a tomada de decisão mais rápida. Decisões com dados, sem planilhas confusas.',
+      'O dashboard não se limita a anúncios: eu crio painéis para qualquer nicho e com as informações que o seu negócio precisa, como vendas e faturamento, estoque, atendimento e WhatsApp, agendamentos, metas da equipe comercial, financeiro ou indicadores da operação, juntando dados de planilhas, sistemas, CRM e plataformas de anúncio. Tudo com dados atualizados para tornar a decisão mais rápida. Decisões com dados, sem planilhas confusas.',
   },
   {
     question: 'Como funciona o atendente de IA no WhatsApp?',
@@ -76,7 +89,7 @@ const faqs: Faq[] = [
   {
     question: 'Em quanto tempo começo a ver resultados?',
     intro:
-      'O prazo varia de acordo com cada projeto, mercado, objetivo, investimento, estrutura atual e estratégia utilizada. Algumas ações podem gerar sinais de evolução mais rapidamente, enquanto outras exigem mais tempo de otimização, testes e coleta de dados. Por isso, antes de estabelecer qualquer expectativa, analisamos o cenário da empresa e definimos uma estratégia compatível com os objetivos do negócio. Mais do que prometer resultados rápidos, nosso foco é construir uma estratégia que possa ser medida, analisada e constantemente otimizada.',
+      'O prazo varia de acordo com cada projeto, mercado, objetivo, investimento, estrutura atual e estratégia utilizada. Algumas ações podem gerar sinais de evolução mais rapidamente, enquanto outras exigem mais tempo de otimização, testes e coleta de dados. Por isso, antes de criar qualquer expectativa, eu analiso o cenário da empresa e defino uma estratégia compatível com os objetivos do negócio. Mais do que prometer resultados rápidos, o meu foco é construir uma estratégia que possa ser medida, analisada e otimizada sempre.',
   },
 ]
 
@@ -125,7 +138,7 @@ export default function FAQ() {
           </div>
           <h2 className="section-title">Ainda com dúvidas?</h2>
           <p className="section-subtitle">
-            As respostas para o que os clientes mais nos perguntam antes de começar.
+            As respostas para o que os clientes mais me perguntam antes de começar.
           </p>
         </div>
 
@@ -141,6 +154,7 @@ export default function FAQ() {
                   onClick={() => toggle(index)}
                   className="w-full flex items-center justify-between text-left px-6 py-5 gap-4"
                   aria-expanded={isOpen}
+                  aria-controls={`faq-resposta-${index}`}
                 >
                   <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
                   <ChevronDown
@@ -150,8 +164,12 @@ export default function FAQ() {
                     }`}
                   />
                 </button>
-                {isOpen && (
-                  <div className="px-6 pb-6 text-gray-600 leading-relaxed space-y-4 animate-faqOpen">
+                {/* A resposta fica sempre no HTML (Google e IAs leem); fechada, só fica oculta. */}
+                <div
+                  id={`faq-resposta-${index}`}
+                  hidden={!isOpen}
+                  className="px-6 pb-6 text-gray-600 leading-relaxed space-y-4 animate-faqOpen"
+                >
                     <p>{faq.intro}</p>
 
                     {faq.items && (
@@ -174,8 +192,7 @@ export default function FAQ() {
                     )}
 
                     {faq.outro && <p>{faq.outro}</p>}
-                  </div>
-                )}
+                </div>
               </div>
             )
           })}

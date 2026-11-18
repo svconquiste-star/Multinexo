@@ -15,10 +15,10 @@ export default function Header() {
   const whatsappLink = 'https://wa.me/5531993121211?text=Olá!%20Gostaria%20de%20agendar%20uma%20análise%20gratuita%20para%20escalar%20meu%20negócio.'
 
   const navItems = [
-    { label: 'Sobre', href: '#sobre' },
-    { label: 'Serviços', href: '#services' },
-    { label: 'Cases', href: '#cases' },
-    { label: 'Clientes', href: '#clients' },
+    { label: 'Sobre', href: '/#sobre' },
+    { label: 'Serviços', href: '/#services' },
+    { label: 'Cases', href: '/#cases' },
+    { label: 'Clientes', href: '/#clients' },
     { label: '🇪🇺 Europa', href: '/europa' },
     { label: 'Contato', href: whatsappLink, external: true },
   ]
