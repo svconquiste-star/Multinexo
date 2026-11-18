@@ -16,6 +16,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp'
 import LeadFormProvider from '@/components/lead/LeadFormProvider'
 import AdsFit from '@/components/ads/AdsFit'
 import ServiceCatalog from '@/components/ServiceCatalog'
+import BlogLinks from '@/components/BlogLinks'
 
 // A home fala da marca e da visão ampla (tráfego pago, SEO, GEO e dados). A busca
 // "gestor de tráfego pago" fica com /gestor-de-trafego-pago, para as duas não
@@ -54,6 +55,7 @@ export default function Home() {
       <DashboardShowcase />
       <AutomacoesIA />
       <Clients />
+      <BlogLinks />
       <CTA />
       <FAQ />
       <Footer />

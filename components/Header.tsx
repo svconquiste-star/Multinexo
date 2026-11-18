@@ -17,7 +17,7 @@ export default function Header() {
   const navItems = [
     { label: 'Sobre', href: '/#sobre' },
     { label: 'Serviços', href: '/#services' },
-    { label: 'Cases', href: '/#cases' },
+    { label: 'Cases', href: '/cases' },
     { label: 'Clientes', href: '/#clients' },
     { label: '🇪🇺 Europa', href: '/europa' },
     { label: 'Contato', href: whatsappLink, external: true },

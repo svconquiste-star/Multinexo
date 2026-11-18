@@ -131,7 +131,7 @@ export default function TrafficResults() {
         </div>
 
         <p className="text-center text-sm text-gray-400 mt-10">
-          * Dados reais de campanhas gerenciadas por mim. Métricas conforme Gerenciador de Anúncios da Meta.
+          * Dados reais de campanhas gerenciadas por mim. Métricas conforme Gerenciador de Anúncios da Meta. Os resultados variam conforme negócio, oferta e verba.
         </p>
       </div>
     </section>

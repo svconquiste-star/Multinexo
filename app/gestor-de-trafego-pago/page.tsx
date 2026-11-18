@@ -5,6 +5,8 @@ import AdsSteps from '@/components/ads/AdsSteps'
 import AdsCases from '@/components/ads/AdsCases'
 import AdsFit from '@/components/ads/AdsFit'
 import AdsInvestimento from '@/components/ads/AdsInvestimento'
+import AdsComparativo from '@/components/ads/AdsComparativo'
+import BlogLinks from '@/components/BlogLinks'
 import AdsProofCompact from '@/components/ads/AdsProofCompact'
 import ServiceCatalog from '@/components/ServiceCatalog'
 import FAQ from '@/components/FAQ'
@@ -50,8 +52,10 @@ export default function GestorDeTrafegoPago() {
         <AdsCases />
         <ServiceCatalog showSeo={false} title="Serviço de tráfego pago: o que você recebe" />
         <AdsFit />
+        <AdsComparativo />
         <AdsInvestimento preco={PRECO_TEXTO} />
         <AdsSteps />
+        <BlogLinks />
         <CTA />
         <FAQ />
         <Footer homeHref="/gestor-de-trafego-pago" />

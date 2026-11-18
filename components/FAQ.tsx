@@ -64,6 +64,16 @@ const faqs: Faq[] = [
       'O honorário da gestão começa em R$ 1.000 por mês e varia conforme o número de plataformas e o volume de campanhas. A verba de anúncios é separada e paga direto às plataformas (Meta, Google, TikTok, LinkedIn ou Kwai). Na análise gratuita, eu entendo o seu cenário e monto a proposta para o seu caso.',
   },
   {
+    question: 'Gestor de tráfego, agência ou fazer sozinho: qual escolher?',
+    intro:
+      'Depende do tamanho da operação e do tempo que você tem. Com um gestor, você fala direto com quem cuida das campanhas e acompanha tudo em um dashboard. Uma agência costuma fazer sentido para operações maiores, com vários canais e equipes. Fazer sozinho custa só a verba de anúncios, mas exige tempo e aprendizado. Na análise gratuita, eu digo qual caminho faz mais sentido para o seu caso.',
+  },
+  {
+    question: 'Quanto preciso investir em anúncios por mês?',
+    intro:
+      'Não existe um valor único: depende do objetivo, do mercado e de quanto vale um cliente para o seu negócio. A verba de anúncios é separada do honorário e paga direto às plataformas. Na análise gratuita, eu defino o valor com você, de acordo com o objetivo, e você pode começar com uma verba menor e ajustar conforme os números.',
+  },
+  {
     question: 'O que é a criação de dashboard?',
     intro:
       'É a criação de um painel personalizado de acompanhamento de resultados, reunindo as principais métricas do seu negócio de forma clara e organizada. Você pode acompanhar informações como:',

@@ -78,7 +78,7 @@ const ptBR: Copy = {
   role: 'Estrategista de Marketing Digital',
   title: 'Diagnóstico gratuito do seu tráfego',
   subtitle:
-    'Responda 2 etapas rápidas (cerca de 1 minuto). Se fizer sentido, você fala direto comigo no WhatsApp.',
+    'Responda 2 etapas rápidas (cerca de 1 minuto). Eu analiso as suas respostas e retorno em até 1 dia útil. Se fizer sentido, você fala direto comigo no WhatsApp.',
   step: (n) => `Etapa ${n} de 2`,
   fields: {
     nome: 'Primeiro nome',
@@ -178,7 +178,7 @@ const ptPT: Copy = {
   ...ptBR,
   htmlLang: 'pt-PT',
   subtitle:
-    'Responda a 2 etapas rápidas (cerca de 1 minuto). Se fizer sentido, fala diretamente comigo no WhatsApp.',
+    'Responda a 2 etapas rápidas (cerca de 1 minuto). Analiso as suas respostas e respondo em até 1 dia útil. Se fizer sentido, fala diretamente comigo no WhatsApp.',
   fields: {
     ...ptBR.fields,
     jaAnuncia: 'Já anuncia?',
@@ -239,7 +239,7 @@ const en: Copy = {
   role: 'Digital Marketing Strategist',
   title: 'Free diagnostic of your ad traffic',
   subtitle:
-    'Answer 2 quick steps (about 1 minute). If it’s a fit, you’ll talk to me directly on WhatsApp.',
+    'Answer 2 quick steps (about 1 minute). I review your answers and reply within 1 business day. If it’s a fit, you’ll talk to me directly on WhatsApp.',
   step: (n) => `Step ${n} of 2`,
   fields: {
     nome: 'First name',

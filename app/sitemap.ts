@@ -45,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/cases`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     // Cases publicados (os rascunhos ficam de fora; ver CASE_SLUGS em lib/cases.ts).
     ...CASE_SLUGS.map((slug) => ({
       url: `${BASE_URL}/cases/${slug}`,

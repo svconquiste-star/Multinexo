@@ -151,6 +151,8 @@ const business = {
           description:
             'Gestão de tráfego pago no Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads e Kwai Ads, guiada por estratégia e acompanhada em dashboard.',
         },
+        // Honorário inicial (lib/preco.ts); a verba de anúncios é paga direto às plataformas.
+        priceSpecification: { '@type': 'PriceSpecification', minPrice: 1000, priceCurrency: 'BRL' },
       },
       {
         '@type': 'Offer',

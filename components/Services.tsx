@@ -13,6 +13,7 @@ const services = [
     icon: BarChart3,
     color: 'from-purple-500 to-purple-600',
     msg: 'Olá! Tenho interesse em Tráfego & Estratégia.',
+    cta: 'Quero atrair mais clientes',
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const services = [
     icon: Bot,
     color: 'from-pink-500 to-pink-600',
     msg: 'Olá! Tenho interesse em Automação com IA.',
+    cta: 'Quero atender com IA',
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const services = [
     icon: LayoutDashboard,
     color: 'from-blue-500 to-blue-600',
     msg: 'Olá! Tenho interesse em Criação de Dashboard.',
+    cta: 'Quero meu dashboard',
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ const services = [
     icon: Lightbulb,
     color: 'from-amber-500 to-orange-500',
     msg: 'Olá! Tenho interesse em Consultoria.',
+    cta: 'Quero meu plano de crescimento',
   },
 ]
 
@@ -75,7 +79,7 @@ export default function Services({
                   location={`servico-${service.id}`}
                   className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors cursor-pointer"
                 >
-                  Quero isso no meu negócio
+                  {service.cta}
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
