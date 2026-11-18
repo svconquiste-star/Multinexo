@@ -19,9 +19,11 @@ const steps = [
 
 // "Como funciona" (landing e home). A home passa um título próprio.
 export default function AdsSteps({
+  steps: passos = steps,
   title = 'Consultoria de tráfego pago: como funciona',
   subtitle = 'Procurando uma agência de tráfego pago ou uma empresa de tráfego pago? Aqui você fala direto com quem cuida das campanhas, do primeiro contato ao resultado medido, em quatro etapas.',
 }: {
+  steps?: { title: string; text: string }[]
   title?: string
   subtitle?: string
 }) {
@@ -33,7 +35,7 @@ export default function AdsSteps({
           <p className="section-subtitle">{subtitle}</p>
         </div>
         <ol className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {steps.map((s, i) => (
+          {passos.map((s, i) => (
             <li key={s.title} className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-pink-500 text-lg font-bold text-white">
                 {i + 1}

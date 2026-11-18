@@ -20,6 +20,9 @@ const SITE = 'https://multinexo.com.br'
 // direta (AEO/GEO) logo depois do Hero e mantém o mesmo formulário curto da landing.
 export default function ServiceLanding({ s }: { s: Servico }) {
   const url = `${SITE}/${s.slug}`
+  const breadcrumb = s.breadcrumb ?? `Gestor de ${s.plataforma}`
+  const paises = s.paises ?? PAISES
+  const comHonorario = s.honorarioGestao !== false
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,14 +34,14 @@ export default function ServiceLanding({ s }: { s: Servico }) {
         description: s.description,
         url,
         provider: { '@id': `${SITE}/#business` },
-        areaServed: PAISES.map((name) => ({ '@type': 'Country', name })),
+        areaServed: paises.map((name) => ({ '@type': name === 'América Latina' ? 'Place' : 'Country', name })),
         availableChannel: { '@type': 'ServiceChannel', serviceUrl: url, availableLanguage: ['pt-BR'] },
       },
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE}/` },
-          { '@type': 'ListItem', position: 2, name: `Gestor de ${s.plataforma}`, item: url },
+          { '@type': 'ListItem', position: 2, name: breadcrumb, item: url },
         ],
       },
       {
@@ -57,15 +60,15 @@ export default function ServiceLanding({ s }: { s: Servico }) {
       <main className="min-h-screen">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Header />
-        <AdsHero location={`${s.slug}-hero`} title={s.h1} subtitle={s.heroFrase}>
-          <AdsProofCompact />
+        <AdsHero location={`${s.slug}-hero`} title={s.h1} subtitle={s.heroFrase} showStats={s.honorarioGestao !== false}>
+          {s.caseNoHero !== false && <AdsProofCompact />}
         </AdsHero>
 
         {/* Resposta direta: o trecho que Google e IAs citam */}
         <section id="o-que-e" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-3xl mx-auto">
             <nav aria-label="Você está em" className="mb-6 text-sm text-gray-500">
-              <Link href="/" className="hover:text-purple-600">Início</Link> / <span>Gestor de {s.plataforma}</span>
+              <Link href="/" className="hover:text-purple-600">Início</Link> / <span>{breadcrumb}</span>
             </nav>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{s.oQueE.pergunta}</h2>
             <p className="text-lg text-gray-700 leading-relaxed">{s.oQueE.resposta}</p>
@@ -75,7 +78,7 @@ export default function ServiceLanding({ s }: { s: Servico }) {
         <section id="entregas" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="section-title">O que eu faço na sua conta de {s.plataforma}</h2>
+              <h2 className="section-title">{s.entregasTitulo ?? `O que eu faço na sua conta de ${s.plataforma}`}</h2>
               <p className="section-subtitle">Do planejamento à otimização, com cada etapa medida.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -105,7 +108,7 @@ export default function ServiceLanding({ s }: { s: Servico }) {
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Mensuração e tracking</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">{s.mensuracaoTitulo ?? 'Mensuração e tracking'}</h2>
               <ul className="space-y-4">
                 {s.mensuracao.map((m) => (
                   <li key={m} className="flex gap-3">
@@ -115,8 +118,8 @@ export default function ServiceLanding({ s }: { s: Servico }) {
                 ))}
               </ul>
               <p className="mt-6 text-gray-600 leading-relaxed">
-                Acompanho CAC, ROAS, LTV, CTR e CPL num dashboard, para você saber quanto custa cada cliente e onde
-                vale investir mais.
+                {s.mensuracaoNota ??
+                  'Acompanho CAC, ROAS, LTV, CTR e CPL num dashboard, para você saber quanto custa cada cliente e onde vale investir mais.'}
               </p>
             </div>
           </div>
@@ -125,13 +128,15 @@ export default function ServiceLanding({ s }: { s: Servico }) {
         <section id="brasil-e-exterior" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
           <div className="max-w-4xl mx-auto text-center">
             <Globe2 className="mx-auto text-purple-600 mb-4" size={36} />
-            <h2 className="section-title">Gestor de {s.plataforma} para empresas no Brasil e no exterior</h2>
+            <h2 className="section-title">
+              {s.exteriorTitulo ?? `Gestor de ${s.plataforma} para empresas no Brasil e no exterior`}
+            </h2>
             <p className="section-subtitle">
-              Atendo 100% online. As campanhas são segmentadas para o país, a cidade e o idioma do seu público, e a
-              verba é cobrada pela plataforma na moeda da sua conta de anúncios.
+              {s.exteriorTexto ??
+                'Atendo 100% online. As campanhas são segmentadas para o país, a cidade e o idioma do seu público, e a verba é cobrada pela plataforma na moeda da sua conta de anúncios.'}
             </p>
             <ul className="mt-8 flex flex-wrap justify-center gap-3">
-              {PAISES.map((p) => (
+              {paises.map((p) => (
                 <li key={p} className="rounded-full bg-white border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700">
                   {p}
                 </li>
@@ -148,7 +153,7 @@ export default function ServiceLanding({ s }: { s: Servico }) {
         </section>
 
         <AdsCases />
-        <AdsInvestimento preco={PRECO_TEXTO} />
+        {comHonorario && <AdsInvestimento preco={PRECO_TEXTO} />}
 
         <section id="comparacao" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-3xl mx-auto">
@@ -165,7 +170,8 @@ export default function ServiceLanding({ s }: { s: Servico }) {
         </section>
 
         <AdsSteps
-          title={`Como funciona a gestão de ${s.plataforma}`}
+          steps={s.passos}
+          title={`Como funciona: ${s.breadcrumb ?? `gestão de ${s.plataforma}`}`}
           subtitle="Você fala direto com quem cuida das campanhas, do primeiro contato ao resultado medido, em quatro etapas."
         />
 

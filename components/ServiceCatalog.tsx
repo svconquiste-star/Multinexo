@@ -8,9 +8,9 @@ import { Megaphone, Search, LineChart, Target } from 'lucide-react'
 const canais: { nome: string; detalhe: string; href?: string }[] = [
   { nome: 'Meta Ads', detalhe: 'Facebook e Instagram', href: '/gestor-de-trafego-meta-ads' },
   { nome: 'Google Ads', detalhe: 'Pesquisa, YouTube e Display', href: '/gestor-de-google-ads' },
-  { nome: 'TikTok Ads', detalhe: 'Vídeo curto e alcance' },
-  { nome: 'LinkedIn Ads', detalhe: 'Empresas e decisores (B2B)' },
-  { nome: 'Kwai Ads', detalhe: 'Vídeo curto, público amplo' },
+  { nome: 'TikTok Ads', detalhe: 'Vídeo curto e alcance', href: '/gestor-de-tiktok-ads' },
+  { nome: 'LinkedIn Ads', detalhe: 'Empresas e decisores (B2B)', href: '/gestor-de-linkedin-ads' },
+  { nome: 'Kwai Ads', detalhe: 'Vídeo curto, público amplo', href: '/gestor-de-kwai-ads' },
 ]
 
 const mensuracao = [
@@ -78,7 +78,13 @@ export default function ServiceCatalog({
           <div className="rounded-2xl border border-gray-100 bg-gray-50 p-7">
             <div className="mb-4 flex items-center gap-3">
               <LineChart className="text-purple-600" size={26} />
-              <h3 className="text-xl font-bold text-gray-900">Mensuração e tracking</h3>
+              <h3 className="text-xl font-bold text-gray-900">
+                {showSeo ? (
+                  <Link href="/ga4-e-google-tag-manager" className="text-purple-700 underline-offset-2 hover:underline">Mensuração e tracking</Link>
+                ) : (
+                  'Mensuração e tracking'
+                )}
+              </h3>
             </div>
             <ul className="space-y-3">
               {mensuracao.map((m) => (
@@ -94,7 +100,9 @@ export default function ServiceCatalog({
             <div className="rounded-2xl border border-gray-100 bg-gray-50 p-7">
               <div className="mb-4 flex items-center gap-3">
                 <Search className="text-purple-600" size={26} />
-                <h3 className="text-xl font-bold text-gray-900">SEO e GEO</h3>
+                <h3 className="text-xl font-bold text-gray-900">
+                  <Link href="/seo-e-geo" className="text-purple-700 underline-offset-2 hover:underline">SEO e GEO</Link>
+                </h3>
               </div>
               <ul className="space-y-3">
                 {seo.map((s) => (

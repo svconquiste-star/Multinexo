@@ -22,11 +22,13 @@ export default function AdsHero({
   location = 'ads-hero',
   title = TITULO_LANDING,
   subtitle = FRASE_LANDING,
+  showStats = true,
   children,
 }: {
   location?: string
   title?: string
   subtitle?: ReactNode
+  showStats?: boolean // faixa "5 canais / Dashboard / WhatsApp" (tráfego pago)
   children?: ReactNode
 }) {
   return (
@@ -65,6 +67,7 @@ export default function AdsHero({
 
           {children}
 
+          {showStats && (
           <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white border-opacity-20">
             <div>
               <p className="text-lg sm:text-2xl md:text-3xl font-bold break-words">5 canais</p>
@@ -79,6 +82,7 @@ export default function AdsHero({
               <p className="text-white text-opacity-80">Atendimento direto</p>
             </div>
           </div>
+          )}
         </div>
       </div>
     </section>
