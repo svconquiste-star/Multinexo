@@ -1,7 +1,10 @@
-// Liga o site ao blog (SEO e GEO): 3 artigos sobre dúvidas comuns de quem vai anunciar.
-const BLOG = 'https://blog.multinexo.com.br/post'
+// Liga o site ao blog (SEO e GEO). Padrão: 3 artigos sobre dúvidas comuns de quem vai anunciar.
+// As páginas de serviço passam os próprios artigos (lib/servicos.ts, campo `blog`).
+export const BLOG = 'https://blog.multinexo.com.br/post'
 
-const ARTICLES = [
+export type BlogArticle = { href: string; title: string; text: string }
+
+const ARTICLES: BlogArticle[] = [
   {
     href: `${BLOG}/quanto-investir-em-anuncio-no-comeco-sem-risco`,
     title: 'Quanto investir em anúncio no começo sem arriscar',
@@ -19,16 +22,24 @@ const ARTICLES = [
   },
 ]
 
-export default function BlogLinks() {
+export default function BlogLinks({
+  articles = ARTICLES,
+  title = 'Leia no blog',
+  subtitle = 'Respostas diretas para as dúvidas mais comuns de quem vai anunciar.',
+}: {
+  articles?: BlogArticle[]
+  title?: string
+  subtitle?: string
+}) {
   return (
     <section id="artigos" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8">
-          <h2 className="section-title">Artigos que podem ajudar</h2>
-          <p className="section-subtitle">Respostas diretas para as dúvidas mais comuns de quem vai anunciar.</p>
+          <h2 className="section-title">{title}</h2>
+          <p className="section-subtitle">{subtitle}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {ARTICLES.map((a) => (
+          {articles.map((a) => (
             <a
               key={a.href}
               href={a.href}

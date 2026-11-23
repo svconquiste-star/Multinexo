@@ -7,6 +7,7 @@ import AdsCases from '@/components/ads/AdsCases'
 import AdsInvestimento from '@/components/ads/AdsInvestimento'
 import AdsSteps from '@/components/ads/AdsSteps'
 import CTA from '@/components/CTA'
+import BlogLinks from '@/components/BlogLinks'
 import Footer from '@/components/Footer'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
 import WhatsAppLink from '@/components/WhatsAppLink'
@@ -199,6 +200,9 @@ export default function ServiceLanding({ s }: { s: Servico }) {
           </div>
         </section>
 
+        {s.blog && (
+          <BlogLinks articles={s.blog} subtitle={`Artigos para entender melhor ${s.breadcrumb ?? s.plataforma}.`} />
+        )}
         <CTA />
         <Footer />
         <FloatingWhatsApp />

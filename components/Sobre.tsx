@@ -54,7 +54,8 @@ export default function Sobre() {
           <p className="text-lg text-gray-700 leading-relaxed mb-5">
             Como gestor de tráfego pago, eu ajudo negócios a atrair mais clientes com um sistema completo de
             marketing — <strong className="text-gray-900">tráfego pago, SEO e GEO, mensuração com GA4 e
-            Google Tag Manager, automação com IA e dashboards</strong>. Atendo negócios locais, empresas, experts, afiliados e influencers,
+            Google Tag Manager, automação com IA e dashboards</strong>. Atendo dois públicos: quem vende para pessoas, como lojas de bairro, perfis do Instagram que vendem
+            roupa e lojas online (B2C), e empresas que vendem para outras empresas (B2B),
             no Brasil e no exterior, sempre de forma remota e orientada a resultado.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed mb-8">

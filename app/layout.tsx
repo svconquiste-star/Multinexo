@@ -3,6 +3,7 @@ import Script from 'next/script'
 import ConsentBanner from '@/components/consent/ConsentBanner'
 import AttributionCapture from '@/components/lead/AttributionCapture'
 import './globals.css'
+import { OG_HOME } from '@/lib/schema'
 
 // Contexto Europa/UK = páginas /europa* OU ?mercado=PT|IE|ES|UK. Sem aceite
 // gravado, GA4 e Pixel nascem com consentimento negado (GDPR/ePrivacy).
@@ -28,13 +29,14 @@ const RAW_CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || ''
 const CLARITY_ID = /^[a-z0-9]{6,20}$/i.test(RAW_CLARITY_ID) ? RAW_CLARITY_ID : ''
 
 const SITE_URL = 'https://multinexo.com.br'
-const SITE_TITLE = 'Daniel Aguiar | Estrategista de Marketing Digital — Tráfego Pago, SEO, GEO e Dashboards'
+const SITE_TITLE =
+  'Multinexo Marketing de Performance | Growth | Meta Ads e Google Ads | Geração de Demanda B2B e B2C'
 const SITE_DESCRIPTION =
-  'Daniel Aguiar, gestor de tráfego pago: Meta, Google, TikTok, LinkedIn e Kwai Ads, SEO, GEO, GA4 e GTM. Estratégia e dados para atrair clientes.'
+  'Marketing de performance para lojas, Instagram de vendas e empresas (B2C e B2B): anúncios no Meta, Google, TikTok e LinkedIn, SEO e GEO. Análise gratuita.'
 
 // <title> com até ~60 caracteres (o Google corta o resto). Redes sociais
 // (openGraph/twitter) usam o título completo, que não tem esse limite.
-const PAGE_TITLE = 'Daniel Aguiar | Tráfego Pago, SEO, GEO e Dashboards'
+const PAGE_TITLE = 'Multinexo | Marketing de Performance, Meta Ads e Google Ads'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -53,20 +55,13 @@ export const metadata: Metadata = {
     siteName: 'Multinexo',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: '/images/logo.png',
-        width: 1536,
-        height: 1024,
-        alt: 'Daniel Aguiar — Estrategista de Marketing Digital',
-      },
-    ],
+    images: [OG_HOME],
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ['/images/logo.png'],
+    images: [OG_HOME.url],
   },
   robots: {
     index: true,
@@ -121,7 +116,7 @@ const business = {
   name: 'Multinexo',
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo.png`,
-  image: `${SITE_URL}/images/logo.png`,
+  image: `${SITE_URL}${OG_HOME.url}`,
   description: SITE_DESCRIPTION,
   founder: { '@id': `${SITE_URL}/#daniel` },
   employee: { '@id': `${SITE_URL}/#daniel` },
@@ -139,70 +134,10 @@ const business = {
     'https://www.instagram.com/daguiar.ai/',
     'https://www.linkedin.com/in/daniel-aguiar-871628268/',
   ],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Serviços de Marketing Digital',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Gestão de tráfego pago',
-          description:
-            'Gestão de tráfego pago no Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads e Kwai Ads, guiada por estratégia e acompanhada em dashboard.',
-        },
-        // Honorário inicial (lib/preco.ts); a verba de anúncios é paga direto às plataformas.
-        priceSpecification: { '@type': 'PriceSpecification', minPrice: 1000, priceCurrency: 'BRL' },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'SEO e GEO',
-          description:
-            'Otimização para o Google (SEO) e para respostas de IAs como ChatGPT, Gemini e Google AI Overviews (GEO).',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Mensuração e tracking',
-          description:
-            'Configuração de Google Analytics 4, Google Tag Manager e rastreamento de conversões, com qualificação de leads (MQL e SQL).',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'IA como Vantagem Competitiva',
-          description:
-            'Automação de atendimento, captação e qualificação com Inteligência Artificial, com atendente de IA no WhatsApp.',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Criação de Dashboard',
-          description:
-            'Dashboards sob medida que centralizam métricas de tráfego, vendas e atendimento em tempo real.',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Consultoria',
-          description:
-            'Consultoria estratégica de marketing que analisa funil, posicionamento e canais e entrega um plano de ação focado em resultado.',
-        },
-      },
-    ],
-  },
 }
 
+// Em todas as páginas: só a pessoa e a empresa. O catálogo de serviços com preço
+// fica na home (lib/schema.ts), onde o preço aparece na página.
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [person, business],

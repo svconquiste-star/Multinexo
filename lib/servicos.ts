@@ -1,3 +1,5 @@
+import { BLOG, type BlogArticle } from '@/components/BlogLinks'
+
 // Páginas de serviço por plataforma (SEO, AEO e GEO). Cada página responde logo no
 // topo à pergunta principal, em 2 a 3 frases, porque é esse trecho que Google e IAs
 // citam. Regra de texto: sem promessa de resultado e sem número que não dá para comprovar.
@@ -31,11 +33,19 @@ export type Servico = {
   honorarioGestao?: boolean // padrão true: mostra a seção "Quanto custa" (a partir de R$ 1.000)
   passos?: { title: string; text: string }[] // padrão: passos da gestão de campanhas
   caseNoHero?: boolean // padrão true: faixa "443 contatos" (case de tráfego pago) no Hero
+  blog?: BlogArticle[] // "Leia no blog": 2 a 3 artigos (slugs conferidos no sitemap do blog)
 }
+
+const post = (slug: string, title: string, text: string): BlogArticle => ({ href: `${BLOG}/${slug}`, title, text })
 
 export const PAISES = ['Brasil', 'Portugal', 'Espanha', 'Irlanda', 'Reino Unido', 'Estados Unidos']
 
 const META: Servico = {
+  blog: [
+    post('formulario-de-leads-da-meta-como-receber-lead-qualificado', 'Formulário de leads da Meta: como receber lead qualificado', 'Como configurar o formulário para filtrar curiosos.'),
+    post('anuncio-parou-de-funcionar-como-saber-se-o-publico-cansou', 'Anúncio parou de funcionar? Veja se o público cansou', 'Os sinais de cansaço do criativo e o que trocar.'),
+    post('vale-a-pena-impulsionar-post-no-instagram', 'Vale a pena impulsionar post no Instagram?', 'A diferença entre impulsionar e anunciar pelo Gerenciador.'),
+  ],
   slug: 'gestor-de-trafego-meta-ads',
   plataforma: 'Meta Ads',
   title: 'Gestor de Tráfego Meta Ads (Facebook e Instagram)',
@@ -101,6 +111,11 @@ const META: Servico = {
 }
 
 const GOOGLE: Servico = {
+  blog: [
+    post('tag-do-google-vs-gtm-o-que-muda-no-trafego-pago', 'Tag do Google vs GTM: o que muda no tráfego pago', 'Qual instalação usar para medir as conversões.'),
+    post('anuncio-para-negocio-local-apareca-so-para-quem-esta-perto', 'Anúncio para negócio local: apareça só para quem está perto', 'Como segmentar por região sem gastar à toa.'),
+    post('onde-anunciar-minha-empresa-qual-plataforma-escolher', 'Onde anunciar minha empresa: qual plataforma escolher?', 'Google, Meta e outras: como decidir pelo seu cliente.'),
+  ],
   slug: 'gestor-de-google-ads',
   plataforma: 'Google Ads',
   title: 'Gestor de Google Ads: Pesquisa, YouTube e Performance Max',
@@ -166,6 +181,11 @@ const GOOGLE: Servico = {
 }
 
 const TIKTOK: Servico = {
+  blog: [
+    post('onde-anunciar-minha-empresa-qual-plataforma-escolher', 'Onde anunciar minha empresa: qual plataforma escolher?', 'Quando o TikTok faz sentido para o seu negócio.'),
+    post('criar-anuncio-com-ia-sem-parecer-robo', 'Criar anúncio com IA sem parecer robô', 'Como usar IA nos criativos sem perder a naturalidade.'),
+    post('anuncio-parou-de-funcionar-como-saber-se-o-publico-cansou', 'Anúncio parou de funcionar? Veja se o público cansou', 'Os sinais de cansaço do criativo e o que trocar.'),
+  ],
   slug: 'gestor-de-tiktok-ads',
   plataforma: 'TikTok Ads',
   title: 'Gestor de TikTok Ads: anúncios em vídeo curto',
@@ -231,6 +251,11 @@ const TIKTOK: Servico = {
 }
 
 const LINKEDIN: Servico = {
+  blog: [
+    post('mql-e-sql-o-que-sao-e-como-definir-na-sua-empresa', 'MQL e SQL: o que são e como definir na sua empresa', 'Como separar lead de marketing de lead pronto para venda.'),
+    post('onde-anunciar-minha-empresa-qual-plataforma-escolher', 'Onde anunciar minha empresa: qual plataforma escolher?', 'Quando o LinkedIn vale o clique mais caro.'),
+    post('vale-a-pena-contratar-agencia-de-marketing', 'Vale a pena contratar agência de marketing?', 'O que avaliar antes de terceirizar o marketing.'),
+  ],
   slug: 'gestor-de-linkedin-ads',
   plataforma: 'LinkedIn Ads',
   title: 'Gestor de LinkedIn Ads: anúncios B2B para empresas',
@@ -298,6 +323,11 @@ const LINKEDIN: Servico = {
 }
 
 const KWAI: Servico = {
+  blog: [
+    post('onde-anunciar-minha-empresa-qual-plataforma-escolher', 'Onde anunciar minha empresa: qual plataforma escolher?', 'Quando o Kwai faz sentido para o seu negócio.'),
+    post('quanto-investir-em-anuncio-no-comeco-sem-risco', 'Quanto investir em anúncio no começo sem arriscar', 'Como definir a verba inicial sem comprometer o caixa.'),
+    post('criar-anuncio-com-ia-sem-parecer-robo', 'Criar anúncio com IA sem parecer robô', 'Como usar IA nos criativos sem perder a naturalidade.'),
+  ],
   slug: 'gestor-de-kwai-ads',
   plataforma: 'Kwai Ads',
   title: 'Gestor de Kwai Ads: anúncios em vídeo para o Brasil',
@@ -362,6 +392,11 @@ const KWAI: Servico = {
 }
 
 const SEO_GEO: Servico = {
+  blog: [
+    post('como-aparecer-no-chatgpt-e-ser-escolhido-por-clientes', 'Como aparecer no ChatGPT e ser escolhido por clientes', 'O que faz uma IA citar o seu negócio.'),
+    post('perfil-da-empresa-no-google-prepare-se-para-o-ask-maps', 'Perfil da Empresa no Google: prepare-se para o Ask Maps', 'Como o perfil ajuda nas buscas locais e nas respostas de IA.'),
+    post('minha-empresa-precisa-de-site-em-2027-ou-o-whatsapp-basta', 'Minha empresa precisa de site em 2027 ou o WhatsApp basta?', 'Por que o site é a base do SEO.'),
+  ],
   slug: 'seo-e-geo',
   plataforma: 'SEO e GEO',
   title: 'SEO e GEO: apareça no Google e nas respostas de IA',
@@ -442,6 +477,11 @@ const SEO_GEO: Servico = {
 }
 
 const GA4_GTM: Servico = {
+  blog: [
+    post('gtm-o-que-e-google-tag-manager-e-como-usar', 'GTM: o que é o Google Tag Manager e como usar', 'O básico para instalar e organizar as tags.'),
+    post('tag-do-google-vs-gtm-o-que-muda-no-trafego-pago', 'Tag do Google vs GTM: o que muda no tráfego pago', 'Qual instalação usar para medir as conversões.'),
+    post('mql-e-sql-o-que-sao-e-como-definir-na-sua-empresa', 'MQL e SQL: o que são e como definir na sua empresa', 'Como medir vendas, e não só contatos.'),
+  ],
   slug: 'ga4-e-google-tag-manager',
   plataforma: 'GA4 e Google Tag Manager',
   title: 'Configuração de GA4 e Google Tag Manager (tracking)',

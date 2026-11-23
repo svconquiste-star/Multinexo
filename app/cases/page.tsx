@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import LeadFormProvider from '@/components/lead/LeadFormProvider'
 import { CASES, CASE_SLUGS } from '@/lib/cases'
+import { breadcrumb, OG_HOME } from '@/lib/schema'
 
 const TITLE = 'Cases de tráfego pago, dashboards e IA | Daniel Aguiar'
 const DESCRIPTION =
@@ -13,12 +14,19 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: '/cases' },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: '/cases', type: 'website', locale: 'pt_BR' },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: '/cases', type: 'website', locale: 'pt_BR', images: [OG_HOME] },
   robots: { index: true, follow: true },
 }
 
 export default function CasesIndexPage() {
   const items = CASE_SLUGS.map((slug) => CASES[slug])
+  const trilha = {
+    '@context': 'https://schema.org',
+    ...breadcrumb([
+      { name: 'Início', path: '/' },
+      { name: 'Cases', path: '/cases' },
+    ]),
+  }
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -41,6 +49,7 @@ export default function CasesIndexPage() {
       <main className="min-h-screen bg-gray-50">
         <Header />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(trilha) }} />
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <h1 className="section-title text-center">Cases de tráfego pago, dashboards e IA</h1>
